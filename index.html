@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DBX DriveRack PA2 täielik professionaalne seadistusjuhend">
+<title>PA Tehnika Juhend — DBX PA2</title>
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg2: #111827;
+  --bg3: #1a2235;
+  --bg4: #1e2d42;
+  --border: #1e3a5f;
+  --border2: #2a4a6b;
+  --blue: #1e90ff;
+  --blue2: #3aa0ff;
+  --blue-dim: #0d3a6e;
+  --gold: #f5a623;
+  --gold2: #ffd166;
+  --gold-dim: #4a3000;
+  --green: #00d084;
+  --green-dim: #003d25;
+  --red: #ff4757;
+  --red-dim: #4a0010;
+  --orange: #ff6b35;
+  --orange-dim: #3d1800;
+  --purple: #a855f7;
+  --purple-dim: #2d0f5c;
+  --teal: #06b6d4;
+  --teal-dim: #003d4d;
+  --text: #e8edf5;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+
+/* ── HEADER ── */
+.app-header{background:linear-gradient(135deg,#0a1628 0%,#0d2040 50%,#0a1628 100%);border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--teal));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.logo-text{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2}
+.logo-sub{font-size:10px;color:var(--text3);font-weight:400;display:block}
+.header-badge{background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue2);font-size:10px;padding:3px 8px;border-radius:20px;white-space:nowrap}
+
+/* ── NAV ── */
+.nav-wrap{overflow-x:auto;border-top:1px solid var(--border);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-wrap::-webkit-scrollbar{display:none}
+.nav{display:flex;gap:0;padding:0 8px;min-width:max-content}
+.nav-btn{background:none;border:none;color:var(--text3);font-size:12px;font-weight:500;padding:10px 14px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px}
+.nav-btn:hover{color:var(--text2);background:rgba(255,255,255,0.03)}
+.nav-btn.active{color:var(--blue2);border-bottom-color:var(--blue)}
+.nav-btn .ni{font-size:13px}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:900px;margin:0 auto;padding:20px 16px 60px}
+.section{display:none}
+.section.active{display:block}
+
+/* ── CARDS ── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:14px}
+.card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card-title .ct-icon{font-size:16px}
+.card2{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+/* ── BADGES ── */
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.badge-blue{background:var(--blue-dim);color:var(--blue2);border:1px solid var(--blue-dim)}
+.badge-gold{background:var(--gold-dim);color:var(--gold2);border:1px solid var(--gold-dim)}
+.badge-green{background:var(--green-dim);color:var(--green);border:1px solid var(--green-dim)}
+.badge-red{background:var(--red-dim);color:var(--red);border:1px solid var(--red-dim)}
+.badge-orange{background:var(--orange-dim);color:var(--orange);border:1px solid var(--orange-dim)}
+.badge-purple{background:var(--purple-dim);color:var(--purple);border:1px solid var(--purple-dim)}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border:1px solid var(--teal-dim)}
+
+/* ── TABLES ── */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:8px 10px;color:var(--text3);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--border)}
+.tbl td{padding:8px 10px;border-bottom:1px solid rgba(30,58,95,0.4);color:var(--text2)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .val{color:var(--gold2);font-family:'Courier New',monospace;font-size:12px;font-weight:600}
+.tbl .val-green{color:var(--green);font-family:'Courier New',monospace;font-size:12px;font-weight:600}
+.tbl .val-red{color:var(--red);font-family:'Courier New',monospace;font-size:12px;font-weight:600}
+.tbl .val-blue{color:var(--blue2);font-family:'Courier New',monospace;font-size:12px;font-weight:600}
+
+/* ── PARAM ROWS ── */
+.pr{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(30,58,95,0.4);font-size:13px}
+.pr:last-child{border-bottom:none}
+.pr-label{color:var(--text2)}
+.pr-val{font-family:'Courier New',monospace;font-size:12px;font-weight:600;color:var(--gold2)}
+.pr-val.green{color:var(--green)}
+.pr-val.red{color:var(--red)}
+.pr-val.blue{color:var(--blue2)}
+.pr-val.orange{color:var(--orange)}
+
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(30,58,95,0.3)}
+.step:last-child{border-bottom:none}
+.step-n{width:24px;height:24px;border-radius:50%;background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue2);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-body strong{font-size:13px;font-weight:600;color:var(--text);display:block;margin-bottom:2px}
+.step-body span,.step-body p{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* ── ALERTS ── */
+.alert{border-radius:var(--radius);padding:10px 14px;margin:10px 0;font-size:12px;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.alert-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.alert p{color:var(--text2)}
+.alert strong{display:block;margin-bottom:2px}
+.alert-warn{background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.25)}
+.alert-warn strong,.alert-warn .alert-icon{color:var(--gold)}
+.alert-danger{background:rgba(255,71,87,0.08);border:1px solid rgba(255,71,87,0.25)}
+.alert-danger strong,.alert-danger .alert-icon{color:var(--red)}
+.alert-info{background:rgba(30,144,255,0.08);border:1px solid rgba(30,144,255,0.25)}
+.alert-info strong,.alert-info .alert-icon{color:var(--blue2)}
+.alert-green{background:rgba(0,208,132,0.08);border:1px solid rgba(0,208,132,0.25)}
+.alert-green strong,.alert-green .alert-icon{color:var(--green)}
+
+/* ── CALC ── */
+.calc-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.calc-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.calc-row label{font-size:12px;color:var(--text2);min-width:160px;flex-shrink:0}
+.calc-row input[type=range]{flex:1;accent-color:var(--blue)}
+.calc-row .cv{font-size:12px;font-weight:600;color:var(--gold2);font-family:'Courier New',monospace;min-width:70px;text-align:right}
+.calc-result{background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 16px;margin-top:8px;display:flex;gap:20px;flex-wrap:wrap}
+.cr-item{text-align:center}
+.cr-big{font-size:22px;font-weight:700;color:var(--gold2);font-family:'Courier New',monospace}
+.cr-sub{font-size:11px;color:var(--text3);margin-top:2px}
+select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text);font-size:13px;padding:6px 10px;border-radius:var(--radius);width:100%}
+
+/* ── CHAIN ── */
+.chain{display:flex;flex-direction:column;gap:0}
+.chain-node{display:flex;gap:12px;align-items:flex-start;padding:8px 0}
+.chain-line{display:flex;flex-direction:column;align-items:center;gap:0}
+.chain-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--blue);background:var(--blue-dim);flex-shrink:0;margin-top:5px}
+.chain-dash{width:2px;flex:1;background:linear-gradient(var(--blue),var(--blue-dim));min-height:20px;margin:2px 0}
+.chain-content{flex:1;padding-bottom:8px}
+.chain-device{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.chain-detail{font-size:11px;color:var(--text2);line-height:1.5}
+.chain-settings{background:var(--bg3);border-left:2px solid var(--blue-dim);padding:6px 10px;border-radius:0 var(--radius) var(--radius) 0;margin-top:4px;font-size:11px;color:var(--text2);font-family:'Courier New',monospace}
+
+/* ── EQ VISUAL ── */
+.eq-bars{display:flex;gap:5px;align-items:flex-end;height:80px;padding:4px 0}
+.eq-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1}
+.eq-bar{width:100%;border-radius:3px 3px 0 0;transition:height .3s;min-height:2px}
+.eq-label{font-size:9px;color:var(--text3);text-align:center}
+
+/* ── METER ── */
+.meter-wrap{background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;position:relative}
+.meter-fill{height:100%;border-radius:4px;transition:width .3s}
+.meter-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-top:3px;font-family:'Courier New',monospace}
+
+/* ── DEVICE CARDS ── */
+.device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.device-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px;transition:border-color .2s}
+.device-card:hover{border-color:var(--border2)}
+.device-type{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.device-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.device-specs{font-size:11px;color:var(--text2);line-height:1.6}
+.device-specs .spec-row{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(30,58,95,0.3)}
+.device-specs .spec-row:last-child{border-bottom:none}
+.device-specs .sv{color:var(--gold2);font-family:'Courier New',monospace}
+
+/* ── DMX VIS ── */
+.dmx-channel{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(30,58,95,0.3);font-size:12px}
+.dmx-ch-num{width:28px;height:22px;background:var(--bg4);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:11px;color:var(--blue2);flex-shrink:0}
+.dmx-ch-color{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+.dmx-ch-name{flex:1;color:var(--text2)}
+.dmx-ch-range{color:var(--text3);font-family:'Courier New',monospace;font-size:11px}
+
+/* ── SECTION HEADER ── */
+.sec-header{margin-bottom:20px}
+.sec-title{font-size:20px;font-weight:700;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.sec-desc{font-size:13px;color:var(--text3);line-height:1.5}
+
+/* ── QUICK REF TABLE ── */
+.qr-section{margin-bottom:20px}
+.qr-title{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:6px}
+
+/* ── SIGNAL PATH VIS ── */
+.sig-path{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:12px 0}
+.sig-node{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:600;color:var(--text2);white-space:nowrap}
+.sig-node.active-node{background:var(--blue-dim);border-color:var(--blue);color:var(--blue2)}
+.sig-arrow{color:var(--text3);font-size:14px;padding:0 4px;flex-shrink:0}
+.sig-cable{font-size:9px;color:var(--text3);text-align:center;display:block}
+
+/* ── TABS (inner) ── */
+.inner-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.itab{background:var(--bg3);border:1px solid var(--border);color:var(--text3);font-size:12px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s}
+.itab.active{background:var(--blue-dim);border-color:var(--blue);color:var(--blue2)}
+.itab-content{display:none}
+.itab-content.active{display:block}
+
+/* ── CHECKLIST ── */
+.checklist{display:flex;flex-direction:column;gap:6px}
+.cl-item{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg3);border-radius:var(--radius);cursor:pointer;transition:background .15s}
+.cl-item:hover{background:var(--bg4)}
+.cl-cb{width:18px;height:18px;border:1.5px solid var(--border2);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s}
+.cl-cb.checked{background:var(--green);border-color:var(--green)}
+.cl-cb.checked::after{content:'✓';color:#000;font-size:11px;font-weight:700}
+.cl-text{font-size:13px;color:var(--text2);line-height:1.4}
+.cl-text.checked{color:var(--text3);text-decoration:line-through}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .main{padding:14px 12px 80px}
+  .logo-text{font-size:14px}
+  .calc-row{flex-wrap:wrap}
+  .calc-row label{min-width:100%}
+  .sig-path{gap:2px}
+  .calc-result{gap:12px}
+  .cr-big{font-size:18px}
+  .device-grid{grid-template-columns:1fr}
+  .chain-settings{font-size:10px}
+}
+
+/* ── BOTTOM NAV (mobile) ── */
+@media(max-width:600px){
+  .nav-wrap{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);z-index:200;border-bottom:none}
+  .app-header{position:sticky;top:0}
+  .nav{padding:0}
+  .nav-btn{flex-direction:column;gap:2px;padding:8px 10px;font-size:10px;flex:1;min-width:60px}
+  .nav-btn .ni{font-size:16px}
+}
+
+/* ── SETUP BUILDER ── */
+.sb-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.sb-device{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:14px;cursor:pointer;transition:all .2s;position:relative;display:flex;flex-direction:column;gap:4px;user-select:none}
+.sb-device:hover{border-color:var(--border2);background:var(--bg4)}
+.sb-device.selected{background:var(--blue-dim);border-color:var(--blue)}
+.sb-device .sb-icon{font-size:22px}
+.sb-device .sb-name{font-size:13px;font-weight:600;color:var(--text)}
+.sb-device .sb-sub{font-size:11px;color:var(--text3)}
+.sb-device .sb-check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);background:var(--bg4);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .2s}
+.sb-device.selected .sb-check{background:var(--blue);border-color:var(--blue);color:#fff}
+.sb-step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:12px;position:relative}
+.sb-step-num{position:absolute;top:-12px;left:16px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:20px}
+.sb-cable{display:inline-flex;align-items:center;gap:4px;background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:2px 8px;font-size:11px;font-family:'Courier New',monospace;color:var(--gold2);margin:2px}
+.sb-cable.xlr{border-color:var(--blue);color:var(--blue2)}
+.sb-cable.rca{border-color:var(--orange);color:var(--orange)}
+.sb-cable.trs{border-color:var(--green);color:var(--green)}
+.sb-cable.jack{border-color:var(--purple);color:var(--purple)}
+.sb-node-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0;padding:10px;background:var(--bg3);border-radius:var(--radius)}
+.sb-node{background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:6px 10px;font-size:12px;font-weight:600;color:var(--text2)}
+.sb-node.src{border-color:var(--purple);color:var(--purple)}
+.sb-node.mixer{border-color:var(--blue);color:var(--blue2)}
+.sb-node.proc{border-color:var(--gold);color:var(--gold2)}
+.sb-node.spk{border-color:var(--green);color:var(--green)}
+.sb-node.mic{border-color:var(--teal);color:var(--teal)}
+.sb-node.mon{border-color:var(--orange);color:var(--orange)}
+.sb-arrow{color:var(--text3);font-size:14px;flex-shrink:0}
+.sb-cable-label{font-size:10px;color:var(--text3);display:block;text-align:center}
+@media(max-width:600px){.sb-group{grid-template-columns:1fr 1fr}}
+
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="header-top">
+    <div class="logo">
+      <div class="logo-icon">🎛️</div>
+      <div class="logo-text">PA Tehnika Juhend
+        <span class="logo-sub">DBX DriveRack PA2 · Professionaalne helitehnika</span>
+      </div>
+    </div>
+    <div class="header-badge">v2.0 · 2025</div>
+  </div>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showSection('builder')" data-s="builder"><span class="ni">⚙️</span>Setup Builder</button>
+      <button class="nav-btn" onclick="showSection('overview')" data-s="overview"><span class="ni">🏠</span>Ülevaade</button>
+      <button class="nav-btn" onclick="showSection('devices')" data-s="devices"><span class="ni">📦</span>Seadmed</button>
+      <button class="nav-btn" onclick="showSection('signal')" data-s="signal"><span class="ni">🔗</span>Signaalahel</button>
+      <button class="nav-btn" onclick="showSection('pa2')" data-s="pa2"><span class="ni">🎛️</span>PA2 Seadistus</button>
+      <button class="nav-btn" onclick="showSection('calc')" data-s="calc"><span class="ni">🧮</span>Kalkulaatorid</button>
+      <button class="nav-btn" onclick="showSection('mic')" data-s="mic"><span class="ni">🎤</span>Mikrofon</button>
+      <button class="nav-btn" onclick="showSection('light')" data-s="light"><span class="ni">💡</span>Valgus & DMX</button>
+      <button class="nav-btn" onclick="showSection('checklist')" data-s="checklist"><span class="ni">✅</span>Kontrollnimekiri</button>
+      <button class="nav-btn" onclick="showSection('tips')" data-s="tips"><span class="ni">💡</span>Nipid</button>
+      <button class="nav-btn" onclick="showSection('ref')" data-s="ref"><span class="ni">📋</span>Kiirviide</button>
+    </nav>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ═══════════════════════════════════════════
+     SETUP BUILDER
+═══════════════════════════════════════════ -->
+<div class="section active" id="s-builder">
+  <div class="sec-header">
+    <div class="sec-title">⚙️ Setup Builder</div>
+    <div class="sec-desc">Vali seadmed mida kasutad → saan täpse samm-sammulise juhendi kaablite, ühenduste ja seadistustega.</div>
+  </div>
+
+  <div id="sb-select-view">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎛️</span>Protsessor / Kontroller</div>
+      <div class="sb-group" id="sbg-processor">
+        <div class="sb-device" data-id="pa2" data-cat="processor" onclick="sbToggle(this)">
+          <div class="sb-icon">🎛️</div>
+          <div class="sb-name">DBX DriveRack PA2</div>
+          <div class="sb-sub">Digitaalne protsessor</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎚️</span>Mikser</div>
+      <div class="sb-group">
+        <div class="sb-device" data-id="mg10xu" data-cat="mixer" onclick="sbToggle(this)">
+          <div class="sb-icon">🎚️</div>
+          <div class="sb-name">Yamaha MG10XU</div>
+          <div class="sb-sub">10-kanal mikser</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🔊</span>Kõlarid</div>
+      <div class="sb-group">
+        <div class="sb-device" data-id="rcf935" data-cat="speaker" onclick="sbToggle(this)">
+          <div class="sb-icon">🔊</div>
+          <div class="sb-name">RCF ART 935-A</div>
+          <div class="sb-sub">Aktiivsed topp-kõlarid × 2</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="sub_generic" data-cat="sub" onclick="sbToggle(this)">
+          <div class="sb-icon">💥</div>
+          <div class="sb-name">Subwoofer (aktiivne)</div>
+          <div class="sb-sub">Nt RCF SUB 702-AS II vms</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="sub_passive" data-cat="sub_passive" onclick="sbToggle(this)">
+          <div class="sb-icon">📦</div>
+          <div class="sb-name">Subwoofer (passiivne)</div>
+          <div class="sb-sub">Vajab eraldi võimendit</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="ldppa2" data-cat="monitor" onclick="sbToggle(this)">
+          <div class="sb-icon">🎧</div>
+          <div class="sb-name">LD Systems PPA 2</div>
+          <div class="sb-sub">Personaalne monitor</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎵</span>DJ kontroller / Allikas</div>
+      <div class="sb-group">
+        <div class="sb-device" data-id="flx10" data-cat="dj" onclick="sbToggle(this)">
+          <div class="sb-icon">🎵</div>
+          <div class="sb-name">Pioneer DDJ-FLX10</div>
+          <div class="sb-sub">XLR master väljund</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="flx4" data-cat="dj" onclick="sbToggle(this)">
+          <div class="sb-icon">🎵</div>
+          <div class="sb-name">Pioneer DDJ-FLX4</div>
+          <div class="sb-sub">RCA master väljund</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="hercules" data-cat="dj" onclick="sbToggle(this)">
+          <div class="sb-icon">🎮</div>
+          <div class="sb-name">Hercules Starlight</div>
+          <div class="sb-sub">3.5mm väljund (consumer)</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="laptop" data-cat="dj" onclick="sbToggle(this)">
+          <div class="sb-icon">💻</div>
+          <div class="sb-name">Laptop / Telefon</div>
+          <div class="sb-sub">3.5mm / RCA väljund</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎤</span>Mikrofon</div>
+      <div class="sb-group">
+        <div class="sb-device" data-id="qlxd24" data-cat="mic" onclick="sbToggle(this)">
+          <div class="sb-icon">🎤</div>
+          <div class="sb-name">Shure QLXD24/Beta58</div>
+          <div class="sb-sub">Traadita UHF mikrofon</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="mic_wired" data-cat="mic" onclick="sbToggle(this)">
+          <div class="sb-icon">🎙️</div>
+          <div class="sb-name">Traadiga mikrofon</div>
+          <div class="sb-sub">XLR dünaamiline/kondensaator</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">📶</span>Lisaseadmed</div>
+      <div class="sb-group">
+        <div class="sb-device" data-id="rtam" data-cat="extra" onclick="sbToggle(this)">
+          <div class="sb-icon">📊</div>
+          <div class="sb-name">DBX RTA-M</div>
+          <div class="sb-sub">Mõõtmismikrofon AutoEQ</div>
+          <div class="sb-check">✓</div>
+        </div>
+        <div class="sb-device" data-id="wifi" data-cat="extra" onclick="sbToggle(this)">
+          <div class="sb-icon">📶</div>
+          <div class="sb-name">GL.iNet GL-SFT1200</div>
+          <div class="sb-sub">WiFi ruuter PA2 app</div>
+          <div class="sb-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:sticky;bottom:12px;z-index:50;padding:12px 0 4px">
+      <button onclick="sbGenerate()" id="sb-generate-btn" style="width:100%;padding:14px;background:var(--blue);border:none;color:#fff;font-size:15px;font-weight:700;border-radius:var(--radius-lg);cursor:pointer;opacity:0.4;transition:all .2s" disabled>
+        ⚙️ Genereeri seadistuse juhend
+      </button>
+      <div style="text-align:center;margin-top:6px;font-size:12px;color:var(--text3)" id="sb-sel-count">Vali vähemalt 2 seadet</div>
+    </div>
+  </div>
+
+  <div id="sb-result-view" style="display:none">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <button onclick="sbBack()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:8px 14px;border-radius:var(--radius);cursor:pointer;font-size:13px">← Tagasi</button>
+      <div style="font-size:14px;font-weight:600;color:var(--text)" id="sb-result-title">Seadistuse juhend</div>
+    </div>
+    <div id="sb-result-content"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ÜLEVAADE
+═══════════════════════════════════════════ -->
+<div class="section" id="s-overview">
+  <div class="sec-header">
+    <div class="sec-title">🏠 Süsteemi ülevaade</div>
+    <div class="sec-desc">Kõik seadmed, nende rollid ja omavahelised seosed ühes kohas.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🎯</span>Sinu süsteemi struktuur</div>
+    <div style="background:var(--bg3);border-radius:var(--radius);padding:14px;margin-bottom:12px">
+      <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;text-align:center">
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:6px">ALLIKAD</div>
+          <div style="background:var(--purple-dim);border:1px solid var(--purple);border-radius:6px;padding:6px;font-size:11px;color:var(--purple);margin-bottom:4px">DDJ-FLX10</div>
+          <div style="background:var(--purple-dim);border:1px solid var(--purple);border-radius:6px;padding:6px;font-size:11px;color:var(--purple);margin-bottom:4px">DDJ-FLX4</div>
+          <div style="background:var(--purple-dim);border:1px solid var(--purple);border-radius:6px;padding:6px;font-size:11px;color:var(--purple);margin-bottom:4px">Hercules</div>
+          <div style="background:var(--teal-dim);border:1px solid var(--teal);border-radius:6px;padding:6px;font-size:11px;color:var(--teal)">Shure QLXD24</div>
+        </div>
+        <div style="font-size:20px;color:var(--border2)">→</div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:6px">MIKSER</div>
+          <div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;padding:10px;font-size:12px;color:var(--blue2);font-weight:600">Yamaha MG10XU</div>
+        </div>
+        <div style="font-size:20px;color:var(--border2)">→</div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:6px">PROTSESSOR → KÕLARID</div>
+          <div style="background:var(--gold-dim);border:1px solid var(--gold);border-radius:8px;padding:8px;font-size:12px;color:var(--gold2);font-weight:600;margin-bottom:4px">DBX PA2</div>
+          <div style="font-size:16px;color:var(--border2);text-align:center">↓</div>
+          <div style="background:var(--green-dim);border:1px solid var(--green);border-radius:6px;padding:6px;font-size:11px;color:var(--green)">RCF ART 935-A × 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info">
+      <span class="alert-icon">ℹ️</span>
+      <div><strong>RCF 935-A on Full Range — PA2 EI tee crossoverit</strong><p>RCF-il on sisseehitatud crossover ~1.4kHz. PA2 roll: HPF kaitseks + EQ + FBX + Limiter + Delay. Ära lülita PA2-s 2-way crossoverit sisse!</p></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎧</span>Helisüsteem</div>
+      <div class="pr"><span class="pr-label">DJ kontroller (peamine)</span><span class="pr-val blue">DDJ-FLX10</span></div>
+      <div class="pr"><span class="pr-label">DJ kontroller (backup)</span><span class="pr-val">DDJ-FLX4</span></div>
+      <div class="pr"><span class="pr-label">Mikser</span><span class="pr-val">MG10XU</span></div>
+      <div class="pr"><span class="pr-label">Protsessor</span><span class="pr-val gold">DBX PA2</span></div>
+      <div class="pr"><span class="pr-label">Kõlarid</span><span class="pr-val green">RCF 935-A × 2</span></div>
+      <div class="pr"><span class="pr-label">Mikrofon</span><span class="pr-val">Shure QLXD24</span></div>
+      <div class="pr"><span class="pr-label">Monitor</span><span class="pr-val">LD Systems PPA2</span></div>
+      <div class="pr"><span class="pr-label">Mõõtmismik</span><span class="pr-val">DBX RTA-M</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">💡</span>Valgussüsteem</div>
+      <div class="pr"><span class="pr-label">DMX kontroller</span><span class="pr-val blue">Enttec Open DMX</span></div>
+      <div class="pr"><span class="pr-label">LED valgused</span><span class="pr-val">Stairville TRI LED</span></div>
+      <div class="pr"><span class="pr-label">Udumasin</span><span class="pr-val">ADJ Fog Fury Jett</span></div>
+      <div class="pr"><span class="pr-label">DMX tarkvara</span><span class="pr-val green">QLC+</span></div>
+      <div class="pr"><span class="pr-label">WiFi (PA2 app)</span><span class="pr-val">GL-SFT1200</span></div>
+      <div style="margin-top:12px" class="alert alert-green">
+        <span class="alert-icon">✅</span>
+        <div><strong>WiFi ühendus PA2-ga</strong><p>GL-SFT1200 → PA2 DriveRack app (iOS/Android) → RTA, EQ, FBX reaalajas</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">⚡</span>Gain structure — kuldreegel</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Gain structure on kõige olulisem asi kogu süsteemis. Vale gain = müra, moonutus, kõlarite purustamine.</p>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+      <div style="text-align:center"><div style="background:var(--purple-dim);border:1px solid var(--purple);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--purple)">Allikas<br><span style="font-family:'Courier New';font-weight:700">70-80%</span></div></div>
+      <div style="color:var(--text3)">→</div>
+      <div style="text-align:center"><div style="background:var(--blue-dim);border:1px solid var(--blue);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--blue2)">Mikser<br><span style="font-family:'Courier New';font-weight:700">Unity 0dB</span></div></div>
+      <div style="color:var(--text3)">→</div>
+      <div style="text-align:center"><div style="background:var(--gold-dim);border:1px solid var(--gold);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--gold2)">PA2 input<br><span style="font-family:'Courier New';font-weight:700">-18dBu nom</span></div></div>
+      <div style="color:var(--text3)">→</div>
+      <div style="text-align:center"><div style="background:var(--green-dim);border:1px solid var(--green);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--green)">RCF input<br><span style="font-family:'Courier New';font-weight:700">Unity gain</span></div></div>
+    </div>
+    <div class="alert alert-danger">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Reegel: -18dBu nominaalne, -6dBu max piigid</strong><p>Kui PA2 input meter pidevalt punases → alanda mikserist, MITTE PA2 limiterist. Limiter on viimane kaitsevahend, mitte volume kontroll.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SEADMED
+═══════════════════════════════════════════ -->
+<div class="section" id="s-devices">
+  <div class="sec-header">
+    <div class="sec-title">📦 Seadmete spetsifikatsioonid</div>
+    <div class="sec-desc">Kõigi seadmete täpsed andmed, ühendused ja optimaalsed seaded.</div>
+  </div>
+
+  <div class="device-grid">
+    <div class="device-card">
+      <div class="badge badge-gold">Protsessor</div>
+      <div class="device-name">DBX DriveRack PA2</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Sisendid</span><span class="sv">2× XLR</span></div>
+        <div class="spec-row"><span>Väljundid</span><span class="sv">4× XLR</span></div>
+        <div class="spec-row"><span>Max delay</span><span class="sv">200ms</span></div>
+        <div class="spec-row"><span>EQ</span><span class="sv">28-riba GEQ</span></div>
+        <div class="spec-row"><span>FBX filtrid</span><span class="sv">12 notch</span></div>
+        <div class="spec-row"><span>App</span><span class="sv">iOS + Android</span></div>
+        <div class="spec-row"><span>Nominal input</span><span class="sv">+4 dBu</span></div>
+        <div class="spec-row"><span>Freq response</span><span class="sv">20Hz-20kHz</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-green">Kõlarid</div>
+      <div class="device-name">RCF ART 935-A × 2</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Woofer amp</span><span class="sv">700W</span></div>
+        <div class="spec-row"><span>HF amp</span><span class="sv">100W</span></div>
+        <div class="spec-row"><span>Max SPL</span><span class="sv">136 dB</span></div>
+        <div class="spec-row"><span>Freq resp</span><span class="sv">55Hz-20kHz</span></div>
+        <div class="spec-row"><span>Crossover</span><span class="sv">~1.4kHz (sisse)</span></div>
+        <div class="spec-row"><span>Sisend</span><span class="sv">XLR + jack</span></div>
+        <div class="spec-row"><span>DSP</span><span class="sv">Sisseehitatud</span></div>
+        <div class="spec-row"><span>PA2 xover</span><span class="sv">EI VAJA</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-blue">Mikser</div>
+      <div class="device-name">Yamaha MG10XU</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Kanalid</span><span class="sv">10 (4 mono+3st)</span></div>
+        <div class="spec-row"><span>Phantom</span><span class="sv">48V</span></div>
+        <div class="spec-row"><span>USB</span><span class="sv">2-in/2-out</span></div>
+        <div class="spec-row"><span>AUX send</span><span class="sv">2× pre/post</span></div>
+        <div class="spec-row"><span>EQ</span><span class="sv">3-riba + LOW CUT</span></div>
+        <div class="spec-row"><span>Main out</span><span class="sv">XLR + TRS</span></div>
+        <div class="spec-row"><span>Nom tase</span><span class="sv">+4 dBu</span></div>
+        <div class="spec-row"><span>Effects</span><span class="sv">24 preset</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-teal">Mikrofon</div>
+      <div class="device-name">Shure QLXD24/Beta58 G51</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Sagedus</span><span class="sv">470-534 MHz</span></div>
+        <div class="spec-row"><span>Muster</span><span class="sv">Superkardioid</span></div>
+        <div class="spec-row"><span>Freq resp</span><span class="sv">50Hz-16kHz</span></div>
+        <div class="spec-row"><span>Diversity</span><span class="sv">True diversity</span></div>
+        <div class="spec-row"><span>Ulatus</span><span class="sv">~90m</span></div>
+        <div class="spec-row"><span>Output</span><span class="sv">XLR, 0dBu</span></div>
+        <div class="spec-row"><span>Aku</span><span class="sv">AA × 2 (~10h)</span></div>
+        <div class="spec-row"><span>Squelch</span><span class="sv">Auto</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-purple">DJ kontroller</div>
+      <div class="device-name">Pioneer DDJ-FLX10</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Master out</span><span class="sv">XLR (balanced)</span></div>
+        <div class="spec-row"><span>Booth out</span><span class="sv">TRS 6.3mm</span></div>
+        <div class="spec-row"><span>Mic in</span><span class="sv">XLR + jack</span></div>
+        <div class="spec-row"><span>MIDI</span><span class="sv">USB MIDI</span></div>
+        <div class="spec-row"><span>Tarkvara</span><span class="sv">Rekordbox, Serato</span></div>
+        <div class="spec-row"><span>Optimaalne tase</span><span class="sv">70-80%</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-purple">DJ kontroller</div>
+      <div class="device-name">Pioneer DDJ-FLX4</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Master out</span><span class="sv">RCA (unbalanced)</span></div>
+        <div class="spec-row"><span>Headphones</span><span class="sv">6.3mm jack</span></div>
+        <div class="spec-row"><span>MIDI</span><span class="sv">USB MIDI</span></div>
+        <div class="spec-row"><span>Tarkvara</span><span class="sv">Rekordbox, Serato</span></div>
+        <div class="spec-row"><span>Optimaalne tase</span><span class="sv">80%</span></div>
+        <div class="spec-row"><span>Adapter</span><span class="sv">RCA → TRS</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-orange">Monitor</div>
+      <div class="device-name">LD Systems PPA 2</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Kanalid</span><span class="sv">2 (mono mix)</span></div>
+        <div class="spec-row"><span>Sisend</span><span class="sv">Jack 6.3mm</span></div>
+        <div class="spec-row"><span>Väljund</span><span class="sv">Jack (IEM/kõrvakl)</span></div>
+        <div class="spec-row"><span>Kasutus</span><span class="sv">Laulja monitor</span></div>
+        <div class="spec-row"><span>Allikas</span><span class="sv">Yamaha AUX send</span></div>
+        <div class="spec-row"><span>AUX seadistus</span><span class="sv">Pre-fader</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-gold">Mõõtmismik</div>
+      <div class="device-name">DBX DriveRack RTA-M</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Muster</span><span class="sv">Omnidirectional</span></div>
+        <div class="spec-row"><span>Ühendus</span><span class="sv">XLR → PA2 RTA-M</span></div>
+        <div class="spec-row"><span>Phantom</span><span class="sv">48V (auto PA2)</span></div>
+        <div class="spec-row"><span>Kasutus</span><span class="sv">AutoEQ ainult</span></div>
+        <div class="spec-row"><span>EI ühenda</span><span class="sv">mikseri kaudu</span></div>
+        <div class="spec-row"><span>Kalibreeritud</span><span class="sv">PA2 jaoks</span></div>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="badge badge-teal">Ruuter</div>
+      <div class="device-name">GL.iNet GL-SFT1200</div>
+      <div class="device-specs">
+        <div class="spec-row"><span>Kasutus</span><span class="sv">PA2 app WiFi</span></div>
+        <div class="spec-row"><span>Ühendus</span><span class="sv">PA2 Ethernet</span></div>
+        <div class="spec-row"><span>App</span><span class="sv">DriveRack PA2</span></div>
+        <div class="spec-row"><span>Funktsioon</span><span class="sv">RTA, EQ, FBX live</span></div>
+        <div class="spec-row"><span>Seadistus</span><span class="sv">AP mode</span></div>
+        <div class="spec-row"><span>IP (vaikimisi)</span><span class="sv">192.168.8.1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px">
+    <div class="card-title"><span class="ct-icon">🎮</span>Hercules DJ Control Starlight — piirangud</div>
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Consumer tase — ei sobi peamiseks PA väljundiks</strong><p>3.5mm väljund on unbalanced, kõrge müratase. Kasuta ainult harjutamiseks või kõrvaklappide monitoriks. Mikserisse ühendades: 3.5mm → 2× RCA adapter, gain +10dB, müra on kuulda.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SIGNAALAHEL
+═══════════════════════════════════════════ -->
+<div class="section" id="s-signal">
+  <div class="sec-header">
+    <div class="sec-title">🔗 Signaalahel</div>
+    <div class="sec-desc">Täielikud ühenduste skeemid kõigi stsenaariumite jaoks.</div>
+  </div>
+
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showItab('sig','flx10')">DDJ-FLX10 + PA</button>
+    <button class="itab" onclick="showItab('sig','flx4')">DDJ-FLX4 + PA</button>
+    <button class="itab" onclick="showItab('sig','mic')">Mikrofon + PA</button>
+    <button class="itab" onclick="showItab('sig','monitor')">Monitor mix</button>
+    <button class="itab" onclick="showItab('sig','full')">Täielik üritus</button>
+  </div>
+
+  <div class="itab-content active" id="sig-flx10">
+    <div class="card">
+      <div class="badge badge-purple">DDJ-FLX10 → PA</div>
+      <div class="chain">
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Pioneer DDJ-FLX10</div>
+            <div class="chain-detail">Master OUTPUT XLR (L+R)</div>
+            <div class="chain-settings">Master tase: 70-80% | Trim: 0dB | Kaabel: XLR balanced</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Yamaha MG10XU</div>
+            <div class="chain-detail">CH1 (L) + CH2 (R) LINE sisend</div>
+            <div class="chain-settings">Gain: 0dB | LOW CUT: OFF | EQ: flat | Fader: 0dB (unity) | MAIN fader: 0dB</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">DBX DriveRack PA2</div>
+            <div class="chain-detail">MAIN IN L/R (XLR)</div>
+            <div class="chain-settings">XOVER: Full Range | HPF: 80Hz LR24 | FBX: OFF | Limiter: -3dBFS | Stereo Link: ON</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">RCF ART 935-A × 2</div>
+            <div class="chain-detail">OUT1 → vasak XLR | OUT2 → parem XLR</div>
+            <div class="chain-settings">Input sensitivity: unity | DSP: flat | Sisseehitatud xover teeb ülejäänud töö</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:8px">
+        <span class="alert-icon">💡</span>
+        <div><p>DDJ-FLX10 XLR väljund on balanced — pikk kaabel (20-30m) ei lisa müra. Ideaalne professionaalseks kasutuseks.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="sig-flx4">
+    <div class="card">
+      <div class="badge badge-purple">DDJ-FLX4 → PA</div>
+      <div class="chain">
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Pioneer DDJ-FLX4</div>
+            <div class="chain-detail">Master OUTPUT RCA (L+R)</div>
+            <div class="chain-settings">Master tase: 80% | Kaabel: RCA → 2× TRS 6.3mm adapter</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Yamaha MG10XU</div>
+            <div class="chain-detail">CH3/4 STEREO LINE sisend (TRS)</div>
+            <div class="chain-settings">Gain: +6dB (RCA on -10dBV, kompenseeri +6dB) | EQ: flat | Fader: 0dB</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">DBX DriveRack PA2</div>
+            <div class="chain-detail">MAIN IN L/R (XLR)</div>
+            <div class="chain-settings">XOVER: Full Range | HPF: 80Hz | FBX: OFF | Limiter: -3dBFS</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">RCF ART 935-A × 2</div>
+            <div class="chain-detail">OUT1 → vasak | OUT2 → parem</div>
+            <div class="chain-settings">Sama seadistus nagu FLX10 puhul</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>RCA kaabel on unbalanced</strong><p>Hoia kaablid lühikesed (max 5m). Pikemad kaablid → müra. Kasuta hea kvaliteediga RCA → TRS adapterit.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="sig-mic">
+    <div class="card">
+      <div class="badge badge-teal">Shure QLXD24 → PA</div>
+      <div class="chain">
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Shure Beta 58A käsiandur</div>
+            <div class="chain-detail">RF sagedus G51 (470-534 MHz)</div>
+            <div class="chain-settings">Aku: täis enne üritust | Squelch: auto | Diversity: ON</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Shure QLXD24 vastuvõtja</div>
+            <div class="chain-detail">XLR väljund → Yamaha MG10XU CH1</div>
+            <div class="chain-settings">Output: 0dBu | RF meter: min 2 rohelist tulpa | Audio gain: -20 kuni -12dBu</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Yamaha MG10XU CH1</div>
+            <div class="chain-detail">MIC preamp sisend</div>
+            <div class="chain-settings">LOW CUT: ON | Gain: 30-45dB | LOW: -3dB | LO-MID: -2dB @300Hz | HIGH: +2dB | Fader: 0dB</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">DBX DriveRack PA2</div>
+            <div class="chain-detail">MAIN IN (XLR)</div>
+            <div class="chain-settings">FBX: ON (Lift → Fixed) | Limiter: -6dBFS | AutoEQ pärast FBX seadistust</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">RCF ART 935-A × 2</div>
+            <div class="chain-detail">Kõlarid, mikrofon suunaga eemale</div>
+            <div class="chain-settings">Hoia Beta58 suunaga EEMALE kõlaritest (superkardioid 55° sektor)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="sig-monitor">
+    <div class="card">
+      <div class="badge badge-orange">Monitor mix — LD Systems PPA 2</div>
+      <div class="chain">
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Yamaha MG10XU — AUX SEND</div>
+            <div class="chain-detail">AUX 1 OUT → LD Systems PPA 2 input</div>
+            <div class="chain-settings">AUX send: Pre-fader (laulja mix ei muutu PA volüümiga) | Tase: -6dB alguses</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">LD Systems PPA 2</div>
+            <div class="chain-detail">Personaalne monitor mikser</div>
+            <div class="chain-settings">2-kanali mix | Laulja saab ise helitugevust reguleerida</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Kõrvaklapid / IEM</div>
+            <div class="chain-detail">Laulja kuuleb oma häält + muusikat</div>
+            <div class="chain-settings">Mikrofon CH1 AUX send kõrgem | DJ CH3/4 AUX send madalam</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-green">
+        <span class="alert-icon">✅</span>
+        <div><strong>Pre-fader AUX = sõltumatu monitor mix</strong><p>AUX PRE-FADER: laulja monitor ei muutu kui DJ volüümi reguleerid. AUX POST-FADER: monitor muutub koos PA-ga (tavaliselt vale).</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="sig-full">
+    <div class="card">
+      <div class="badge badge-gold">Täielik ürituse seadistus</div>
+      <div class="card2">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">Mikser kanalite jaotus</div>
+        <div class="pr"><span class="pr-label">CH1 — Shure QLXD24 (mikrofon)</span><span class="pr-val teal">LOW CUT ON, Gain 35-45dB</span></div>
+        <div class="pr"><span class="pr-label">CH2 — vaba / 2. mikrofon</span><span class="pr-val">–</span></div>
+        <div class="pr"><span class="pr-label">CH3/4 — DDJ-FLX10 (stereo)</span><span class="pr-val purple">Gain 0dB, EQ flat</span></div>
+        <div class="pr"><span class="pr-label">AUX 1 → LD Systems PPA 2</span><span class="pr-val orange">Pre-fader, monitor mix</span></div>
+        <div class="pr"><span class="pr-label">MAIN OUT → DBX PA2</span><span class="pr-val gold">XLR balanced</span></div>
+      </div>
+      <div class="card2">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">PA2 seaded täisüritusel</div>
+        <div class="pr"><span class="pr-label">XOVER</span><span class="pr-val green">Full Range</span></div>
+        <div class="pr"><span class="pr-label">HPF</span><span class="pr-val">80Hz, LR24</span></div>
+        <div class="pr"><span class="pr-label">FBX</span><span class="pr-val green">ON (Fixed)</span></div>
+        <div class="pr"><span class="pr-label">Stereo Link</span><span class="pr-val green">ON</span></div>
+        <div class="pr"><span class="pr-label">Limiter</span><span class="pr-val">-3dBFS (siseruumis)</span></div>
+        <div class="pr"><span class="pr-label">AutoEQ</span><span class="pr-val">Tehtud enne üritust</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PA2 SEADISTUS
+═══════════════════════════════════════════ -->
+<div class="section" id="s-pa2">
+  <div class="sec-header">
+    <div class="sec-title">🎛️ DBX PA2 — täielik seadistus</div>
+    <div class="sec-desc">Kõik PA2 moodulid selgituse ja optimaalsete väärtustega.</div>
+  </div>
+
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showItab('pa2','xover')">Crossover</button>
+    <button class="itab" onclick="showItab('pa2','fbx')">FBX Feedback</button>
+    <button class="itab" onclick="showItab('pa2','eq')">EQ</button>
+    <button class="itab" onclick="showItab('pa2','limiter')">Limiter</button>
+    <button class="itab" onclick="showItab('pa2','rta')">AutoEQ / RTA</button>
+    <button class="itab" onclick="showItab('pa2','wizard')">Wizard</button>
+  </div>
+
+  <div class="itab-content active" id="pa2-xover">
+    <div class="grid2">
+      <div class="card">
+        <div class="badge badge-green">✅ ÕIGE — RCF 935-A ilma subita</div>
+        <div class="card-title">Full Range seadistus</div>
+        <div class="pr"><span class="pr-label">XOVER tüüp</span><span class="pr-val green">Full Range / Bypass</span></div>
+        <div class="pr"><span class="pr-label">HPF</span><span class="pr-val">80Hz, LR24</span></div>
+        <div class="pr"><span class="pr-label">LPF</span><span class="pr-val">OFF</span></div>
+        <div class="pr"><span class="pr-label">Crossover punkt</span><span class="pr-val">— (RCF teeb ise)</span></div>
+        <div class="pr"><span class="pr-label">PA2 output 1</span><span class="pr-val">→ RCF vasak XLR</span></div>
+        <div class="pr"><span class="pr-label">PA2 output 2</span><span class="pr-val">→ RCF parem XLR</span></div>
+        <div class="alert alert-info" style="margin-top:8px">
+          <span class="alert-icon">ℹ️</span>
+          <div><p>HPF 80Hz on kaitseks, mitte crossoveriks. RCF 935-A tegeleb ise 1.4kHz crossoveriga (woofer ↔ HF driver).</p></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge badge-red">❌ VALE — ära kasuta</div>
+        <div class="card-title">2-way crossover PA2-s</div>
+        <div class="pr"><span class="pr-label">XOVER tüüp</span><span class="pr-val red">2-way (VALE!)</span></div>
+        <div class="pr"><span class="pr-label">Probleem</span><span class="pr-val red">Topelt crossover</span></div>
+        <div class="pr"><span class="pr-label">Tulemus</span><span class="pr-val red">HF-driver saab vale signaali</span></div>
+        <div class="alert alert-danger" style="margin-top:8px">
+          <span class="alert-icon">🚨</span>
+          <div><strong>Miks vale?</strong><p>PA2 saadab LF-signaali RCF-i. RCF jagab selle uuesti LF+HF — HF driver saab vale sagedusvahemiku. Moonutus ja potentsiaalne kahjustus.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Crossover — topp + subwoofer (tulevikuks)</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:10px">Kui lisad eraldi subwoofer — siis kasuta PA2 crossoverit.</p>
+      <div class="grid2">
+        <div>
+          <div class="pr"><span class="pr-label">XOVER tüüp</span><span class="pr-val">2-way + Sub</span></div>
+          <div class="pr"><span class="pr-label">Sub LPF</span><span class="pr-val">80Hz, LR24</span></div>
+          <div class="pr"><span class="pr-label">Topp HPF</span><span class="pr-val">80Hz, LR24</span></div>
+          <div class="pr"><span class="pr-label">Slope</span><span class="pr-val">24 dB/okt</span></div>
+        </div>
+        <div>
+          <div class="pr"><span class="pr-label">Sub polaarsus</span><span class="pr-val">0° (testi)</span></div>
+          <div class="pr"><span class="pr-label">Sub delay</span><span class="pr-val">0-3 ms</span></div>
+          <div class="pr"><span class="pr-label">PA2 OUT 1/2</span><span class="pr-val">→ Topp L/R</span></div>
+          <div class="pr"><span class="pr-label">PA2 OUT 3/4</span><span class="pr-val">→ Sub L/R</span></div>
+        </div>
+      </div>
+      <div class="alert alert-warn" style="margin-top:8px">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>Sub polaarsuse test</strong><p>Kui bass kaob pärast sub lisamist → keera sub polaarsus 180°. Testi mono signaali ja kõnni kõlarite vahel.</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Filtritüübid — kumba valida?</div>
+      <table class="tbl">
+        <tr><th>Filtritüüp</th><th>Slope</th><th>Omadus</th><th>Kasutus</th></tr>
+        <tr><td>Linkwitz-Riley</td><td class="val">24 dB/okt</td><td>Puhas faas, -6dB crossover punktis</td><td class="val-green">Soovituslik sub+topp</td></tr>
+        <tr><td>Butterworth</td><td class="val">24 dB/okt</td><td>+3dB ülekate crossover punktis</td><td class="val">Alternatiiv</td></tr>
+        <tr><td>Bessel</td><td class="val">12-18 dB/okt</td><td>Parim transient, pehme roll-off</td><td class="val">Monitor, kõne</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="itab-content" id="pa2-fbx">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🛡️</span>FBX — Feedback Xpress selgitus</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:12px">FBX tuvastab automaatselt feedbacki sagedused ja paneb notch-filtri täpselt sellele punktile. 12 filtrit, täpne 1/5 oktav laius.</p>
+      <div class="grid2">
+        <div class="card2">
+          <div class="badge badge-blue">Seadistamine</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>PA2 → FEEDBACK → ON</strong><span>Ava FBX moodul</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Type: LIFT</strong><span>Lift mode tuvastab feedbacki ja "tõstab" gaini automaatselt</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Sens: Medium</strong><span>Alusta Medium sensitivity — ei reageeri liiga kiiresti</span></div></div>
+            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Tõsta mikserist gain aeglaselt</strong><span>Hoia mikrofon tavapäraseses kasutuspositsioonis</span></div></div>
+            <div class="step"><div class="step-n">5</div><div class="step-body"><strong>PA2 paneb filtrid automaatselt</strong><span>Jälgi — 4-6 filtrit on normaalne</span></div></div>
+            <div class="step"><div class="step-n">6</div><div class="step-body"><strong>Type: FIXED</strong><span>Lülita Fixed peale — filtrid jäävad paika</span></div></div>
+          </div>
+        </div>
+        <div class="card2">
+          <div class="badge badge-gold">Parameetrid</div>
+          <div class="pr"><span class="pr-label">Sensitivity</span><span class="pr-val">Medium (alguses)</span></div>
+          <div class="pr"><span class="pr-label">Filtrite arv max</span><span class="pr-val">12</span></div>
+          <div class="pr"><span class="pr-label">Notch laius</span><span class="pr-val">1/5 oktav</span></div>
+          <div class="pr"><span class="pr-label">Notch sügavus max</span><span class="pr-val red">-15 dB</span></div>
+          <div class="pr"><span class="pr-label">Norm filtrite arv</span><span class="pr-val green">4-6 tk</span></div>
+          <div class="pr"><span class="pr-label">Probleem kui</span><span class="pr-val red">&gt;8 filtrit</span></div>
+          <div class="alert alert-danger" style="margin-top:8px">
+            <span class="alert-icon">🚨</span>
+            <div><p>Kui FBX paneb pidevalt uusi filtreid → probleem on EQ-s või kõlarite asendis. Lahenda EQ-ga, mitte rohkem FBX filtritega.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">FBX vs GEQ vs PEQ — kumba millal?</div>
+      <table class="tbl">
+        <tr><th>Probleem</th><th>Lahendus</th><th>Põhjus</th></tr>
+        <tr><td>Mikrofoni vingun (feedback)</td><td class="val-green">FBX</td><td>Automaatne, täpne sagedus</td></tr>
+        <tr><td>Ruumi buum (madal sagedus)</td><td class="val-blue">GEQ</td><td>Laia sagedusala probleem</td></tr>
+        <tr><td>Üldine helikujundus</td><td class="val-blue">PEQ</td><td>Parameetriline, täpsem</td></tr>
+        <tr><td>Automaatne ruumikompensatsioon</td><td class="val-green">AutoEQ</td><td>RTA-M mõõtmisega</td></tr>
+        <tr><td>Kõrge sageduse karedus</td><td class="val-blue">GEQ / PEQ</td><td>EQ probleemide lahendus</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="itab-content" id="pa2-eq">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🎚️</span>GEQ — graafiline ekvalaiser</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:10px">28-riba 1/3-oktav GEQ. Kasuta AutoEQ tulemuse peenhäälestamiseks. Max muutus ±6dB.</p>
+      <div class="card2">
+        <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+          <button class="itab active" onclick="setEQPreset('flat',this)" style="font-size:11px">Flat</button>
+          <button class="itab" onclick="setEQPreset('indoor',this)" style="font-size:11px">Siseruum</button>
+          <button class="itab" onclick="setEQPreset('outdoor',this)" style="font-size:11px">Väljas</button>
+          <button class="itab" onclick="setEQPreset('speech',this)" style="font-size:11px">Kõne/mikrofon</button>
+          <button class="itab" onclick="setEQPreset('bass',this)" style="font-size:11px">Bass/DJ</button>
+        </div>
+        <div id="eq-display" style="display:flex;gap:3px;height:100px;align-items:flex-end;padding:4px 0;background:var(--bg4);border-radius:var(--radius);padding:8px"></div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-top:4px;font-family:'Courier New',monospace">
+          <span>63Hz</span><span>125</span><span>250</span><span>500</span><span>1kHz</span><span>2k</span><span>4k</span><span>8k</span><span>16kHz</span>
+        </div>
+      </div>
+      <div id="eq-desc" style="font-size:12px;color:var(--text2);margin-top:8px;padding:8px;background:var(--bg3);border-radius:var(--radius)"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">PEQ — parameetriline ekvalaiser</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:10px">4 bändi PEQ. Täpsem kui GEQ, kasuta spetsiifiliste sagedusprobleemide jaoks.</p>
+      <table class="tbl">
+        <tr><th>Parameeter</th><th>Vahemik</th><th>Kasutus</th></tr>
+        <tr><td>Frequency</td><td class="val">20Hz - 20kHz</td><td>Vali probleemne sagedus</td></tr>
+        <tr><td>Gain</td><td class="val">±15 dB</td><td>Cut -6 kuni -12 dB probleemidel</td></tr>
+        <tr><td>Q / Bandwidth</td><td class="val">0.1 - 16</td><td>Kõrge Q = kitsas, madal Q = lai</td></tr>
+        <tr><td>Filter tüüp</td><td class="val">Peak/shelf/pass</td><td>Peak = sagedusala, shelf = kõrg/madal</td></tr>
+      </table>
+      <div class="alert alert-info" style="margin-top:8px">
+        <span class="alert-icon">💡</span>
+        <div><p>Reegel: CUT rohkem, BOOST vähem. Probleemse sageduse maha võtmine (cut) töötab paremini kui teiste sageduste tõstmine (boost).</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="pa2-limiter">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🛡️</span>Limiter — kõlarite kaitse</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Limiter kaitseb RCF 935-A kõlareid ülekoormuse eest. Seadista kanaliti (OUT1, OUT2 eraldi).</p>
+      <div class="grid2">
+        <div class="card2">
+          <div class="badge badge-blue">Siseruum</div>
+          <div class="pr"><span class="pr-label">Threshold</span><span class="pr-val">-3 dBFS</span></div>
+          <div class="pr"><span class="pr-label">Attack</span><span class="pr-val">10 ms</span></div>
+          <div class="pr"><span class="pr-label">Release</span><span class="pr-val">100 ms</span></div>
+          <div class="pr"><span class="pr-label">Lookahead</span><span class="pr-val green">ON</span></div>
+          <div class="pr"><span class="pr-label">Link L/R</span><span class="pr-val green">ON</span></div>
+        </div>
+        <div class="card2">
+          <div class="badge badge-green">Väljas / pikk sessioon</div>
+          <div class="pr"><span class="pr-label">Threshold</span><span class="pr-val">-6 dBFS</span></div>
+          <div class="pr"><span class="pr-label">Attack</span><span class="pr-val">10 ms</span></div>
+          <div class="pr"><span class="pr-label">Release</span><span class="pr-val">100 ms</span></div>
+          <div class="pr"><span class="pr-label">Lookahead</span><span class="pr-val green">ON</span></div>
+          <div class="pr"><span class="pr-label">Põhjus</span><span class="pr-val">Termilised probleemid</span></div>
+        </div>
+      </div>
+      <div class="alert alert-danger" style="margin-top:10px">
+        <span class="alert-icon">🚨</span>
+        <div><strong>Limiter ≠ volume kontroll</strong><p>Kui limiter töötab pidevalt (LED vilgub) — alanda signaali allikas (mikseris), mitte threshold'i. Pidev limiteerimine tähendab vale gain structure'i.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="pa2-rta">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">📊</span>AutoEQ + RTA-M mõõtmismikrofon</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Ühenda DBX RTA-M → PA2 RTA-M XLR sisend (tagakülg)</strong><span>EI ühenda mikseri kaudu! Otse PA2-sse. Phantom 48V läheb automaatselt.</span></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Aseta mikrofon publiku keskmesse</strong><span>~1.2-1.5m kõrgus. Mitte lava äärde, mitte kõlari ette, mitte nurka.</span></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Kõlarid mängivad normaalsel üritusetasemel</strong><span>Mõõda taset mis tegelikult ürituse ajal kasutusel — mitte liiga vaikselt.</span></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><strong>PA2 → WIZARD → RTA → AutoEQ → Start</strong><span>PA2 mängib pink noise'i ~30 sekundit. Ära liiguta midagi selle ajal.</span></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Vaata tulemust</strong><span>Ühtegi GEQ bändi ei tohiks olla rohkem kui ±6dB korrigeeritud. Kui on — probleem on kõlarite asendis.</span></div></div>
+        <div class="step"><div class="step-n">6</div><div class="step-body"><strong>Kinnita → STORE → Salvesta preset</strong><span>Salvesta presetina (nt "Siseruum", "Väljas"). Ära tee AutoEQ-d igal ürituse eel — kasuta salvesta presetit.</span></div></div>
+      </div>
+      <div class="alert alert-warn" style="margin-top:8px">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>Väljas vs siseruumis</strong><p>Väljas absorbeerib õhk kõrgemaid sagedusi. AutoEQ kompenseerib automaatselt — tüüpiline tulemus: +3..+6dB boost 8-16kHz vahemikus võrreldes siseruumiga.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="pa2-wizard">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">🧙</span>PA2 Setup Wizard — kiirseadistus</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Wizard on PA2 sisseehitatud seadistusabi. Kasuta seda esmakordsel seadistamisel.</p>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><strong>POWER ON → WIZARD nupp</strong><span>Wizard käivitub automaatselt esimesel käivitamisel</span></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Vali süsteemi tüüp</strong><span>Sinu puhul: Stereo Full Range (mitte 2-way!)</span></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Kõlarite tüüp</strong><span>Vali RCF ART seeria kui loendis — muidu "Generic Full Range"</span></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Input sensitivity</strong><span>Mängi signaali, reguleeri kuni roheline LED on stabiilne, punane EI põle</span></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><strong>RTA mõõtmine</strong><span>Wizard küsib AutoEQ — tee see RTA-M mikrofoniga (eelmine õpetus)</span></div></div>
+        <div class="step"><div class="step-n">6</div><div class="step-body"><strong>FBX seadistus</strong><span>Wizard aitab FBX seadistada mikrofoniga — järgi ekraanil juhiseid</span></div></div>
+        <div class="step"><div class="step-n">7</div><div class="step-body"><strong>STORE → Salvesta preset "MAIN"</strong><span>Wizard lõpus salvesta kindlasti preset</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KALKULAATORID
+═══════════════════════════════════════════ -->
+<div class="section" id="s-calc">
+  <div class="sec-header">
+    <div class="sec-title">🧮 Kalkulaatorid</div>
+    <div class="sec-desc">Delay, SPL, gain structure ja muud arvutused.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">⏱️</span>Delay kalkulaator — kaugus → ms</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Helikiirus sõltub temperatuurist: v = 331.3 + 0.606 × T°C</p>
+    <div class="calc-wrap">
+      <div class="calc-row"><label>Kauguste vahe (meetrites)</label><input type="range" min="0" max="68" step="0.5" value="5" id="c-dist" oninput="calcDelay()"><span class="cv" id="cv-dist">5.0 m</span></div>
+      <div class="calc-row"><label>Temperatuur (°C)</label><input type="range" min="-20" max="45" step="1" value="20" id="c-temp" oninput="calcDelay()"><span class="cv" id="cv-temp">20°C</span></div>
+      <div class="calc-result">
+        <div class="cr-item"><div class="cr-big" id="cr-ms">14.6 ms</div><div class="cr-sub">Delay väärtus</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-speed">343 m/s</div><div class="cr-sub">Helikiirus</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-dist2">5.0 m</div><div class="cr-sub">Kaugus</div></div>
+      </div>
+    </div>
+    <div class="card2" style="margin-top:10px">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Tüüpilised stsenaariumid</div>
+      <div class="pr"><span class="pr-label">Kõlarid 2m vahel (sümmeetriline)</span><span class="pr-val green">0 ms (pole vaja)</span></div>
+      <div class="pr"><span class="pr-label">Üks kõlar 3m kaugemal</span><span class="pr-val">~8.7 ms</span></div>
+      <div class="pr"><span class="pr-label">Fill-kõlar 10m eespool</span><span class="pr-val">~29 ms</span></div>
+      <div class="pr"><span class="pr-label">Sub 1m eespool toppist</span><span class="pr-val">~3 ms sub-ile</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">📊</span>SPL kalkulaator — kaugus ja tugevus</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">SPL langeb 6dB iga kauguse kahekordistumisega (vaba väli). Siseruumis vähem.</p>
+    <div class="calc-wrap">
+      <div class="calc-row"><label>Kõlari max SPL (dB)</label><input type="range" min="100" max="145" step="1" value="136" id="c-spl" oninput="calcSPL()"><span class="cv" id="cv-spl">136 dB</span></div>
+      <div class="calc-row"><label>Kaugus kõlarist (m)</label><input type="range" min="1" max="50" step="1" value="10" id="c-spldist" oninput="calcSPL()"><span class="cv" id="cv-spldist">10 m</span></div>
+      <div class="calc-result">
+        <div class="cr-item"><div class="cr-big" id="cr-spl">116 dB</div><div class="cr-sub">SPL kaugusel</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-sploss">20 dB</div><div class="cr-sub">Kadu</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-splsafe">✅</div><div class="cr-sub">Kuulmisohutus</div></div>
+      </div>
+    </div>
+    <div class="card2" style="margin-top:10px">
+      <div class="pr"><span class="pr-label">Ohutu pidev kokkupuude</span><span class="pr-val green">&lt; 85 dB</span></div>
+      <div class="pr"><span class="pr-label">Max 2h kokkupuude</span><span class="pr-val">94 dB</span></div>
+      <div class="pr"><span class="pr-label">Max 15min kokkupuude</span><span class="pr-val orange">105 dB</span></div>
+      <div class="pr"><span class="pr-label">Vahetukuulmiskahjustus</span><span class="pr-val red">&gt; 120 dB</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🔊</span>Gain structure kalkulaator</div>
+    <div class="calc-wrap">
+      <div class="calc-row"><label>Allikas master (%)</label><input type="range" min="0" max="100" step="5" value="75" id="c-src" oninput="calcGain()"><span class="cv" id="cv-src">75%</span></div>
+      <div class="calc-row"><label>Mikser gain (dB)</label><input type="range" min="-20" max="20" step="1" value="0" id="c-mgain" oninput="calcGain()"><span class="cv" id="cv-mgain">0 dB</span></div>
+      <div class="calc-row"><label>Mikser fader (dB)</label><input type="range" min="-30" max="10" step="1" value="0" id="c-mfader" oninput="calcGain()"><span class="cv" id="cv-mfader">0 dB</span></div>
+      <div class="calc-result">
+        <div class="cr-item"><div class="cr-big" id="cr-gainlevel">-18 dBu</div><div class="cr-sub">PA2 input nominaal</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-gainstatus">✅ OK</div><div class="cr-sub">Staatus</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🔋</span>Shure aku kalkulaator</div>
+    <div class="calc-wrap">
+      <div class="calc-row"><label>Praegune aku tase (%)</label><input type="range" min="0" max="100" step="5" value="80" id="c-bat" oninput="calcBat()"><span class="cv" id="cv-bat">80%</span></div>
+      <div class="calc-result">
+        <div class="cr-item"><div class="cr-big" id="cr-battime">8.0 h</div><div class="cr-sub">Eeldatav aeg</div></div>
+        <div class="cr-item"><div class="cr-big" id="cr-batstatus">✅ Hea</div><div class="cr-sub">Staatus</div></div>
+      </div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:8px">
+      <span class="alert-icon">⚠️</span>
+      <div><p>Laadi aku alla 25% peale. Hoia varuakud alati laetuna. QLXD24 kestab ~10h täislaetult.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     MIKROFON
+═══════════════════════════════════════════ -->
+<div class="section" id="s-mic">
+  <div class="sec-header">
+    <div class="sec-title">🎤 Shure QLXD24/Beta58 — täielik juhend</div>
+    <div class="sec-desc">Seadistamine, kasutamine, probleemide lahendamine.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Beta58 omadused</div>
+      <div class="pr"><span class="pr-label">Muster</span><span class="pr-val">Superkardioid</span></div>
+      <div class="pr"><span class="pr-label">Vastuvõtunurk</span><span class="pr-val">55° (kitsas!)</span></div>
+      <div class="pr"><span class="pr-label">Freq resp</span><span class="pr-val">50Hz-16kHz</span></div>
+      <div class="pr"><span class="pr-label">Optimaalne kaugus</span><span class="pr-val green">2-10 cm suust</span></div>
+      <div class="pr"><span class="pr-label">Proximity efekt</span><span class="pr-val">Tugev bass lähemalt</span></div>
+      <div class="pr"><span class="pr-label">Max SPL</span><span class="pr-val">174 dB</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">QLXD24 vastuvõtja seaded</div>
+      <div class="pr"><span class="pr-label">Squelch</span><span class="pr-val green">Auto</span></div>
+      <div class="pr"><span class="pr-label">Diversity</span><span class="pr-val green">ON (true diversity)</span></div>
+      <div class="pr"><span class="pr-label">Output tase</span><span class="pr-val">0 dBu</span></div>
+      <div class="pr"><span class="pr-label">RF meter min</span><span class="pr-val green">2 rohelist tulpa</span></div>
+      <div class="pr"><span class="pr-label">Audio peak</span><span class="pr-val">-20 kuni -12 dBu</span></div>
+      <div class="pr"><span class="pr-label">Antennid</span><span class="pr-val">Suunaga lava poole</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Yamaha MG10XU — mikrofoni kanalite seaded</div>
+    <table class="tbl">
+      <tr><th>Seade</th><th>Väärtus</th><th>Selgitus</th></tr>
+      <tr><td>LOW CUT</td><td class="val-green">ON (alati!)</td><td>Eemaldab 80Hz alla — buum, kärgatus</td></tr>
+      <tr><td>Gain</td><td class="val">30-45 dB</td><td>Alusta 30, tõsta kuni meter -18 kuni -12</td></tr>
+      <tr><td>LOW (80Hz)</td><td class="val">-2 kuni -4 dB</td><td>Vähenda buum ja rumble</td></tr>
+      <tr><td>LO-MID (~300Hz)</td><td class="val">-2 dB</td><td>Eemalda "kartongi" heli</td></tr>
+      <tr><td>HI-MID (~3kHz)</td><td class="val">+1 kuni +2 dB</td><td>Selgus, kõne loetavus</td></tr>
+      <tr><td>HIGH (12kHz)</td><td class="val">+1 kuni +2 dB</td><td>Õhulisus, "shine"</td></tr>
+      <tr><td>Fader</td><td class="val-green">0 dB (unity)</td><td>Ära liiguta — kasuta gain'i</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Beta58 kasutamise reeglid</div>
+    <div class="grid2">
+      <div>
+        <div class="badge badge-green">✅ Õige kasutus</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">✓</div><div class="step-body"><strong>Mikrofon otse suu poole</strong><span>Superkardioid vajab täpset suunamist</span></div></div>
+          <div class="step"><div class="step-n">✓</div><div class="step-body"><strong>2-10cm kaugus suust</strong><span>Lähemalt = rohkem basse (proximity efekt)</span></div></div>
+          <div class="step"><div class="step-n">✓</div><div class="step-body"><strong>Hoia käed alumisest osast</strong><span>Mitte kaplist — moonutab mustrit</span></div></div>
+          <div class="step"><div class="step-n">✓</div><div class="step-body"><strong>Suuna kõlaritest eemale</strong><span>Superkardioid: 55° sektor eest</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="badge badge-red">❌ Vale kasutus</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">✗</div><div class="step-body"><strong>Peopesa kapli ees</strong><span>Muudab mustri omniks → feedback!</span></div></div>
+          <div class="step"><div class="step-n">✗</div><div class="step-body"><strong>Kõlari ette suunamine</strong><span>Tagasisidet tekib kiiresti</span></div></div>
+          <div class="step"><div class="step-n">✗</div><div class="step-body"><strong>Mikrofon alla suunatud</strong><span>Kaotatakse signaalitugevus</span></div></div>
+          <div class="step"><div class="step-n">✗</div><div class="step-body"><strong>Liiga kaugel suust (&gt;30cm)</strong><span>Madal signaaltase, suur gain → feedback</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Probleemide lahendamine</div>
+    <table class="tbl">
+      <tr><th>Probleem</th><th>Põhjus</th><th>Lahendus</th></tr>
+      <tr><td>Feedback / vingun</td><td>Gain liiga kõrge / vale suund</td><td class="val-green">FBX ON, suuna mikrofon kõlaritest eemale</td></tr>
+      <tr><td>Madal tase</td><td>Gain liiga madal</td><td class="val">Tõsta mikseris gain, kontrolli RF taset</td></tr>
+      <tr><td>Katkev signaal</td><td>RF interferents / aku tühi</td><td class="val">Kontrolli RF taset, laadi aku</td></tr>
+      <tr><td>Buum madal sagedus</td><td>Proximity efekt / LOW CUT väljas</td><td class="val">LOW CUT ON, tõsta kõnealust suust</td></tr>
+      <tr><td>Kare / kõrge freq</td><td>Gain liiga kõrge</td><td class="val">Alanda gain, HIGH -2dB</td></tr>
+      <tr><td>Heli väljas aga RF ok</td><td>Output seade vale</td><td class="val">QLXD24 output: 0dBu, kontrolli XLR</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     VALGUS & DMX
+═══════════════════════════════════════════ -->
+<div class="section" id="s-light">
+  <div class="sec-header">
+    <div class="sec-title">💡 Valgus & DMX süsteem</div>
+    <div class="sec-desc">Enttec Open DMX, Stairville TRI LED, ADJ Fog Fury Jett ja QLC+ tarkvara.</div>
+  </div>
+
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showItab('light','dmx')">DMX alused</button>
+    <button class="itab" onclick="showItab('light','stairville')">Stairville TRI LED</button>
+    <button class="itab" onclick="showItab('light','fog')">ADJ Fog Fury</button>
+    <button class="itab" onclick="showItab('light','qlc')">QLC+ tarkvara</button>
+    <button class="itab" onclick="showItab('light','sync')">DJ sünkroonimine</button>
+  </div>
+
+  <div class="itab-content active" id="light-dmx">
+    <div class="card">
+      <div class="card-title">DMX süsteemi ülevaade</div>
+      <div class="chain">
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Arvuti (QLC+ tarkvara)</div>
+            <div class="chain-detail">USB väljund</div>
+            <div class="chain-settings">QLC+: tasuta, Windows/Mac/Linux | Download: qlcplus.org</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Enttec Open DMX USB</div>
+            <div class="chain-detail">USB → DMX konverter, DMX OUT XLR 5-pin</div>
+            <div class="chain-settings">Driver: FTDI (automaatne Win10/11) | QLC+ tuvastab automaatselt</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Stairville TRI LED #1 (aadress 1)</div>
+            <div class="chain-detail">DMX IN → DMX OUT → järgmine seade</div>
+            <div class="chain-settings">Daisy chain: IN → OUT → IN → OUT kuni 32 seadet</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div><div class="chain-dash"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">Stairville TRI LED #2 (aadress 10)</div>
+            <div class="chain-detail">DMX IN → DMX OUT</div>
+            <div class="chain-settings">Aadress seadista seadmel nuppudega: 10</div>
+          </div>
+        </div>
+        <div class="chain-node">
+          <div class="chain-line"><div class="chain-dot"></div></div>
+          <div class="chain-content">
+            <div class="chain-device">ADJ Fog Fury Jett (aadress 50)</div>
+            <div class="chain-detail">Viimane seade — TERMINAATOR!</div>
+            <div class="chain-settings">Lisa 120Ω terminaator DMX OUT-i. Ilma terminaatorita → signaalikadu pikkades ahelates</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:8px">
+        <span class="alert-icon">💡</span>
+        <div><strong>DMX aadressid — soovituslik jaotus</strong><p>Par #1: aadress 1 | Par #2: aadress 10 | Par #3: aadress 20 | Fog: aadress 50 | Vaba: 60+</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="light-stairville">
+    <div class="card">
+      <div class="card-title">Stairville Stage TRI LED — kanalite kaart</div>
+      <div class="inner-tabs" style="margin-bottom:10px">
+        <button class="itab active" onclick="showDMXMode(7,this)">7-kanal režiim</button>
+        <button class="itab" onclick="showDMXMode(3,this)">3-kanal režiim</button>
+      </div>
+      <div id="dmx-7ch">
+        <div class="dmx-channel"><div class="dmx-ch-num">1</div><div class="dmx-ch-color" style="background:#ff4444"></div><div class="dmx-ch-name">Red</div><div class="dmx-ch-range">0-255</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">2</div><div class="dmx-ch-color" style="background:#44ff44"></div><div class="dmx-ch-name">Green</div><div class="dmx-ch-range">0-255</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">3</div><div class="dmx-ch-color" style="background:#4444ff"></div><div class="dmx-ch-name">Blue</div><div class="dmx-ch-range">0-255</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">4</div><div class="dmx-ch-color" style="background:#ffffff;border:1px solid #444"></div><div class="dmx-ch-name">Master Dimmer</div><div class="dmx-ch-range">0=välja, 255=max</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">5</div><div class="dmx-ch-color" style="background:#ffff00"></div><div class="dmx-ch-name">Strobe / Flash</div><div class="dmx-ch-range">0=pidev, 255=kiire strobe</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">6</div><div class="dmx-ch-color" style="background:#ff88ff"></div><div class="dmx-ch-name">Sisemine programm</div><div class="dmx-ch-range">0-255 erinevad efektid</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">7</div><div class="dmx-ch-color" style="background:#88ffff"></div><div class="dmx-ch-name">Programmi kiirus</div><div class="dmx-ch-range">0=aeglane, 255=kiire</div></div>
+      </div>
+      <div id="dmx-3ch" style="display:none">
+        <div class="dmx-channel"><div class="dmx-ch-num">1</div><div class="dmx-ch-color" style="background:#ff4444"></div><div class="dmx-ch-name">Red</div><div class="dmx-ch-range">0-255</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">2</div><div class="dmx-ch-color" style="background:#44ff44"></div><div class="dmx-ch-name">Green</div><div class="dmx-ch-range">0-255</div></div>
+        <div class="dmx-channel"><div class="dmx-ch-num">3</div><div class="dmx-ch-color" style="background:#4444ff"></div><div class="dmx-ch-name">Blue</div><div class="dmx-ch-range">0-255</div></div>
+      </div>
+      <div class="card2" style="margin-top:10px">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:6px">Populaarsed värvid (RGB väärtused)</div>
+        <div class="pr"><span class="pr-label">Soe valge</span><span class="pr-val">255, 180, 80</span></div>
+        <div class="pr"><span class="pr-label">Külm valge</span><span class="pr-val">255, 255, 200</span></div>
+        <div class="pr"><span class="pr-label">Punane</span><span class="pr-val">255, 0, 0</span></div>
+        <div class="pr"><span class="pr-label">Roheline</span><span class="pr-val">0, 255, 0</span></div>
+        <div class="pr"><span class="pr-label">Sinine</span><span class="pr-val">0, 0, 255</span></div>
+        <div class="pr"><span class="pr-label">Lilla</span><span class="pr-val">180, 0, 255</span></div>
+        <div class="pr"><span class="pr-label">Merevaik</span><span class="pr-val">255, 100, 0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="light-fog">
+    <div class="card">
+      <div class="card-title">ADJ Fog Fury Jett — seadistus</div>
+      <div class="grid2">
+        <div class="card2">
+          <div class="badge badge-gold">Spetsifikatsioonid</div>
+          <div class="pr"><span class="pr-label">Võimsus</span><span class="pr-val">700W</span></div>
+          <div class="pr"><span class="pr-label">Udumaht</span><span class="pr-val">4500 CFM</span></div>
+          <div class="pr"><span class="pr-label">Soojendus</span><span class="pr-val red">5 minutit</span></div>
+          <div class="pr"><span class="pr-label">Udu suund</span><span class="pr-val">Horisontaalne</span></div>
+          <div class="pr"><span class="pr-label">DMX kanalid</span><span class="pr-val">2</span></div>
+        </div>
+        <div class="card2">
+          <div class="badge badge-blue">DMX kanalid (aadress 50)</div>
+          <div class="pr"><span class="pr-label">CH 50 — intensiivsus</span><span class="pr-val">0=välja, 255=max</span></div>
+          <div class="pr"><span class="pr-label">CH 51 — intervall</span><span class="pr-val">0=pidev, 255=lühike</span></div>
+        </div>
+      </div>
+      <div class="card2" style="margin-top:8px">
+        <div class="badge badge-orange">Kasutuse juhend</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Soojendus 5 minutit enne kasutust</strong><span>Pump peab olema soe — külm pump ei tee udu</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Kasuta water-based udu vedelikku</strong><span>Mitte õlipõhist — jätab rasvase kile kõigile pindadele ja kõlaritele!</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Pärast üritust — puhastuspump</strong><span>Lase tühi pump läbi (distilleeritud vesi) et vedelik ei kõvastuks</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Suuna kõlaritest eemale</strong><span>Udu vedelik võib kahjustada kõlarite paberkonusid</span></div></div>
+        </div>
+      </div>
+      <div class="alert alert-danger">
+        <span class="alert-icon">🚨</span>
+        <div><strong>NB! Tuletõrjeandurid</strong><p>Udu Fury Jett võib käivitada tuletõrjeandurid! Kontrolli enne üritust kohalike eeskirjadega. Kasuta ainult ventilaatoriga ruumides.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="light-qlc">
+    <div class="card">
+      <div class="card-title">QLC+ kiirseadistus</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi QLC+</strong><span>qlcplus.org → Download → Windows. Tasuta ja avatud lähtekoodiga.</span></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Inputs/Outputs → Enttec Open DMX</strong><span>Ühenda USB → QLC+ tuvastab automaatselt. Kontrolli et COM port on aktiivne.</span></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Fixture → Add New Fixture</strong><span>Otsi "Stairville TRI LED" → määra DMX aadress (1, 10, 20) → korda kõigi paride jaoks</span></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><strong>ADJ Fog Fury Jett lisamine</strong><span>Fixture → otsi "ADJ Fog Fury" → aadress 50</span></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Loo Scene-id</strong><span>Scene editor: "Punane", "Roheline", "Sinine", "Valge", "Strobe"</span></div></div>
+        <div class="step"><div class="step-n">6</div><div class="step-body"><strong>Loo Chaser (automaatne muutus)</strong><span>Chaser: lisa Scene-id järjekorda, määra kiirus ja fade aeg</span></div></div>
+        <div class="step"><div class="step-n">7</div><div class="step-body"><strong>Virtual Console → nupud</strong><span>Lisa nupud/slaidrid igale Scene-ile — see on sinu live juhtimine</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itab-content" id="light-sync">
+    <div class="card">
+      <div class="card-title">DJ kontroller + valguse sünkroonimine</div>
+      <div class="card2">
+        <div class="badge badge-purple">DDJ-FLX10 MIDI → QLC+</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Rekordbox seaded → MIDI out lubamine</strong><span>Preferences → MIDI → Output: DDJ-FLX10</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>QLC+ → Inputs → MIDI → DDJ-FLX10</strong><span>QLC+ tuvastab MIDI seadme automaatselt</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Assign MIDI triggrid valgustele</strong><span>Virtual Console → nupp → Assign → MIDI trigger → vajuta DJ kontrolleril nuppu</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Beat trigger strobe efektile</strong><span>BPM trigger: kick drum takt → strobe. Rekordbox annab BPM info läbi MIDI.</span></div></div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:8px">
+        <span class="alert-icon">💡</span>
+        <div><p>FLX10 HID juhtnupud (loop, efektid) saab assignida QLC+ nuppudele. Näiteks: loop nupp → strobe sisse/välja.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KONTROLLNIMEKIRI
+═══════════════════════════════════════════ -->
+<div class="section" id="s-checklist">
+  <div class="sec-header">
+    <div class="sec-title">✅ Ürituse kontrollnimekiri</div>
+    <div class="sec-desc">Klõpsa iga punkti peal kui see on tehtud. Salvestatakse sessiooniks.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Enne üritust — heli</div>
+    <div class="checklist" id="cl-audio">
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Kõik kaablid ühendatud ja kontrollitud (XLR, RCA, toide)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">RCF ART 935-A × 2 — toide sisse, input sensitivity unity</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">DBX PA2 — toide sisse, preset laetud (MAIN)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Yamaha MG10XU — gain structure seadistatud, fader 0dB</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">DDJ-FLX10 ühendatud, master tase 70-80%</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Shure QLXD24 — aku täis, RF ok (2+ rohelist tulpa), squelch auto</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">PA2 FBX seadistatud (Lift → Fixed), 4-6 filtrit paigas</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">AutoEQ tehtud RTA-M mikrofoniga (ruumis / väljas)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">LD Systems PPA 2 — monitor mix seadistatud (AUX pre-fader)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">GL-SFT1200 ruuter käivitatud, PA2 app ühendatud telefoniga</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Helitase kontrollitud — peak meter -6dBFS, midagi ei clipi</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Enne üritust — valgus</div>
+    <div class="checklist">
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Enttec Open DMX USB ühendatud arvutiga</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">QLC+ avatud, Enttec tuvastatud (Inputs/Outputs)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Stairville TRI LED — DMX aadressid seadistatud (1, 10, 20)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">DMX daisy chain kaablid ühendatud, terminaator viimase seadme küljes</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Kõik TRI LED-id reageerivad QLC+ sceneidele</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">ADJ Fog Fury Jett — udu vedelik olemas, soojendusaeg 5min arvestatud</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Udumasin suunatud kõlaritest eemale</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Tuletõrjeandurid kontrollitud / teavitatud</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Pärast üritust</div>
+    <div class="checklist">
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Fog Fury — puhastuspump läbi aetud (distilleeritud vesi)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Shure QLXD24 aku laadimisele</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">PA2 preset salvestatud (kui muutusi tehti)</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">Kõik kaablid kokku keritud ja märgistatud</div></div>
+      <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-cb"></div><div class="cl-text">RCF kõlarid transportkotis / kaitstud</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:13px;color:var(--text2)">Täidetud: <span id="cl-count" style="color:var(--green);font-weight:700">0</span> / <span id="cl-total">0</span></span>
+      <button onclick="resetChecklist()" style="background:var(--red-dim);border:1px solid var(--red);color:var(--red);font-size:12px;padding:6px 14px;border-radius:var(--radius);cursor:pointer">Lähtesta</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NIPID
+═══════════════════════════════════════════ -->
+<div class="section" id="s-tips">
+  <div class="sec-header">
+    <div class="sec-title">💡 Professionaalsed nipid</div>
+    <div class="sec-desc">Praktilised nõuanded kogemustest — väldid levinud vigu.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="badge badge-gold">Heli — nipid</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Käivita seadmed järjekorras</strong><span>Allikas → mikser → PA2 → kõlarid. Sulge vastupidises järjekorras. Väldib "pop" kõlareid.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Mono ühilduvuse test</strong><span>Lülita PA2 mono režiimi ja kõnnile kõlarite vahel. Bass ei tohi kaduda → polaarsus ok.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Low Cut alati mikrofoniga</strong><span>MG10XU LOW CUT nupp ON = eemaldab kõik alla 80Hz. Buum, kärgatused, sammud — kõik kaob.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Kõrvalklappides kontrolli</strong><span>Mikseris kõrvaklapid — kuula iga kanalit eraldi enne PA-sse saatmist.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>AutoEQ publiku ajal</strong><span>Inimesed absorbeerivad heli. Kui võimalik, tee AutoEQ koos inimestega ruumis.</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge badge-blue">Mikrofon — nipid</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>FBX enne publikut</strong><span>Seadista FBX (Lift → Fixed) enne üritust tühjas ruumis. Pärast seda ära puutu PA2 gain'i.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Shure sageduse valik</strong><span>G51 band = 470-534MHz. Kontrolli et kohalik TV ega raadio ei kasuta sama sagedust.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Antennide asetus</strong><span>Antennid peaksid nägema esinejat otse. Keha/sein sumbab RF signaali kuni 20dB.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>2 varupatareid taskus</strong><span>AA patareid tühjenevad alati valel hetkel. QLXD näitab aku taset — alla 25% → vaheta.</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge badge-purple">DJ — nipid</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>DDJ-FLX10 master EQ flat</strong><span>Ära kasuta FLX10 master EQ-d — kasuta PA2 GEQ-d. Kaks EQ ahelas = faaseprobleemid.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Rekordboxi analüüs enne üritust</strong><span>Analyüsi kõik lood rekordboxis. BPM grid peab täpne olema beat efektide jaoks.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Varukaabel RCA → TRS</strong><span>Hoia FLX4 kaasas varuks. RCA adapterid on nõrgad koht — hoia varuks.</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge badge-orange">Valgus — nipid</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>QLC+ show salvesta enne üritust</strong><span>File → Save. Kui arvuti crashib → laad fail uuesti. Ära tee live show'i ilma salvestuseta.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Fog soojendus 5min enne</strong><span>Käivita Fog Fury 5min enne esimest kasutust. Külm pump → ei tee udu → häbi.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Valgus suunamine</strong><span>TRI LED-id ülespoole (beam up) → lagi peegeldab. Külgedele → dramaatilisem efekt.</span></div></div>
+        <div class="step"><div class="step-n">★</div><div class="step-body"><strong>Strobe — ettevaatust!</strong><span>Strobe efekt võib põhjustada epilepsiahoogusid. Teavita publikut ja kasuta mõõdukalt.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Levinud vead ja lahendused</div>
+    <table class="tbl">
+      <tr><th>Viga</th><th>Tulemus</th><th>Lahendus</th></tr>
+      <tr><td>PA2 2-way crossover + RCF 935-A</td><td class="val-red">Topelt crossover, vale HF</td><td class="val-green">Full Range režiim</td></tr>
+      <tr><td>Seadmed vale järjekorras sisse</td><td class="val-red">"Pop" kõlarites</td><td class="val-green">Allikas → mikser → PA2 → kõlarid</td></tr>
+      <tr><td>FBX välja, suur gain</td><td class="val-red">Feedback / vingun</td><td class="val-green">FBX ON enne gain tõstmist</td></tr>
+      <tr><td>Limiter pidevalt punane</td><td class="val-red">Moonutus, kõlarite kahjustus</td><td class="val-green">Alanda mikserist, gain struktuur vale</td></tr>
+      <tr><td>LOW CUT välja mikrofoniga</td><td class="val-red">Buum, rumble, feedback</td><td class="val-green">LOW CUT ON alati mikrofoniga</td></tr>
+      <tr><td>RTA-M mikser läbi</td><td class="val-red">Vale AutoEQ tulemus</td><td class="val-green">RTA-M otse PA2 RTA-M sisendisse</td></tr>
+      <tr><td>DMX terminaator puudub</td><td class="val-red">Valguse flicker pikkades ahelates</td><td class="val-green">120Ω terminaator viimase seadme OUT-i</td></tr>
+      <tr><td>Fog vedelik kõlaritele</td><td class="val-red">Konus kahjustus, häälestuse muutus</td><td class="val-green">Suuna fog kõlaritest eemale</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KIIRVIIDE
+═══════════════════════════════════════════ -->
+<div class="section" id="s-ref">
+  <div class="sec-header">
+    <div class="sec-title">📋 Kiirviide</div>
+    <div class="sec-desc">Kõik olulised väärtused ühes kohas — prindi välja või hoia telefonis.</div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-title">🎛️ DBX DriveRack PA2</div>
+    <div class="card">
+      <table class="tbl">
+        <tr><th>Parameeter</th><th>Siseruum</th><th>Väljas</th></tr>
+        <tr><td>XOVER (RCF 935-A ilma subita)</td><td class="val-green">Full Range</td><td class="val-green">Full Range</td></tr>
+        <tr><td>HPF</td><td class="val">80Hz, LR24</td><td class="val">100-120Hz, LR24</td></tr>
+        <tr><td>Sub crossover (kui on sub)</td><td class="val">80Hz, LR24</td><td class="val">80Hz, LR24</td></tr>
+        <tr><td>Limiter threshold</td><td class="val">-3 dBFS</td><td class="val">-6 dBFS</td></tr>
+        <tr><td>FBX</td><td class="val-green">ON (Fixed)</td><td class="val-green">ON (Fixed)</td></tr>
+        <tr><td>FBX aktiivsed filtrid (norm)</td><td class="val-green">4-6</td><td class="val-green">4-6</td></tr>
+        <tr><td>Stereo Link</td><td class="val-green">ON</td><td class="val-green">ON</td></tr>
+        <tr><td>Input nominaaltase</td><td class="val">-18 dBu</td><td class="val">-18 dBu</td></tr>
+        <tr><td>GEQ max muutus</td><td class="val">±6 dB</td><td class="val">±6 dB</td></tr>
+        <tr><td>Delay max</td><td class="val">200 ms</td><td class="val">200 ms</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-title">🎚️ Yamaha MG10XU</div>
+    <div class="card">
+      <table class="tbl">
+        <tr><th>Parameeter</th><th>Mikrofon (CH1)</th><th>DJ (CH3/4)</th></tr>
+        <tr><td>Gain</td><td class="val">30-45 dB</td><td class="val">0 dB (FLX10) / +6dB (FLX4)</td></tr>
+        <tr><td>LOW CUT</td><td class="val-green">ON</td><td class="val">OFF</td></tr>
+        <tr><td>LOW (80Hz)</td><td class="val">-2 kuni -4 dB</td><td class="val">0 dB (flat)</td></tr>
+        <tr><td>Fader</td><td class="val-green">0 dB (unity)</td><td class="val-green">0 dB (unity)</td></tr>
+        <tr><td>AUX send (monitor)</td><td class="val">-6 dB alguses</td><td class="val">-12 dB alguses</td></tr>
+        <tr><td>EQ max muutus</td><td class="val">±4 dB</td><td class="val">±4 dB</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-title">🎤 Shure QLXD24/Beta58</div>
+    <div class="card">
+      <table class="tbl">
+        <tr><th>Parameeter</th><th>Väärtus</th></tr>
+        <tr><td>RF tase vastuvõtjal</td><td class="val-green">Min 2 rohelist tulpa</td></tr>
+        <tr><td>Audio peak tase</td><td class="val">-20 kuni -12 dBu</td></tr>
+        <tr><td>Output</td><td class="val">0 dBu</td></tr>
+        <tr><td>Squelch</td><td class="val-green">Auto</td></tr>
+        <tr><td>Diversity</td><td class="val-green">ON</td></tr>
+        <tr><td>Laadi alla kui</td><td class="val-red">&lt; 25%</td></tr>
+        <tr><td>Optimaalne kaugus suust</td><td class="val-green">2-10 cm</td></tr>
+        <tr><td>Muster</td><td class="val">Superkardioid 55°</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-title">💡 DMX aadressid</div>
+    <div class="card">
+      <table class="tbl">
+        <tr><th>Seade</th><th>DMX aadress</th><th>Kanalid</th></tr>
+        <tr><td>Stairville TRI LED #1</td><td class="val">1</td><td class="val">1-7 (7ch režiim)</td></tr>
+        <tr><td>Stairville TRI LED #2</td><td class="val">10</td><td class="val">10-16</td></tr>
+        <tr><td>Stairville TRI LED #3 (kui lisad)</td><td class="val">20</td><td class="val">20-26</td></tr>
+        <tr><td>ADJ Fog Fury Jett</td><td class="val">50</td><td class="val">50-51</td></tr>
+        <tr><td>Vaba kasutus</td><td class="val">60+</td><td class="val">—</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-title">⚡ Seadmete käivitusjärjekord</div>
+    <div class="card">
+      <div class="pr"><span class="pr-label">1. Sisse lülitada</span><span class="pr-val green">Allikas → Mikser → PA2 → Kõlarid</span></div>
+      <div class="pr"><span class="pr-label">2. Välja lülitada</span><span class="pr-val">Kõlarid → PA2 → Mikser → Allikas</span></div>
+      <div class="pr"><span class="pr-label">3. Põhjus</span><span class="pr-val">Väldib "pop" kõlarites sisselülitusel</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('s-' + id).classList.add('active');
+  const btn = document.querySelector('[data-s="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showItab(group, id) {
+  const section = event.target.closest('.section');
+  section.querySelectorAll('.itab').forEach(t => t.classList.remove('active'));
+  section.querySelectorAll('.itab-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  const el = document.getElementById(group + '-' + id);
+  if (el) el.classList.add('active');
+}
+
+// ── DELAY CALC ──
+function calcDelay() {
+  const d = parseFloat(document.getElementById('c-dist').value);
+  const t = parseFloat(document.getElementById('c-temp').value);
+  document.getElementById('cv-dist').textContent = d.toFixed(1) + ' m';
+  document.getElementById('cv-temp').textContent = t + '°C';
+  const speed = 331.3 + 0.606 * t;
+  const ms = (d / speed * 1000);
+  document.getElementById('cr-ms').textContent = ms.toFixed(1) + ' ms';
+  document.getElementById('cr-speed').textContent = Math.round(speed) + ' m/s';
+  document.getElementById('cr-dist2').textContent = d.toFixed(1) + ' m';
+}
+
+// ── SPL CALC ──
+function calcSPL() {
+  const maxSPL = parseFloat(document.getElementById('c-spl').value);
+  const dist = parseFloat(document.getElementById('c-spldist').value);
+  document.getElementById('cv-spl').textContent = maxSPL + ' dB';
+  document.getElementById('cv-spldist').textContent = dist + ' m';
+  const loss = 20 * Math.log10(dist);
+  const spl = maxSPL - loss;
+  document.getElementById('cr-spl').textContent = Math.round(spl) + ' dB';
+  document.getElementById('cr-sploss').textContent = Math.round(loss) + ' dB';
+  const safe = spl < 85 ? '✅ Ohutu' : spl < 94 ? '⚠️ Ettevaatust' : spl < 110 ? '🔴 Ohtlik' : '🚨 Kuulmiskahjustus';
+  document.getElementById('cr-splsafe').textContent = safe;
+}
+
+// ── GAIN CALC ──
+function calcGain() {
+  const src = parseFloat(document.getElementById('c-src').value);
+  const mgain = parseFloat(document.getElementById('c-mgain').value);
+  const mfader = parseFloat(document.getElementById('c-mfader').value);
+  document.getElementById('cv-src').textContent = src + '%';
+  document.getElementById('cv-mgain').textContent = (mgain >= 0 ? '+' : '') + mgain + ' dB';
+  document.getElementById('cv-mfader').textContent = (mfader >= 0 ? '+' : '') + mfader + ' dB';
+  const srcDB = 20 * Math.log10(src / 100) + 6;
+  const total = srcDB + mgain + mfader;
+  const nom = Math.round(total);
+  document.getElementById('cr-gainlevel').textContent = (nom >= 0 ? '+' : '') + nom + ' dBu';
+  const status = (nom >= -24 && nom <= -12) ? '✅ Ideaalne' : (nom >= -30 && nom <= -6) ? '⚠️ Aktsepteeritav' : '🚨 Reguleeri!';
+  document.getElementById('cr-gainstatus').textContent = status;
+}
+
+// ── BAT CALC ──
+function calcBat() {
+  const bat = parseFloat(document.getElementById('c-bat').value);
+  document.getElementById('cv-bat').textContent = bat + '%';
+  const hours = (bat / 100 * 10).toFixed(1);
+  document.getElementById('cr-battime').textContent = hours + ' h';
+  const status = bat > 50 ? '✅ Hea' : bat > 25 ? '⚠️ Laadi peagi' : '🚨 Laadi kohe!';
+  document.getElementById('cr-batstatus').textContent = status;
+}
+
+// ── EQ PRESETS ──
+const eqBands = ['63Hz','125','250','500','1kHz','2k','4k','8k','16k'];
+const eqPresets = {
+  flat:    { vals: [0,0,0,0,0,0,0,0,0], desc: 'Flat — alguspunkt. Kasuta enne AutoEQ-d.' },
+  indoor:  { vals: [-2,-3,-1,0,1,1,0,-1,-2], desc: 'Siseruum — vähenda madala sageduse buumi, kerge kõrgsageduse rõhutus.' },
+  outdoor: { vals: [0,-2,-1,0,1,2,2,3,5], desc: 'Väljas — kompenseerib õhu absorptsiooni kõrgetel sagedustel (+3..+6dB kõrgetes).' },
+  speech:  { vals: [-6,-5,-2,2,3,2,1,0,-1], desc: 'Kõne/mikrofon — kärbi madalaid, tõsta selgust ja loetavust.' },
+  bass:    { vals: [2,3,1,0,0,-1,-1,-2,-3], desc: 'Bass/DJ muusika — rõhutab bassi. Kasuta ettevaatlikult!' }
+};
+function setEQPreset(p, btn) {
+  document.querySelectorAll('#s-pa2 .itab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const preset = eqPresets[p];
+  const container = document.getElementById('eq-display');
+  container.innerHTML = '';
+  preset.vals.forEach((v, i) => {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:2px';
+    const bar = document.createElement('div');
+    const pct = ((v + 12) / 24 * 100);
+    bar.style.cssText = `width:100%;height:${Math.max(2, pct)}%;border-radius:3px 3px 0 0;background:${v > 0 ? '#1e90ff' : v < 0 ? '#ff4757' : '#333'};transition:height .3s`;
+    const lbl = document.createElement('div');
+    lbl.style.cssText = 'font-size:9px;color:#64748b;text-align:center';
+    lbl.textContent = eqBands[i];
+    const val = document.createElement('div');
+    val.style.cssText = 'font-size:9px;font-family:monospace;color:' + (v > 0 ? '#1e90ff' : v < 0 ? '#ff4757' : '#64748b');
+    val.textContent = (v > 0 ? '+' : '') + v;
+    wrap.appendChild(val);
+    wrap.appendChild(bar);
+    wrap.appendChild(lbl);
+    container.appendChild(wrap);
+  });
+  document.getElementById('eq-desc').textContent = preset.desc;
+}
+
+// ── DMX MODE ──
+function showDMXMode(ch, btn) {
+  document.querySelectorAll('#light-stairville .itab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('dmx-7ch').style.display = ch === 7 ? 'block' : 'none';
+  document.getElementById('dmx-3ch').style.display = ch === 3 ? 'block' : 'none';
+}
+
+// ── CHECKLIST ──
+function toggleCheck(item) {
+  const cb = item.querySelector('.cl-cb');
+  const txt = item.querySelector('.cl-text');
+  cb.classList.toggle('checked');
+  txt.classList.toggle('checked');
+  updateCount();
+}
+function updateCount() {
+  const all = document.querySelectorAll('.cl-cb');
+  const done = document.querySelectorAll('.cl-cb.checked');
+  document.getElementById('cl-count').textContent = done.length;
+  document.getElementById('cl-total').textContent = all.length;
+}
+function resetChecklist() {
+  document.querySelectorAll('.cl-cb').forEach(cb => cb.classList.remove('checked'));
+  document.querySelectorAll('.cl-text').forEach(t => t.classList.remove('checked'));
+  updateCount();
+}
+
+
+// ══════════════════════════════════════════
+// SETUP BUILDER
+// ══════════════════════════════════════════
+let sbSelected = new Set();
+
+function sbToggle(el) {
+  const id = el.dataset.id;
+  if (sbSelected.has(id)) { sbSelected.delete(id); el.classList.remove('selected'); }
+  else { sbSelected.add(id); el.classList.add('selected'); }
+  const cnt = sbSelected.size;
+  const btn = document.getElementById('sb-generate-btn');
+  const lbl = document.getElementById('sb-sel-count');
+  btn.disabled = cnt < 2;
+  btn.style.opacity = cnt >= 2 ? '1' : '0.4';
+  lbl.textContent = cnt >= 2 ? `${cnt} seadet valitud — vajuta nuppu` : 'Vali vähemalt 2 seadet';
+}
+
+function sbBack() {
+  document.getElementById('sb-result-view').style.display = 'none';
+  document.getElementById('sb-select-view').style.display = 'block';
+}
+
+function sbGenerate() {
+  const sel = sbSelected;
+  const has = id => sel.has(id);
+  const hasAny = (...ids) => ids.some(id => sel.has(id));
+
+  // Build steps array
+  const steps = [];
+  const cables = [];
+  const settings = [];
+  const warnings = [];
+
+  const hasDJ = hasAny('flx10','flx4','hercules','laptop');
+  const hasMixer = has('mg10xu');
+  const hasPA2 = has('pa2');
+  const hasRCF = has('rcf935');
+  const hasSub = hasAny('sub_generic','sub_passive');
+  const hasActiveSub = has('sub_generic');
+  const hasPassiveSub = has('sub_passive');
+  const hasMic = hasAny('qlxd24','mic_wired');
+  const hasQLXD = has('qlxd24');
+  const hasMonitor = has('ldppa2');
+  const hasRTAM = has('rtam');
+  const hasWifi = has('wifi');
+
+  // ── KAABLITE NIMEKIRI ──
+  if (has('flx10') && hasMixer) cables.push({type:'xlr', qty:2, desc:'XLR (male→female) — DDJ-FLX10 Master OUT → MG10XU CH1/2'});
+  if (has('flx4') && hasMixer) cables.push({type:'rca', qty:1, desc:'RCA stereo → 2× TRS 6.3mm adapter — DDJ-FLX4 Master OUT → MG10XU CH3/4'});
+  if (has('hercules') && hasMixer) cables.push({type:'jack', qty:1, desc:'3.5mm stereo → 2× RCA adapter — Hercules → MG10XU'});
+  if (has('laptop') && hasMixer) cables.push({type:'jack', qty:1, desc:'3.5mm → 2× RCA adapter — Laptop/telefon → MG10XU'});
+  if (hasMixer && hasPA2) cables.push({type:'xlr', qty:2, desc:'XLR (male→female) — MG10XU MAIN OUT L/R → DBX PA2 IN L/R'});
+  if (!hasMixer && hasDJ && hasPA2) cables.push({type:'xlr', qty:2, desc:'XLR — DJ kontroller Master OUT → DBX PA2 IN L/R'});
+  if (hasPA2 && hasRCF) cables.push({type:'xlr', qty:2, desc:'XLR (male→female) — DBX PA2 OUT 1/2 → RCF ART 935-A vasak/parem'});
+  if (hasPA2 && hasActiveSub) cables.push({type:'xlr', qty:2, desc:'XLR — DBX PA2 OUT 3/4 → Subwoofer IN L/R'});
+  if (hasPA2 && hasPassiveSub) cables.push({type:'xlr', qty:2, desc:'XLR — DBX PA2 OUT 3/4 → Võimendi IN → Subwoofer'});
+  if (!hasPA2 && hasRCF && hasMixer) cables.push({type:'xlr', qty:2, desc:'XLR — MG10XU MAIN OUT → RCF ART 935-A (otse, ilma PA2-ta)'});
+  if (hasQLXD && hasMixer) cables.push({type:'xlr', qty:1, desc:'XLR — Shure QLXD24 vastuvõtja XLR OUT → MG10XU CH1'});
+  if (has('mic_wired') && hasMixer) cables.push({type:'xlr', qty:1, desc:'XLR — Mikrofon → MG10XU CH1 (või CH2)'});
+  if (hasMonitor && hasMixer) cables.push({type:'jack', qty:1, desc:'Jack 6.3mm — MG10XU AUX SEND 1 → LD Systems PPA 2 IN'});
+  if (hasRTAM && hasPA2) cables.push({type:'xlr', qty:1, desc:'XLR — DBX RTA-M → PA2 RTA-M sisend (tagakülg) — EI mikseri kaudu!'});
+  if (hasWifi && hasPA2) cables.push({type:'other', qty:1, desc:'Ethernet / WiFi — GL-SFT1200 → PA2 LAN port'});
+  if (hasRCF) cables.push({type:'power', qty:2, desc:'Toitekaabel — RCF ART 935-A × 2 (230V)'});
+  if (hasActiveSub) cables.push({type:'power', qty:1, desc:'Toitekaabel — Subwoofer (230V)'});
+
+  // ══════════════════════════
+  // SAMM 1 — Füüsiline paigutus
+  // ══════════════════════════
+  steps.push({
+    title: 'Füüsiline paigutus',
+    badge: 'Enne ühendamist',
+    color: 'badge-blue',
+    content: `
+      <div class="pr"><span class="pr-label">Kõlarite asend</span><span class="pr-val">${hasRCF ? 'RCF 935-A: lavast 2-3m, publikule suunatud, slight toe-in' : 'Kõlarid publikule suunatud'}</span></div>
+      ${hasSub ? `<div class="pr"><span class="pr-label">Subwoofer</span><span class="pr-val">Lava ees, kesk, topp-kõlarite vahel või all</span></div>` : ''}
+      <div class="pr"><span class="pr-label">Mikser</span><span class="pr-val">DJ laua kõrval, kaablite ulatuses</span></div>
+      ${hasPA2 ? `<div class="pr"><span class="pr-label">DBX PA2</span><span class="pr-val">Rack'is või laua peal mikseri lähedal</span></div>` : ''}
+      ${hasQLXD ? `<div class="pr"><span class="pr-label">Shure vastuvõtja</span><span class="pr-val">Lava nähtav, antennid publikule suunatud, min 5m esinejast eemale</span></div>` : ''}
+      <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Paiguta kõigepealt kõlarid, seejärel mõõda kaablite vajadus. RCF kõlar kaalub 23kg — aseta enne lauad ja statiivid.</p></div></div>
+    `
+  });
+
+  // ══════════════════════════
+  // SAMM 2 — Kaablite ettevalmistus
+  // ══════════════════════════
+  steps.push({
+    title: 'Vajalikud kaablid',
+    badge: 'Kontrolli enne ühendamist',
+    color: 'badge-gold',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${cables.map(c => `
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:var(--radius)">
+            <span class="sb-cable ${c.type}">${c.type === 'xlr' ? 'XLR' : c.type === 'rca' ? 'RCA' : c.type === 'trs' ? 'TRS' : c.type === 'jack' ? 'JACK' : c.type === 'power' ? '230V' : 'ETH'}</span>
+            <span style="font-size:12px;color:var(--text2)">${c.desc}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="alert alert-warn" style="margin-top:10px"><span class="alert-icon">⚠️</span><div><strong>Kontrolli kaablite pikkust!</strong><p>Mõõda vahemaad enne. XLR: kuni 100m ilma mürata. RCA: max 5m. 3.5mm: max 3m.</p></div></div>
+    `
+  });
+
+  // ══════════════════════════
+  // SAMM 3 — Toide VÄLJA (enne ühendamist)
+  // ══════════════════════════
+  steps.push({
+    title: 'Kõik seadmed VÄLJA enne ühendamist',
+    badge: 'Ohutusnõue',
+    color: 'badge-red',
+    content: `
+      <div class="alert alert-danger"><span class="alert-icon">🚨</span><div><strong>KOHUSTUSLIK — kõik seadmed peavad olema VÄLJA lülitatud enne kaablite ühendamist</strong><p>Ühendamine sisselülitatud seadmetega võib põhjustada: kõlarites "pop" plahvatus, HF-draiveri läbipõlemine, võimendi kahjustus.</p></div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px">
+        ${hasRCF ? `<div class="card2" style="text-align:center"><div style="font-size:20px">🔊</div><div style="font-size:12px;color:var(--text2)">RCF 935-A × 2</div><div style="font-size:11px;color:var(--red)">VÄLJA</div></div>` : ''}
+        ${hasActiveSub ? `<div class="card2" style="text-align:center"><div style="font-size:20px">💥</div><div style="font-size:12px;color:var(--text2)">Subwoofer</div><div style="font-size:11px;color:var(--red)">VÄLJA</div></div>` : ''}
+        ${hasPA2 ? `<div class="card2" style="text-align:center"><div style="font-size:20px">🎛️</div><div style="font-size:12px;color:var(--text2)">DBX PA2</div><div style="font-size:11px;color:var(--red)">VÄLJA</div></div>` : ''}
+        ${hasMixer ? `<div class="card2" style="text-align:center"><div style="font-size:20px">🎚️</div><div style="font-size:12px;color:var(--text2)">MG10XU</div><div style="font-size:11px;color:var(--red)">VÄLJA</div></div>` : ''}
+        ${hasDJ ? `<div class="card2" style="text-align:center"><div style="font-size:20px">🎵</div><div style="font-size:12px;color:var(--text2)">DJ kontroller</div><div style="font-size:11px;color:var(--red)">VÄLJA</div></div>` : ''}
+      </div>
+    `
+  });
+
+  // ══════════════════════════
+  // SAMM 4 — DJ kontroller → Mikser
+  // ══════════════════════════
+  if (hasDJ && hasMixer) {
+    let djContent = '';
+    if (has('flx10')) djContent += `
+      <div class="sb-node-row">
+        <div class="sb-node src">DDJ-FLX10<br><small>MASTER OUT L/R</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR × 2</span></div>
+        <div class="sb-node mixer">MG10XU<br><small>CH1 (L) + CH2 (R)</small></div>
+      </div>
+      <div class="pr"><span class="pr-label">FLX10 Master tase</span><span class="pr-val">70-80%</span></div>
+      <div class="pr"><span class="pr-label">MG10XU CH1/2 seadistus</span><span class="pr-val">LINE sisend, Gain 0dB, EQ flat</span></div>
+      <div class="pr"><span class="pr-label">Channel fader</span><span class="pr-val">0dB (unity)</span></div>
+    `;
+    if (has('flx4')) djContent += `
+      <div class="sb-node-row" style="margin-top:8px">
+        <div class="sb-node src">DDJ-FLX4<br><small>MASTER OUT (RCA)</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable rca">RCA→TRS adapter</span></div>
+        <div class="sb-node mixer">MG10XU<br><small>CH3/4 STEREO</small></div>
+      </div>
+      <div class="pr"><span class="pr-label">FLX4 Master tase</span><span class="pr-val">80%</span></div>
+      <div class="pr"><span class="pr-label">MG10XU CH3/4 gain</span><span class="pr-val">+6dB (RCA on -10dBV, kompenseeri)</span></div>
+      <div class="alert alert-warn" style="margin-top:6px"><span class="alert-icon">⚠️</span><div><p>RCA kaabel on unbalanced — hoia lühike (max 5m). Müra on normalne pikemate kaablitega.</p></div></div>
+    `;
+    if (has('hercules')) djContent += `
+      <div class="sb-node-row" style="margin-top:8px">
+        <div class="sb-node src">Hercules<br><small>3.5mm stereo</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable jack">3.5mm→RCA adapt</span></div>
+        <div class="sb-node mixer">MG10XU<br><small>CH3/4</small></div>
+      </div>
+      <div class="pr"><span class="pr-label">Hercules master</span><span class="pr-val">80%</span></div>
+      <div class="pr"><span class="pr-label">MG10XU gain</span><span class="pr-val">+10dB (consumer tase, vajab rohkem)</span></div>
+      <div class="alert alert-danger" style="margin-top:6px"><span class="alert-icon">🚨</span><div><p>Hercules 3.5mm on consumer tase — kõrge müratase. Ainult harjutamiseks, mitte professionaalseks PA väljundiks.</p></div></div>
+    `;
+    steps.push({ title: 'DJ kontroller → Mikser', badge: 'Samm', color: 'badge-purple', content: djContent });
+  }
+
+  // ══════════════════════════
+  // SAMM 5 — Mikrofon → Mikser
+  // ══════════════════════════
+  if (hasMic && hasMixer) {
+    let micContent = '';
+    if (hasQLXD) micContent += `
+      <div class="sb-node-row">
+        <div class="sb-node mic">Shure QLXD24<br><small>XLR OUT</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR</span></div>
+        <div class="sb-node mixer">MG10XU<br><small>CH1 MIC IN</small></div>
+      </div>
+      <div class="pr"><span class="pr-label">QLXD24 output</span><span class="pr-val">0 dBu (vaikimisi)</span></div>
+      <div class="pr"><span class="pr-label">MG10XU LOW CUT</span><span class="pr-val green">ON — kohustuslik!</span></div>
+      <div class="pr"><span class="pr-label">Gain</span><span class="pr-val">30-45 dB — alusta 30, tõsta aeglaselt</span></div>
+      <div class="pr"><span class="pr-label">LOW (80Hz)</span><span class="pr-val">-2 kuni -4 dB</span></div>
+      <div class="pr"><span class="pr-label">LO-MID (~300Hz)</span><span class="pr-val">-2 dB</span></div>
+      <div class="pr"><span class="pr-label">HIGH (12kHz)</span><span class="pr-val">+1 kuni +2 dB</span></div>
+      <div class="pr"><span class="pr-label">Fader</span><span class="pr-val">0 dB (unity)</span></div>
+      <div class="alert alert-info" style="margin-top:6px"><span class="alert-icon">ℹ️</span><div><p>Shure QLXD24: squelch=Auto, diversity=ON, RF meter peab näitama min 2 rohelist tulpa.</p></div></div>
+    `;
+    if (has('mic_wired')) micContent += `
+      <div class="sb-node-row" style="margin-top:8px">
+        <div class="sb-node mic">Traadiga mikrofon</div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR</span></div>
+        <div class="sb-node mixer">MG10XU<br><small>CH1 XLR IN</small></div>
+      </div>
+      <div class="pr"><span class="pr-label">LOW CUT</span><span class="pr-val green">ON</span></div>
+      <div class="pr"><span class="pr-label">Gain</span><span class="pr-val">40-55 dB (dünaamiline mikrofon vajab rohkem)</span></div>
+      <div class="pr"><span class="pr-label">Kondensaatormikrofon?</span><span class="pr-val">Phantom 48V → ON MG10XU-l</span></div>
+    `;
+    steps.push({ title: 'Mikrofon → Mikser', badge: 'Samm', color: 'badge-teal', content: micContent });
+  }
+
+  // ══════════════════════════
+  // SAMM 6 — Mikser → PA2
+  // ══════════════════════════
+  if (hasMixer && hasPA2) {
+    steps.push({
+      title: 'Mikser → DBX PA2',
+      badge: 'Samm',
+      color: 'badge-gold',
+      content: `
+        <div class="sb-node-row">
+          <div class="sb-node mixer">MG10XU<br><small>MAIN OUT L/R (XLR)</small></div>
+          <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR × 2</span></div>
+          <div class="sb-node proc">DBX PA2<br><small>IN L/R</small></div>
+        </div>
+        <div class="pr"><span class="pr-label">MG10XU MAIN fader</span><span class="pr-val">0 dB (unity)</span></div>
+        <div class="pr"><span class="pr-label">PA2 input tase</span><span class="pr-val">Nominaal -18dBu — roheline LED</span></div>
+        <div class="pr"><span class="pr-label">PA2 input meter</span><span class="pr-val green">Roheline = OK | Punane = liiga kõrge</span></div>
+        <div class="alert alert-info" style="margin-top:6px"><span class="alert-icon">💡</span><div><p>Mängi muusikat normaalsel üritusetasemel ja vaata PA2 input metrit. Peaks püsima rohelises, punane ainult harva piikidel.</p></div></div>
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // SAMM 7 — PA2 → Kõlarid
+  // ══════════════════════════
+  if (hasPA2 && hasRCF) {
+    let spkContent = `
+      <div class="sb-node-row">
+        <div class="sb-node proc">DBX PA2<br><small>OUT 1 (L)</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR</span></div>
+        <div class="sb-node spk">RCF 935-A<br><small>VASAK — XLR IN</small></div>
+      </div>
+      <div class="sb-node-row">
+        <div class="sb-node proc">DBX PA2<br><small>OUT 2 (R)</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR</span></div>
+        <div class="sb-node spk">RCF 935-A<br><small>PAREM — XLR IN</small></div>
+      </div>
+    `;
+    if (hasActiveSub) spkContent += `
+      <div class="sb-node-row" style="margin-top:4px">
+        <div class="sb-node proc">DBX PA2<br><small>OUT 3 (sub L)</small></div>
+        <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR</span></div>
+        <div class="sb-node spk" style="border-color:var(--red);color:var(--red)">Subwoofer<br><small>XLR IN</small></div>
+      </div>
+    `;
+    spkContent += `
+      <div class="pr" style="margin-top:10px"><span class="pr-label">RCF 935-A input sensitivity</span><span class="pr-val green">Unity gain positsioon</span></div>
+      <div class="pr"><span class="pr-label">RCF DSP preset</span><span class="pr-val">Flat (PA2 teeb EQ)</span></div>
+      <div class="alert alert-danger" style="margin-top:6px"><span class="alert-icon">🚨</span><div><strong>RCF + PA2 crossover reegel</strong><p>PA2 XOVER = Full Range (Bypass). RCF 935-A-l on sisseehitatud crossover ~1.4kHz. PA2 2-way crossover ON + RCF = VALE! Topelt crossover kahjustab HF-draiverit.</p></div></div>
+    `;
+    steps.push({ title: 'DBX PA2 → RCF Kõlarid', badge: 'Samm', color: 'badge-green', content: spkContent });
+  }
+
+  // ══════════════════════════
+  // SAMM 8 — Monitor
+  // ══════════════════════════
+  if (hasMonitor && hasMixer) {
+    steps.push({
+      title: 'Monitor mix — LD Systems PPA 2',
+      badge: 'Samm',
+      color: 'badge-orange',
+      content: `
+        <div class="sb-node-row">
+          <div class="sb-node mixer">MG10XU<br><small>AUX SEND 1</small></div>
+          <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable jack">Jack 6.3mm</span></div>
+          <div class="sb-node mon">LD PPA 2<br><small>INPUT</small></div>
+          <div style="text-align:center"><span class="sb-arrow">→</span></div>
+          <div class="sb-node mon">Kõrvaklapid<br><small>lauljal</small></div>
+        </div>
+        <div class="pr"><span class="pr-label">AUX mode</span><span class="pr-val green">PRE-FADER (kohustuslik)</span></div>
+        <div class="pr"><span class="pr-label">AUX send CH1 (mikrofon)</span><span class="pr-val">-6 dB alguses</span></div>
+        <div class="pr"><span class="pr-label">AUX send DJ kanal</span><span class="pr-val">-12 dB alguses</span></div>
+        <div class="alert alert-green" style="margin-top:6px"><span class="alert-icon">✅</span><div><p>Pre-fader = monitor ei muutu kui PA faiderit reguleerid. Laulja saab oma taset PPA 2-l ise seadistada.</p></div></div>
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // SAMM 9 — PA2 seadistus
+  // ══════════════════════════
+  if (hasPA2) {
+    const xoverLine = hasSub
+      ? `<div class="pr"><span class="pr-label">XOVER tüüp</span><span class="pr-val">2-way + Sub</span></div>
+         <div class="pr"><span class="pr-label">Sub LPF</span><span class="pr-val">80Hz, LR24</span></div>
+         <div class="pr"><span class="pr-label">Topp HPF</span><span class="pr-val">80Hz, LR24</span></div>`
+      : `<div class="pr"><span class="pr-label">XOVER tüüp</span><span class="pr-val green">Full Range / Bypass</span></div>
+         <div class="pr"><span class="pr-label">HPF (kaitseks)</span><span class="pr-val">80Hz, LR24</span></div>
+         <div class="pr"><span class="pr-label">LPF</span><span class="pr-val">OFF</span></div>`;
+    const fbxLine = hasMic
+      ? `<div class="pr"><span class="pr-label">FBX</span><span class="pr-val green">ON — kohustuslik mikrofoniga!</span></div>
+         <div class="pr"><span class="pr-label">FBX tüüp</span><span class="pr-val">Lift (seadistamisel) → Fixed</span></div>
+         <div class="pr"><span class="pr-label">FBX sensitivity</span><span class="pr-val">Medium</span></div>`
+      : `<div class="pr"><span class="pr-label">FBX</span><span class="pr-val">OFF (pole mikrofoni)</span></div>`;
+    steps.push({
+      title: 'DBX PA2 seadistamine',
+      badge: 'Konfigureerimine',
+      color: 'badge-gold',
+      content: `
+        <div class="pr"><span class="pr-label">1. Wizard</span><span class="pr-val">Käivita WIZARD → vali Stereo Full Range</span></div>
+        ${xoverLine}
+        ${fbxLine}
+        <div class="pr"><span class="pr-label">Limiter threshold</span><span class="pr-val">-3dBFS (siseruum) / -6dBFS (väljas)</span></div>
+        <div class="pr"><span class="pr-label">Stereo Link</span><span class="pr-val green">ON</span></div>
+        <div class="pr"><span class="pr-label">GEQ</span><span class="pr-val">Flat kuni AutoEQ on tehtud</span></div>
+        ${hasSub ? `<div class="pr"><span class="pr-label">Sub polaarsus</span><span class="pr-val">0° — testi mono signaali</span></div>` : ''}
+        ${hasWifi ? `<div class="pr"><span class="pr-label">WiFi app</span><span class="pr-val">Ühenda telefon GL-SFT1200 → ava DriveRack PA2 app</span></div>` : ''}
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // SAMM 10 — AutoEQ
+  // ══════════════════════════
+  if (hasPA2 && hasRTAM) {
+    steps.push({
+      title: 'AutoEQ — ruumi mõõtmine RTA-M-ga',
+      badge: 'Konfigureerimine',
+      color: 'badge-teal',
+      content: `
+        <div class="sb-node-row">
+          <div class="sb-node mic">DBX RTA-M</div>
+          <div style="text-align:center"><span class="sb-arrow">→</span><span class="sb-cable xlr">XLR otse!</span></div>
+          <div class="sb-node proc">PA2<br><small>RTA-M sisend tagaküljel</small></div>
+        </div>
+        <div class="steps" style="margin-top:8px">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Aseta RTA-M publiku keskmesse, 1.2-1.5m kõrgus</strong><span>Mitte lava äärde, mitte nurka, mitte kõlari ette</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>PA2 → WIZARD → RTA → AutoEQ → Start</strong><span>PA2 mängib pink noise ~30 sekundit. Ära liiguta midagi!</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Kontrolli tulemust</strong><span>Ükski GEQ bänd ei tohi olla üle ±6dB. Kui on → kõlarite asendiprobleem.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>STORE → salvesta preset nimega</strong><span>Nt "Siseruum 2025" või "Väljas Lutsufest"</span></div></div>
+        </div>
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // SAMM 11 — FBX seadistus
+  // ══════════════════════════
+  if (hasPA2 && hasMic) {
+    steps.push({
+      title: 'FBX Feedback seadistamine',
+      badge: 'Konfigureerimine',
+      color: 'badge-red',
+      content: `
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>PA2 → FEEDBACK → Type: LIFT, Sensitivity: Medium</strong><span>Enne mikrofoni kasutamist</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Hoia mikrofon tavapäraseses kasutuspositsioonis</strong><span>Suunaga kõlaritest eemale (superkardioid!)</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Tõsta mikserist gain aeglaselt</strong><span>PA2 hakkab automaatselt filtreid panema</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>4-6 filtrit paigas → lülita Type: FIXED</strong><span>Filtrid jäävad paika. Kui rohkem kui 8 filtrit → EQ probleem</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Pärast FBX: tee AutoEQ (kui RTA-M olemas)</strong><span>FBX enne AutoEQ-d alati</span></div></div>
+        </div>
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // SAMM 12 — Sisselülitusjärjekord
+  // ══════════════════════════
+  const powerOrder = [];
+  if (hasDJ) powerOrder.push('DJ kontroller / allikas');
+  if (hasMixer) powerOrder.push('Yamaha MG10XU mikser');
+  if (hasQLXD) powerOrder.push('Shure QLXD24 vastuvõtja');
+  if (hasPA2) powerOrder.push('DBX DriveRack PA2');
+  if (hasActiveSub) powerOrder.push('Subwoofer');
+  if (hasRCF) powerOrder.push('RCF ART 935-A × 2 (VIIMASED!)');
+
+  steps.push({
+    title: 'Sisselülitusjärjekord',
+    badge: 'Kriitiline',
+    color: 'badge-red',
+    content: `
+      <div class="alert alert-danger"><span class="alert-icon">🚨</span><div><strong>Järjekord on KRIITILINE — vale järjekord = kõlarite kahjustus</strong></div></div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+        ${powerOrder.map((d,i) => `
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg3);border-radius:var(--radius);border-left:3px solid ${i === powerOrder.length-1 ? 'var(--red)' : 'var(--blue)'}">
+            <span style="font-size:18px;font-weight:700;color:${i === powerOrder.length-1 ? 'var(--red)' : 'var(--blue2)'};min-width:24px">${i+1}</span>
+            <span style="font-size:13px;color:var(--text2)">${d}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div style="margin-top:10px">
+        <div style="font-size:12px;font-weight:600;color:var(--text3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Väljalülitusjärjekord (vastupidi):</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          ${[...powerOrder].reverse().map((d,i) => `<span style="background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:4px 8px;font-size:11px;color:var(--text3)">${i+1}. ${d}</span>`).join('')}
+        </div>
+      </div>
+    `
+  });
+
+  // ══════════════════════════
+  // SAMM 13 — Subwoofer spetsiifilised seaded
+  // ══════════════════════════
+  if (hasSub && hasPA2) {
+    steps.push({
+      title: 'Subwoofer seadistamine',
+      badge: 'Lisa seadistus',
+      color: 'badge-orange',
+      content: `
+        ${hasActiveSub ? `
+        <div class="pr"><span class="pr-label">PA2 XOVER tüüp</span><span class="pr-val">2-way + Sub</span></div>
+        <div class="pr"><span class="pr-label">Sub LPF</span><span class="pr-val">80Hz, LR24 — peab olema SAMA mis topp HPF</span></div>
+        <div class="pr"><span class="pr-label">Topp HPF</span><span class="pr-val">80Hz, LR24</span></div>
+        <div class="pr"><span class="pr-label">Sub polaarsus</span><span class="pr-val">0° (testi mõlemat)</span></div>
+        <div class="pr"><span class="pr-label">Sub delay</span><span class="pr-val">0-3ms (kui sub on topp-kõlarist eespool)</span></div>
+        <div class="pr"><span class="pr-label">PA2 OUT 1/2</span><span class="pr-val">→ RCF topp-kõlarid</span></div>
+        <div class="pr"><span class="pr-label">PA2 OUT 3/4</span><span class="pr-val">→ Subwoofer IN</span></div>
+        <div class="pr"><span class="pr-label">Sub limiter</span><span class="pr-val">-6 dBFS (rangem kui topp)</span></div>
+        ` : ''}
+        ${hasPassiveSub ? `
+        <div class="alert alert-warn"><span class="alert-icon">⚠️</span><div><strong>Passiivne subwoofer vajab eraldi võimendit</strong><p>PA2 OUT 3/4 → Võimendi XLR IN → Passiivne subwoofer. Võimendi peab sobituma subwoofer impedantsiga (4Ω või 8Ω).</p></div></div>
+        <div class="pr"><span class="pr-label">PA2 → Võimendi</span><span class="pr-val">XLR balanced</span></div>
+        <div class="pr"><span class="pr-label">Võimendi → Sub</span><span class="pr-val">Speaker kaabel (ei ole XLR!)</span></div>
+        ` : ''}
+        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><strong>Polaarsuse test</strong><p>Mängi mono bassi signaali. Kõnni topp-kõlari ja sub vahel. Kui bass kaob = vale polaarsus. Keera sub polaarsus 180°.</p></div></div>
+        <div class="pr"><span class="pr-label">Optimaalne sub positsioon</span><span class="pr-val">Lava ees kesk, topp-kõlarite vahel / all</span></div>
+        <div class="pr"><span class="pr-label">Sub vs topp tase</span><span class="pr-val">Sub -3 kuni -6dB võrreldes toppidega (alusta)</span></div>
+      `
+    });
+  }
+
+  // ══════════════════════════
+  // RENDER
+  // ══════════════════════════
+  const selectedNames = [];
+  if (has('pa2')) selectedNames.push('DBX PA2');
+  if (has('mg10xu')) selectedNames.push('MG10XU');
+  if (has('rcf935')) selectedNames.push('RCF 935-A ×2');
+  if (has('sub_generic')) selectedNames.push('Subwoofer (akt)');
+  if (has('sub_passive')) selectedNames.push('Subwoofer (pass)');
+  if (has('flx10')) selectedNames.push('DDJ-FLX10');
+  if (has('flx4')) selectedNames.push('DDJ-FLX4');
+  if (has('hercules')) selectedNames.push('Hercules');
+  if (has('laptop')) selectedNames.push('Laptop');
+  if (has('qlxd24')) selectedNames.push('Shure QLXD24');
+  if (has('mic_wired')) selectedNames.push('Traadiga mik');
+  if (has('ldppa2')) selectedNames.push('LD PPA 2');
+  if (has('rtam')) selectedNames.push('RTA-M');
+  if (has('wifi')) selectedNames.push('GL-SFT1200');
+
+  document.getElementById('sb-result-title').textContent = 'Seadistus: ' + selectedNames.join(' + ');
+
+  const html = steps.map((s, i) => `
+    <div class="sb-step-card">
+      <div class="sb-step-num">Samm ${i+1} — ${s.title}</div>
+      <div style="margin-top:14px">
+        <span class="badge ${s.color}">${s.badge}</span>
+        ${s.content}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('sb-result-content').innerHTML = html;
+  document.getElementById('sb-select-view').style.display = 'none';
+  document.getElementById('sb-result-view').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+  calcDelay();
+  calcSPL();
+  calcGain();
+  calcBat();
+  setEQPreset('flat', null);
+  updateCount();
+};
+</script>
+</body>
+</html>
