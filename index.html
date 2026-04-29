@@ -278,6 +278,7 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
       <button class="nav-btn active" onclick="showSection('builder')" data-s="builder"><span class="ni">⚙️</span>Setup Builder</button>
       <button class="nav-btn" onclick="showSection('overview')" data-s="overview"><span class="ni">🏠</span>Ülevaade</button>
       <button class="nav-btn" onclick="showSection('devices')" data-s="devices"><span class="ni">📦</span>Seadmed</button>
+      <button class="nav-btn" onclick="showSection('software')" data-s="software"><span class="ni">💻</span>Tarkvara</button>
       <button class="nav-btn" onclick="showSection('signal')" data-s="signal"><span class="ni">🔗</span>Signaalahel</button>
       <button class="nav-btn" onclick="showSection('pa2')" data-s="pa2"><span class="ni">🎛️</span>PA2 Seadistus</button>
       <button class="nav-btn" onclick="showSection('calc')" data-s="calc"><span class="ni">🧮</span>Kalkulaatorid</button>
@@ -397,8 +398,14 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
         </button>
         <button class="sb-item" id="sbi-laptop" onclick="sbTap('laptop')">
           <span class="sbi-icon">💻</span>
-          <span class="sbi-name">Laptop / Telefon</span>
-          <span class="sbi-sub">3.5mm / RCA väljund</span>
+          <span class="sbi-name">Laptop (Windows)</span>
+          <span class="sbi-sub">USB audio / 3.5mm / XLR helikaardiga</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-phone" onclick="sbTap('phone')">
+          <span class="sbi-icon">📱</span>
+          <span class="sbi-name">Android telefon</span>
+          <span class="sbi-sub">USB-C / 3.5mm / Bluetooth</span>
           <div class="sbi-ck"></div>
         </button>
       </div>
@@ -675,6 +682,171 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
     <div class="alert alert-warn">
       <span class="alert-icon">⚠️</span>
       <div><strong>Consumer tase — ei sobi peamiseks PA väljundiks</strong><p>3.5mm väljund on unbalanced, kõrge müratase. Kasuta ainult harjutamiseks või kõrvaklappide monitoriks. Mikserisse ühendades: 3.5mm → 2× RCA adapter, gain +10dB, müra on kuulda.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TARKVARA
+═══════════════════════════════════════════ -->
+<div class="section" id="s-software">
+  <div class="sec-header">
+    <div class="sec-title">💻 Tarkvara & ühendused</div>
+    <div class="sec-desc">Laptop ja Android telefon PA süsteemiga — kõik ühendusviisid ja optimaalsed seaded.</div>
+  </div>
+
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showItab('sw','android')">Android telefon</button>
+  </div>
+
+  <div class="itab-content active" id="sw-android">
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">📱</span>Android telefon → PA süsteem — täielik juhend</div>
+      <div class="badge badge-blue">Lenovo Legion 5 Pro asendaja / varuseade</div>
+
+      <div class="inner-tabs" style="margin-top:12px">
+        <button class="itab active" onclick="showItab('and','usbc')">USB-C (parim)</button>
+        <button class="itab" onclick="showItab('and','jack35')">3.5mm jack</button>
+        <button class="itab" onclick="showItab('and','bt')">Bluetooth</button>
+        <button class="itab" onclick="showItab('and','apps')">DJ äpid</button>
+      </div>
+
+      <div class="itab-content active" id="and-usbc">
+        <div class="card2">
+          <div class="badge badge-green">Parim lahendus — USB-C DAC adapter</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Hanki USB-C → 3.5mm DAC adapter (mitte odav China!)</strong><span>Soovituslik: Apple USB-C to 3.5mm (12€), Anker USB-C Audio Adapter (15€), Ugreen USB-C DAC (12€). Need sisaldavad korralikku DAC kiipi.</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>USB-C DAC → 3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Ühendusahel: Telefon USB-C → DAC adapter → 3.5mm pistik → Y-kaabel (3.5mm→2×RCA) → MG10XU stereo input.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>MG10XU seaded Android-iga</strong><span>CH3/4 LINE sisend. Gain: +8 kuni +10 dB (telefon on -10dBV consumer tase). LOW CUT: OFF (muusika). Fader: 0dB.</span></div></div>
+            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Android helitugevus: 80%</strong><span>Mitte 100% — moonutus. 80% annab headroom reguleerimiseks.</span></div></div>
+            <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Android seaded enne üritust</strong><span>Do Not Disturb: ON. Auto-rotate: OFF. Screen timeout: Never (laadimisel). Lennurežiim: OFF (kõned häirivad).</span></div></div>
+          </div>
+          <div class="card2" style="margin-top:8px">
+            <div class="badge badge-gold">Alternatiiv — USB-C otse helikaardiga</div>
+            <div class="pr"><span class="pr-label">Seade</span><span class="pr-val">Behringer UCA202 + OTG adapter</span></div>
+            <div class="pr"><span class="pr-label">Ühendus</span><span class="pr-val">Android USB-C → OTG → USB-B → UCA202 → RCA → MG10XU</span></div>
+            <div class="pr"><span class="pr-label">Eeldus</span><span class="pr-val">Android toetab USB Audio Class (enamik Android 5.0+)</span></div>
+            <div class="pr"><span class="pr-label">Eelis</span><span class="pr-val green">Parem müratase kui DAC adapteriga</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="and-jack35">
+        <div class="card2">
+          <div class="badge badge-gold">3.5mm jack — kiire lahendus</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Kui telefonil on 3.5mm pesa (Samsung Galaxy A seeria jt). Kasuta kvaliteetset adapterit (Hosa CMS-203).</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>MG10XU gain: +8 kuni +12 dB</strong><span>Telefoni 3.5mm on madala tasemega. Kompenseeri mikseris.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Android: lülita EQ välja</strong><span>Settings → Sound → Sound quality and effects → kõik välja. Muidu moonutab signaali enne mikseri jõudmist.</span></div></div>
+            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Kaabli max pikkus: 2m</strong><span>Pikem kaabel lisab müra. Hoia lühike või kasuta USB-C DAC lahendust pikema vahemaa jaoks.</span></div></div>
+          </div>
+          <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><p>Uuematel Android telefonidel (USB-C only) puudub 3.5mm pesa. Kasuta USB-C DAC adapterit.</p></div></div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="and-bt">
+        <div class="card2">
+          <div class="badge badge-red">Bluetooth — ainult hädaolukorras</div>
+          <div class="alert alert-danger"><span class="alert-icon">🚨</span><div><strong>Bluetooth latentsus 40-200ms — PA süsteemis EI SOBI</strong><p>Video ei sünkroniseeru heliga. DJ mixis on beat täielikult valesti. Kasuta ainult taustmuusika autoplay jaoks kus timing pole kriitiline.</p></div></div>
+          <div class="steps" style="margin-top:8px">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Bluetooth → JBL320 otse (parim BT lahendus)</strong><span>Kui kasutad BT-d — ühenda otse JBL320-sse, mitte PA süsteemi. JBL320 on Bluetooth kõlar — see on tema loomulik kasutus.</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>BT kodek: LDAC või aptX (kui saadaval)</strong><span>Android Settings → Bluetooth → Developer options → Audio codec → LDAC (Sony) või aptX. Madalam latentsus ja parem kvaliteet.</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="and-apps">
+        <div class="card2">
+          <div class="badge badge-blue">Android DJ äpid PA süsteemiga</div>
+          <table class="tbl">
+            <tr><th>Äpp</th><th>Hind</th><th>Parim kasutus</th><th>PA ühilduvus</th></tr>
+            <tr><td>Rekordbox (Pioneer)</td><td class="val-green">Tasuta</td><td class="val">Library browse, USB export</td><td class="val">USB-C DAC väljundiga</td></tr>
+            <tr><td>Spotify</td><td class="val">Subscription</td><td class="val">Taustmuusika autoplay</td><td class="val-green">USB-C DAC → MG10XU</td></tr>
+            <tr><td>Poweramp</td><td class="val">~6€</td><td class="val">Kohaliku muusika mängimine</td><td class="val-green">USB Audio toetus, madal latentsus</td></tr>
+            <tr><td>VLC Android</td><td class="val-green">Tasuta</td><td class="val">Kõik formaadid, playlist</td><td class="val-green">USB Audio toetus</td></tr>
+            <tr><td>DJ Studio 5</td><td class="val-green">Tasuta</td><td class="val">Lihtne DJ mix telefonist</td><td class="val">3.5mm/USB-C väljund</td></tr>
+            <tr><td>edjing Mix</td><td class="val">Freemium</td><td class="val">DJ mix, Spotify integratsioon</td><td class="val">3.5mm/USB-C väljund</td></tr>
+          </table>
+          <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Parima kvaliteedi jaoks: Poweramp + USB Audio mode + Behringer UCA202 OTG → MG10XU. See annab 24bit/96kHz väljundi otse mikserisse.</p></div></div>
+        </div>
+
+        <div class="card2" style="margin-top:8px">
+          <div class="badge badge-gold">Android optimiseerimine PA kasutuseks</div>
+          <div class="pr"><span class="pr-label">Do Not Disturb</span><span class="pr-val green">ON — Priority only</span></div>
+          <div class="pr"><span class="pr-label">Screen timeout</span><span class="pr-val green">Never (laadimisel)</span></div>
+          <div class="pr"><span class="pr-label">Auto-brightness</span><span class="pr-val">OFF — fikseeritud</span></div>
+          <div class="pr"><span class="pr-label">Background app refresh</span><span class="pr-val red">OFF muusikäpile mittevajalikele</span></div>
+          <div class="pr"><span class="pr-label">Sound effects</span><span class="pr-val red">OFF (Settings → Sound)</span></div>
+          <div class="pr"><span class="pr-label">Equalizer / Dolby</span><span class="pr-val red">OFF — PA2 teeb EQ</span></div>
+          <div class="pr"><span class="pr-label">Developer options → USB audio</span><span class="pr-val green">Disable absolute volume: ON</span></div>
+          <div class="pr"><span class="pr-label">Laadija</span><span class="pr-val green">Alati laadimas ürituse ajal</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-icon">💻</span>Windows Laptop → PA — täiendatud juhend</div>
+      <div class="inner-tabs" style="margin-top:12px">
+        <button class="itab active" onclick="showItab('lpt','usb')">USB helikaart (parim)</button>
+        <button class="itab" onclick="showItab('lpt','mg10xu_usb')">MG10XU USB (parim)</button>
+        <button class="itab" onclick="showItab('lpt','jack')">3.5mm jack</button>
+        <button class="itab" onclick="showItab('lpt','spotify')">Spotify / meedia</button>
+      </div>
+
+      <div class="itab-content active" id="lpt-usb">
+        <div class="card2">
+          <div class="badge badge-green">USB helikaart → MG10XU → PA2 → RCF</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi USB helikaardi draiver (Focusrite/Behringer)</strong><span>Focusrite: focusrite.com → Downloads → Scarlett Solo 3rd Gen driver. Behringer UMC22: behringer.com → UMC22 → Driver. Reboot pärast installimist.</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Windows Sound → Playback → USB helikaart → Set as Default</strong><span>Kõik helid lähevad nüüd helikaardi kaudu välja. Sample rate: 48000 Hz. Bit depth: 24 bit.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>USB helikaart XLR/TRS OUT → MG10XU CH1/2</strong><span>Focusrite Scarlett Solo: LINE OUT TRS 6.3mm → MG10XU CH1 (L) + CH2 (R). Gain: 0dB (line level). Fader: 0dB.</span></div></div>
+            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Windows Volume: 75-80%</strong><span>Ära pane 100% — moonutus. Reguleerimisruum jäta allikale ja mikserile.</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="lpt-mg10xu_usb">
+        <div class="card2">
+          <div class="badge badge-green">MG10XU USB otse laptopiga — parim lahendus</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi Yamaha Steinberg USB draiver</strong><span>yamaha.com → MG10XU → Downloads → Steinberg USB Driver Windows. Installi ENNE MG10XU ühendamist. Sample rate: 48000 Hz.</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>USB-B kaabel: Laptop → MG10XU</strong><span>Tavaline "printer kaabel" USB-A → USB-B. Laptop USB-A port → MG10XU USB-B port tagaküljel.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Windows Sound → Playback → Yamaha Steinberg USB → Default</strong><span>Spotify, YouTube, meediamängija — kõik lähevad MG10XU kaudu välja automaatselt.</span></div></div>
+            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>MG10XU: USB/LINE nupp → USB positsioon</strong><span>CH1/2 peal on USB nupp. Lükka USB peale. Gain: 0dB. Fader: 0dB. Signaal läheb otse PA2-sse.</span></div></div>
+            <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Windows Volume: 80%</strong><span>Jäta headroom. MG10XU fader reguleerib lõpliku helitugevuse.</span></div></div>
+          </div>
+          <div class="alert alert-green" style="margin-top:8px"><span class="alert-icon">✅</span><div><strong>See on ideaalne lahendus</strong><p>MG10XU on korraga mikser + helikaart + USB interface. Eraldi helikaarti pole vaja. Kõige lihtsam ja puhtaim lahendus.</p></div></div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="lpt-jack">
+        <div class="card2">
+          <div class="badge badge-gold">3.5mm → MG10XU (hädavariant)</div>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Lenovo Legion 3.5mm combo jack → adapter → MG10XU stereo RCA sisend. Max kaabli pikkus 2m.</span></div></div>
+            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Windows: Realtek Audio → disable enhancements</strong><span>Sound → Realtek → Properties → Enhancements → Disable all. Muidu Windows töötleb heli ja lisab latentsust.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>MG10XU CH3/4 gain: +6 dB</strong><span>Laptop 3.5mm on -10dBV consumer tase. Kompenseeri +6dB mikseris.</span></div></div>
+          </div>
+          <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><p>Kasuta ainult kui USB ei ole võimalik. Müratase on kõrgem kui USB lahendusega.</p></div></div>
+        </div>
+      </div>
+
+      <div class="itab-content" id="lpt-spotify">
+        <div class="card2">
+          <div class="badge badge-blue">Spotify / YouTube / meediamängija optimiseerimine</div>
+          <table class="tbl">
+            <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
+            <tr><td>Spotify quality</td><td class="val-green">Very High (320kbps)</td><td>Parim kvaliteet PA süsteemis</td></tr>
+            <tr><td>Spotify normalization</td><td class="val-red">OFF</td><td>PA2 limiter teeb seda</td></tr>
+            <tr><td>Windows EQ</td><td class="val-red">OFF</td><td>PA2 GEQ teeb EQ</td></tr>
+            <tr><td>Spatial audio</td><td class="val-red">OFF</td><td>Moonutab stereopilti</td></tr>
+            <tr><td>Windows Volume</td><td class="val">75-80%</td><td>Headroom moonutuse vältimiseks</td></tr>
+            <tr><td>Sample rate</td><td class="val-green">48000 Hz / 24bit</td><td>MG10XU Steinberg nõue</td></tr>
+            <tr><td>Exclusive mode</td><td class="val-green">ON</td><td>Rakendus võtab helikaardi üle</td></tr>
+            <tr><td>Background apps</td><td class="val-red">Sulge mittevajalikud</td><td>CPU headroom muusikale</td></tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1930,7 +2102,9 @@ function sbGenerate() {
   const settings = [];
   const warnings = [];
 
-  const hasDJ = hasAny('flx10','flx4','hercules','laptop');
+  const hasLaptop = has('laptop');
+  const hasPhone = has('phone');
+  const hasDJ = hasAny('flx10','flx4','hercules','laptop','phone');
   const hasMixer = has('mg10xu');
   const hasPA2 = has('pa2');
   const hasRCF = has('rcf935');
@@ -1952,6 +2126,9 @@ function sbGenerate() {
   if (has('flx4') && hasMixer) cables.push({type:'rca', qty:1, desc:'RCA stereo → 2× TRS 6.3mm adapter — DDJ-FLX4 Master OUT → MG10XU CH3/4'});
   if (has('hercules') && hasMixer) cables.push({type:'jack', qty:1, desc:'3.5mm stereo → 2× RCA adapter — Hercules → MG10XU'});
   if (has('laptop') && hasMixer) cables.push({type:'jack', qty:1, desc:'3.5mm → 2× RCA adapter — Laptop/telefon → MG10XU'});
+  if (hasPhone && hasMixer) cables.push({type:'jack', qty:1, desc:'USB-C → 3.5mm adapter + 3.5mm → 2×RCA — Android → MG10XU CH3/4'});
+  if (hasPhone && !hasMixer && hasPA2) cables.push({type:'jack', qty:1, desc:'USB-C DAC → TRS → XLR adapter — Android → DBX PA2 IN'});
+  if (hasPhone && !hasMixer && !hasPA2) cables.push({type:'jack', qty:1, desc:'USB-C → 3.5mm → 2×RCA — Android → JBL RCA IN (lühike kaabel!)'});
   if (hasMixer && hasPA2) cables.push({type:'xlr', qty:2, desc:'XLR (male→female) — MG10XU MAIN OUT L/R → DBX PA2 IN L/R'});
   if (!hasMixer && hasDJ && hasPA2) cables.push({type:'xlr', qty:2, desc:'XLR — DJ kontroller Master OUT → DBX PA2 IN L/R'});
   if (hasPA2 && hasRCF) cables.push({type:'xlr', qty:2, desc:'XLR (male→female) — DBX PA2 OUT 1/2 → RCF ART 935-A vasak/parem'});
@@ -2330,6 +2507,7 @@ function sbGenerate() {
   if (has('flx4')) selectedNames.push('DDJ-FLX4');
   if (has('hercules')) selectedNames.push('Hercules');
   if (has('laptop')) selectedNames.push('Laptop');
+  if (has('phone')) selectedNames.push('Android telefon');
   if (has('qlxd24')) selectedNames.push('Shure QLXD24');
   if (has('mic_wired')) selectedNames.push('Traadiga mik');
   if (has('ldppa2')) selectedNames.push('LD PPA 2');
