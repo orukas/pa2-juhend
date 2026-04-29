@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:sans-serif;padding:20px;background:#111;color:#fff}
+.sb-cb{display:none}
+.sb-item{display:block;background:#1a2235;border:2px solid #333;border-radius:10px;padding:14px;margin:8px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.sb-cb:checked + .sb-item{background:#0d3a6e;border-color:#1e90ff}
+#out{margin-top:20px;padding:12px;background:#1a2235;border-radius:8px;font-size:14px}
+#btn{width:100%;padding:14px;background:#334;color:#888;border:none;border-radius:8px;font-size:15px;margin-top:12px;cursor:not-allowed}
+#btn.ready{background:#1e90ff;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<h2>Setup Builder TEST v2</h2>
+
+<input type="checkbox" class="sb-cb" id="sbc-a">
+<label class="sb-item" for="sbc-a" onclick="upd()">🎛️ Seade A</label>
+
+<input type="checkbox" class="sb-cb" id="sbc-b">
+<label class="sb-item" for="sbc-b" onclick="upd()">🔊 Seade B</label>
+
+<input type="checkbox" class="sb-cb" id="sbc-c">
+<label class="sb-item" for="sbc-c" onclick="upd()">🎵 Seade C</label>
+
+<button id="btn" onclick="gen()">Genereeri</button>
+<div id="out">Vali vähemalt 2 seadet</div>
+
+<script>
+function upd(){
+  setTimeout(function(){
+    var checked = document.querySelectorAll('.sb-cb:checked');
+    var cnt = checked.length;
+    var btn = document.getElementById('btn');
+    var out = document.getElementById('out');
+    if(cnt >= 2){
+      btn.className = 'ready';
+      out.textContent = cnt + ' valitud — vajuta nuppu';
+    } else {
+      btn.className = '';
+      out.textContent = 'Vali vähemalt 2 seadet (praegu: ' + cnt + ')';
+    }
+  }, 10);
+}
+function gen(){
+  var checked = document.querySelectorAll('.sb-cb:checked');
+  if(checked.length < 2) return;
+  var ids = [];
+  for(var i=0;i<checked.length;i++) ids.push(checked[i].id.replace('sbc-',''));
+  document.getElementById('out').textContent = 'TÖÖTAB! Valitud: ' + ids.join(', ');
+}
+</script>
+</body>
+</html>

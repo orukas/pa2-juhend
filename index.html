@@ -233,14 +233,13 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
 
 /* ── SETUP BUILDER ── */
 .sb-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.sb-device{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:14px;cursor:pointer;transition:all .2s;position:relative;display:flex;flex-direction:column;gap:4px;user-select:none}
-.sb-device:hover{border-color:var(--border2);background:var(--bg4)}
-.sb-device.selected{background:var(--blue-dim);border-color:var(--blue)}
-.sb-device .sb-icon{font-size:22px}
-.sb-device .sb-name{font-size:13px;font-weight:600;color:var(--text)}
-.sb-device .sb-sub{font-size:11px;color:var(--text3)}
-.sb-device .sb-check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);background:var(--bg4);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .2s}
-.sb-device.selected .sb-check{background:var(--blue);border-color:var(--blue);color:#fff}
+.sb-item{display:block;width:100%;background:#111827;border:2px solid #1e3a5f;border-radius:12px;padding:14px;position:relative;cursor:pointer;text-align:left;color:#e8edf5;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.sb-item.on{background:#0d3a6e;border-color:#1e90ff}
+.sbi-icon{font-size:22px;display:block;margin-bottom:4px;pointer-events:none}
+.sbi-name{font-size:13px;font-weight:600;color:#e8edf5;display:block;margin-bottom:2px;pointer-events:none}
+.sbi-sub{font-size:11px;color:#64748b;display:block;pointer-events:none}
+.sbi-ck{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;border:2px solid #1e3a5f;background:#0a0e1a;font-size:12px;color:transparent;display:flex;align-items:center;justify-content:center;font-weight:700;pointer-events:none}
+.sb-item.on .sbi-ck{background:#1e90ff;border-color:#1e90ff;color:#fff}
 .sb-step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:12px;position:relative}
 .sb-step-num{position:absolute;top:-12px;left:16px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:20px}
 .sb-cable{display:inline-flex;align-items:center;gap:4px;background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:2px 8px;font-size:11px;font-family:'Courier New',monospace;color:var(--gold2);margin:2px}
@@ -306,125 +305,125 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
     <div class="card">
       <div class="card-title"><span class="ct-icon">🎛️</span>Protsessor / Kontroller</div>
       <div class="sb-group" id="sbg-processor">
-        <div class="sb-device" data-id="pa2" data-cat="processor" onclick="sbToggle(this)">
-          <div class="sb-icon">🎛️</div>
-          <div class="sb-name">DBX DriveRack PA2</div>
-          <div class="sb-sub">Digitaalne protsessor</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-pa2" onclick="sbTap('pa2')">
+          <span class="sbi-icon">🎛️</span>
+          <span class="sbi-name">DBX DriveRack PA2</span>
+          <span class="sbi-sub">Digitaalne protsessor</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span class="ct-icon">🎚️</span>Mikser</div>
       <div class="sb-group">
-        <div class="sb-device" data-id="mg10xu" data-cat="mixer" onclick="sbToggle(this)">
-          <div class="sb-icon">🎚️</div>
-          <div class="sb-name">Yamaha MG10XU</div>
-          <div class="sb-sub">10-kanal mikser</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-mg10xu" onclick="sbTap('mg10xu')">
+          <span class="sbi-icon">🎚️</span>
+          <span class="sbi-name">Yamaha MG10XU</span>
+          <span class="sbi-sub">10-kanal mikser</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span class="ct-icon">🔊</span>Kõlarid</div>
       <div class="sb-group">
-        <div class="sb-device" data-id="rcf935" data-cat="speaker" onclick="sbToggle(this)">
-          <div class="sb-icon">🔊</div>
-          <div class="sb-name">RCF ART 935-A</div>
-          <div class="sb-sub">Aktiivsed topp-kõlarid × 2</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="sub_generic" data-cat="sub" onclick="sbToggle(this)">
-          <div class="sb-icon">💥</div>
-          <div class="sb-name">Subwoofer (aktiivne)</div>
-          <div class="sb-sub">Nt RCF SUB 702-AS II vms</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="sub_passive" data-cat="sub_passive" onclick="sbToggle(this)">
-          <div class="sb-icon">📦</div>
-          <div class="sb-name">Subwoofer (passiivne)</div>
-          <div class="sb-sub">Vajab eraldi võimendit</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="ldppa2" data-cat="monitor" onclick="sbToggle(this)">
-          <div class="sb-icon">🎧</div>
-          <div class="sb-name">LD Systems PPA 2</div>
-          <div class="sb-sub">Personaalne monitor</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-rcf935" onclick="sbTap('rcf935')">
+          <span class="sbi-icon">🔊</span>
+          <span class="sbi-name">RCF ART 935-A</span>
+          <span class="sbi-sub">Aktiivsed topp-kõlarid × 2</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-sub_generic" onclick="sbTap('sub_generic')">
+          <span class="sbi-icon">💥</span>
+          <span class="sbi-name">Subwoofer (aktiivne)</span>
+          <span class="sbi-sub">Nt RCF SUB 702-AS II vms</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-sub_passive" onclick="sbTap('sub_passive')">
+          <span class="sbi-icon">📦</span>
+          <span class="sbi-name">Subwoofer (passiivne)</span>
+          <span class="sbi-sub">Vajab eraldi võimendit</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-ldppa2" onclick="sbTap('ldppa2')">
+          <span class="sbi-icon">🎧</span>
+          <span class="sbi-name">LD Systems PPA 2</span>
+          <span class="sbi-sub">Personaalne monitor</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span class="ct-icon">🎵</span>DJ kontroller / Allikas</div>
       <div class="sb-group">
-        <div class="sb-device" data-id="flx10" data-cat="dj" onclick="sbToggle(this)">
-          <div class="sb-icon">🎵</div>
-          <div class="sb-name">Pioneer DDJ-FLX10</div>
-          <div class="sb-sub">XLR master väljund</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="flx4" data-cat="dj" onclick="sbToggle(this)">
-          <div class="sb-icon">🎵</div>
-          <div class="sb-name">Pioneer DDJ-FLX4</div>
-          <div class="sb-sub">RCA master väljund</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="hercules" data-cat="dj" onclick="sbToggle(this)">
-          <div class="sb-icon">🎮</div>
-          <div class="sb-name">Hercules Starlight</div>
-          <div class="sb-sub">3.5mm väljund (consumer)</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="laptop" data-cat="dj" onclick="sbToggle(this)">
-          <div class="sb-icon">💻</div>
-          <div class="sb-name">Laptop / Telefon</div>
-          <div class="sb-sub">3.5mm / RCA väljund</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-flx10" onclick="sbTap('flx10')">
+          <span class="sbi-icon">🎵</span>
+          <span class="sbi-name">Pioneer DDJ-FLX10</span>
+          <span class="sbi-sub">XLR master väljund</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-flx4" onclick="sbTap('flx4')">
+          <span class="sbi-icon">🎵</span>
+          <span class="sbi-name">Pioneer DDJ-FLX4</span>
+          <span class="sbi-sub">RCA master väljund</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-hercules" onclick="sbTap('hercules')">
+          <span class="sbi-icon">🎮</span>
+          <span class="sbi-name">Hercules Starlight</span>
+          <span class="sbi-sub">3.5mm väljund (consumer)</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-laptop" onclick="sbTap('laptop')">
+          <span class="sbi-icon">💻</span>
+          <span class="sbi-name">Laptop / Telefon</span>
+          <span class="sbi-sub">3.5mm / RCA väljund</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span class="ct-icon">🎤</span>Mikrofon</div>
       <div class="sb-group">
-        <div class="sb-device" data-id="qlxd24" data-cat="mic" onclick="sbToggle(this)">
-          <div class="sb-icon">🎤</div>
-          <div class="sb-name">Shure QLXD24/Beta58</div>
-          <div class="sb-sub">Traadita UHF mikrofon</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="mic_wired" data-cat="mic" onclick="sbToggle(this)">
-          <div class="sb-icon">🎙️</div>
-          <div class="sb-name">Traadiga mikrofon</div>
-          <div class="sb-sub">XLR dünaamiline/kondensaator</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-qlxd24" onclick="sbTap('qlxd24')">
+          <span class="sbi-icon">🎤</span>
+          <span class="sbi-name">Shure QLXD24/Beta58</span>
+          <span class="sbi-sub">Traadita UHF mikrofon</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-mic_wired" onclick="sbTap('mic_wired')">
+          <span class="sbi-icon">🎙️</span>
+          <span class="sbi-name">Traadiga mikrofon</span>
+          <span class="sbi-sub">XLR dünaamiline/kondensaator</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span class="ct-icon">📶</span>Lisaseadmed</div>
       <div class="sb-group">
-        <div class="sb-device" data-id="rtam" data-cat="extra" onclick="sbToggle(this)">
-          <div class="sb-icon">📊</div>
-          <div class="sb-name">DBX RTA-M</div>
-          <div class="sb-sub">Mõõtmismikrofon AutoEQ</div>
-          <div class="sb-check">✓</div>
-        </div>
-        <div class="sb-device" data-id="wifi" data-cat="extra" onclick="sbToggle(this)">
-          <div class="sb-icon">📶</div>
-          <div class="sb-name">GL.iNet GL-SFT1200</div>
-          <div class="sb-sub">WiFi ruuter PA2 app</div>
-          <div class="sb-check">✓</div>
-        </div>
+        <button class="sb-item" id="sbi-rtam" onclick="sbTap('rtam')">
+          <span class="sbi-icon">📊</span>
+          <span class="sbi-name">DBX RTA-M</span>
+          <span class="sbi-sub">Mõõtmismikrofon AutoEQ</span>
+          <div class="sbi-ck"></div>
+        </button>
+        <button class="sb-item" id="sbi-wifi" onclick="sbTap('wifi')">
+          <span class="sbi-icon">📶</span>
+          <span class="sbi-name">GL.iNet GL-SFT1200</span>
+          <span class="sbi-sub">WiFi ruuter PA2 app</span>
+          <div class="sbi-ck"></div>
+        </button>
       </div>
     </div>
 
     <div style="position:sticky;bottom:12px;z-index:50;padding:12px 0 4px">
-      <button onclick="sbGenerate()" id="sb-generate-btn" style="width:100%;padding:14px;background:var(--blue);border:none;color:#fff;font-size:15px;font-weight:700;border-radius:var(--radius-lg);cursor:pointer;opacity:0.4;transition:all .2s" disabled>
+      <button onclick="sbGenerate()" id="sb-generate-btn" style="width:100%;padding:14px;background:#334155;border:none;color:#94a3b8;font-size:15px;font-weight:700;border-radius:var(--radius-lg);cursor:not-allowed;transition:all .2s">
         ⚙️ Genereeri seadistuse juhend
       </button>
       <div style="text-align:center;margin-top:6px;font-size:12px;color:var(--text3)" id="sb-sel-count">Vali vähemalt 2 seadet</div>
@@ -1777,20 +1776,37 @@ function resetChecklist() {
 
 
 // ══════════════════════════════════════════
-// SETUP BUILDER
-// ══════════════════════════════════════════
-let sbSelected = new Set();
+// ══ SETUP BUILDER ══
+var sbSel = {};
+var sbReady = false;
 
-function sbToggle(el) {
-  const id = el.dataset.id;
-  if (sbSelected.has(id)) { sbSelected.delete(id); el.classList.remove('selected'); }
-  else { sbSelected.add(id); el.classList.add('selected'); }
-  const cnt = sbSelected.size;
-  const btn = document.getElementById('sb-generate-btn');
-  const lbl = document.getElementById('sb-sel-count');
-  btn.disabled = cnt < 2;
-  btn.style.opacity = cnt >= 2 ? '1' : '0.4';
-  lbl.textContent = cnt >= 2 ? `${cnt} seadet valitud — vajuta nuppu` : 'Vali vähemalt 2 seadet';
+function sbTap(id) {
+  var el = document.getElementById('sbi-' + id);
+  if (sbSel[id]) {
+    delete sbSel[id];
+    el.classList.remove('on');
+  } else {
+    sbSel[id] = 1;
+    el.classList.add('on');
+  }
+  var cnt = Object.keys(sbSel).length;
+  var btn = document.getElementById('sb-generate-btn');
+  var lbl = document.getElementById('sb-sel-count');
+  if (cnt >= 2) {
+    btn.style.background = '#1e90ff';
+    btn.style.color = '#fff';
+    btn.style.cursor = 'pointer';
+    sbReady = true;
+    lbl.textContent = cnt + ' seadet valitud — vajuta nuppu';
+    lbl.style.color = '#3aa0ff';
+  } else {
+    btn.style.background = '#334155';
+    btn.style.color = '#94a3b8';
+    btn.style.cursor = 'not-allowed';
+    sbReady = false;
+    lbl.textContent = 'Vali vähemalt 2 seadet';
+    lbl.style.color = '#64748b';
+  }
 }
 
 function sbBack() {
@@ -1799,9 +1815,9 @@ function sbBack() {
 }
 
 function sbGenerate() {
-  const sel = sbSelected;
-  const has = id => sel.has(id);
-  const hasAny = (...ids) => ids.some(id => sel.has(id));
+  // sbSel on juba globaalne
+  const has = id => !!sbSel[id];
+  const hasAny = (...ids) => ids.some(id => !!sbSel[id]);
 
   // Build steps array
   const steps = [];
