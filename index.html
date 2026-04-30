@@ -2365,10 +2365,11 @@ function goBack() {
 }
 
 function showItab(group, id) {
-  const section = event.target.closest('.section');
-  section.querySelectorAll('.itab').forEach(t => t.classList.remove('active'));
-  section.querySelectorAll('.itab-content').forEach(c => c.classList.remove('active'));
-  event.target.classList.add('active');
+  const btn = event.target;
+  const container = btn.closest('.inner-tabs').parentElement;
+  btn.closest('.inner-tabs').querySelectorAll('.itab').forEach(t => t.classList.remove('active'));
+  container.querySelectorAll(':scope > .itab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
   const el = document.getElementById(group + '-' + id);
   if (el) el.classList.add('active');
 }
