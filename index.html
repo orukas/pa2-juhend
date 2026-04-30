@@ -705,6 +705,8 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
   <div class="inner-tabs">
     <button class="itab active" onclick="showItab('sw','android')">Android telefon</button>
     <button class="itab" onclick="showItab('sw','djay',this)">Djay Pro</button>
+    <button class="itab" onclick="showItab('sw','rekordbox6',this)">Rekordbox 6</button>
+    <button class="itab" onclick="showItab('sw','serato',this)">Serato DJ Pro</button>
     <button class="itab" onclick="showItab('sw','home',this)">Kodusüsteem</button>
   </div>
 
@@ -992,6 +994,228 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
       </table>
     </div>
     <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><strong>Serato Stems vs Rekordbox Stems</strong><p>Mõlemad eraldavad AI-ga drums/bass/melody/vocals. Serato on kiirem reaalajas, Rekordbox analüüsib ette. Legion 5 Pro suudab mõlemat 4 deck peal korraga.</p></div></div>
+  </div>
+</div>
+
+<div class="itab-content" id="sw-rekordbox6">
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🎵</span>Rekordbox 6 — täielik seadistuse juhend</div>
+    <div class="badge badge-blue">Pioneer DJ Rekordbox 6 (Performance + Export mode)</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Rekordbox 6 on tasuta Performance mode DDJ-FLX10 ja FLX4-ga. Export mode USB ettevalmistamiseks CDJ-dele on samuti tasuta. Kõige laialdasem tugi Pioneer DJ kontrolleritele.</p>
+
+    <div class="inner-tabs">
+      <button class="itab active" onclick="showItab('rb6','install',this)">Install & Audio</button>
+      <button class="itab" onclick="showItab('rb6','seaded',this)">Seadistused</button>
+      <button class="itab" onclick="showItab('rb6','library',this)">Muusikakogu</button>
+      <button class="itab" onclick="showItab('rb6','export',this)">Export USB</button>
+      <button class="itab" onclick="showItab('rb6','vs7',this)">RB6 vs RB7</button>
+    </div>
+
+    <div class="itab-content active" id="rb6-install">
+      <div class="card2">
+        <div class="badge badge-green">Rekordbox 6 installimine ja audio seadistus</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lae alla rekordbox.com → Download</strong><span>Vali versioon 6.x (mitte 7.x kui soovid jääda RB6-le). Windows installer ~200MB. Vajab Pioneer DDJ draiverit.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Installi Pioneer DDJ-FLX10 / FLX4 draiver</strong><span>pioneerdj.com → Support → DDJ-FLX10 → Drivers. ASIO draiver Windowsile. Taaskäivita pärast installimist.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Rekordbox → Preferences → Audio</strong><span>Audio device: DDJ-FLX10 (ASIO). Sample rate: 44100 Hz. Buffer: 256 samples. Kinnita OK.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Ühenda kontroller USB-ga → automaatne tuvastus</strong><span>Rekordbox tuvastab DDJ-FLX10/FLX4 automaatselt. Ilmub "Controller connected" teade. Layout muutub Performance mode vaatele.</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Testi heli: lae lugu → pane mängima</strong><span>Master out → FLX10 XLR väljund → MG10XU → PA2 → kõlarid. Kui heli tuleb — kõik töötab.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="rb6-seaded">
+      <div class="card2">
+        <div class="badge badge-gold">Rekordbox 6 — optimaalsed seaded Legionil</div>
+        <table class="tbl">
+          <tr><th>Seadistus</th><th>Väärtus</th><th>Asukoht</th></tr>
+          <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (ASIO)</td><td>Preferences → Audio</td></tr>
+          <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>Preferences → Audio</td></tr>
+          <tr><td>Buffer size</td><td class="val-green">256 samples (~5ms)</td><td>Preferences → Audio</td></tr>
+          <tr><td>Waveform type</td><td class="val-green">Full waveform</td><td>Preferences → View</td></tr>
+          <tr><td>Waveform color</td><td class="val">3-band</td><td>Preferences → View</td></tr>
+          <tr><td>BPM range</td><td class="val-green">70-175</td><td>Preferences → Analysis</td></tr>
+          <tr><td>Key detection</td><td class="val-green">ON</td><td>Preferences → Analysis</td></tr>
+          <tr><td>Key display</td><td class="val">Camelot</td><td>Preferences → View</td></tr>
+          <tr><td>Quantize</td><td class="val-green">ON — 1 beat</td><td>Preferences → Performance</td></tr>
+          <tr><td>Sync mode</td><td class="val">Beat sync</td><td>Preferences → Performance</td></tr>
+          <tr><td>Auto gain</td><td class="val-green">ON</td><td>Preferences → Mixer</td></tr>
+          <tr><td>EQ type</td><td class="val">Isolator</td><td>Preferences → Mixer</td></tr>
+          <tr><td>Track end warning</td><td class="val-green">30 sek</td><td>Preferences → Performance</td></tr>
+          <tr><td>Slip mode</td><td class="val">OFF (käsitsi sisse)</td><td>Kontrolleri nupp</td></tr>
+          <tr><td>Hot cue autoload</td><td class="val-green">ON</td><td>Preferences → Performance</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="itab-content" id="rb6-library">
+      <div class="card2">
+        <div class="badge badge-blue">Muusikakogu korraldamine Rekordbox 6-s</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lisa muusikakaust: File → Add Folder to Collection</strong><span>Rekordbox skaneerib kogu kausta rekursiivselt. Toetab MP3, FLAC, WAV, AAC, AIFF. FLAC ja WAV parim kvaliteet.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Analüüsi kõik lood korraga</strong><span>Vali kõik lood → parem klik → Analyze Tracks. Analüüsib BPM, key, waveform. 1000 lugu ≈ 30-60 min Legionil.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Hot cue süsteem — kasuta konsistentselt</strong><span>Cue 1 (roheline): intro/drop algus. Cue 2 (punane): peamine drop. Cue 3 (kollane): breakdown. Cue 4 (sinine): outro.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Playlist-id žanri ja BPM järgi</strong><span>Playlists → New Playlist. Nt: "Tech House 125-132", "Deep House 120-126". Smart Playlist filtreerib automaatselt.</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Grid korrigeerimine käsitsi</strong><span>EDM lood vajavad tihti käsitsi grid fixi. Parem klik loole → Grid Edit. Seadista downbeat täpselt.</span></div></div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><strong>Backup on kohustuslik!</strong><p>File → Library → Backup Library. Salvesta välisele kettale. Hot cue-d ja playlist-id kaovad kui Rekordbox andmebaas rikutakse.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="rb6-export">
+      <div class="card2">
+        <div class="badge badge-green">Export mode — USB ettevalmistamine CDJ-dele</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>USB formaat: exFAT (soovitatav) või FAT32</strong><span>exFAT toetab &gt;4GB faile. Formateeri Windows Disk Management-is. CDJ-2000NXS2 ja CDJ-3000 mõlemad toetavad exFAT.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Drag & drop playlist-id USB-le</strong><span>Rekordbox vasakul paneelil: leia USB seade. Lohista playlist-id USB ikoonile. Rekordbox kopeerib failid ja andmebaasi.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Export settings: kõik metaandmed kaasa</strong><span>Preferences → Advanced → Export: Hot Cues ✓, Memory Cues ✓, Artwork ✓, Rating ✓. Kõik info läheb USB-le.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Hoia alati 2 identset USB sticki</strong><span>USB rikki minek klubis = gig läheb katki. 2 identset sticki: üks primary, teine backup taskus.</span></div></div>
+        </div>
+        <div class="card2" style="margin-top:8px">
+          <div class="badge badge-gold">USB soovitused</div>
+          <div class="pr"><span class="pr-label">Formaat</span><span class="pr-val green">exFAT</span></div>
+          <div class="pr"><span class="pr-label">Kiirus</span><span class="pr-val green">USB 3.0, min 100MB/s lugemine</span></div>
+          <div class="pr"><span class="pr-label">Suurus</span><span class="pr-val">64-128 GB piisab</span></div>
+          <div class="pr"><span class="pr-label">Mark</span><span class="pr-val green">SanDisk Extreme, Samsung, Kingston</span></div>
+          <div class="pr"><span class="pr-label">Väldi</span><span class="pr-val red">Odavad noname USB-d — aeglased, katkevad</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="rb6-vs7">
+      <div class="card2">
+        <div class="badge badge-gold">Rekordbox 6 vs Rekordbox 7 — mis muutus?</div>
+        <table class="tbl">
+          <tr><th>Omadus</th><th>Rekordbox 6</th><th>Rekordbox 7</th></tr>
+          <tr><td>Hind</td><td class="val-green">Tasuta (Performance + Export)</td><td class="val">Subscription 11€/kuu</td></tr>
+          <tr><td>Stems (AI eraldus)</td><td class="val-red">Ei</td><td class="val-green">✓ Vocal/Drums/Bass/Melody</td></tr>
+          <tr><td>Cloud sync</td><td class="val-red">Ei</td><td class="val-green">✓ Library pilves</td></tr>
+          <tr><td>Video mixing</td><td class="val-red">Ei</td><td class="val-green">✓ Video plug-in</td></tr>
+          <tr><td>Controller tugi</td><td class="val-green">Täielik FLX10/FLX4</td><td class="val-green">Täielik FLX10/FLX4</td></tr>
+          <tr><td>CDJ export</td><td class="val-green">✓ identne</td><td class="val-green">✓ identne</td></tr>
+          <tr><td>BPM analüüs</td><td class="val-green">Identne</td><td class="val-green">Identne</td></tr>
+          <tr><td>Key analüüs</td><td class="val-green">Identne</td><td class="val-green">Identne</td></tr>
+          <tr><td>Stabiilsus</td><td class="val-green">Küps, stabiilne</td><td class="val">Uuem, mõned bugid</td></tr>
+          <tr><td>Soovitus</td><td class="val-green">Kui ei vaja Stems/Cloud</td><td class="val">Kui vajad Stems</td></tr>
+        </table>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>RB6 on suurepärane valik!</strong><p>Kui ei kasuta CDJ-del Stems funktsiooni ja sul pole vaja pilvsünki — Rekordbox 6 on täiesti piisav ja 100% tasuta. Upgrade RB7-le ainult siis kui Stems on vajalik.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="itab-content" id="sw-serato">
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🎧</span>Serato DJ Pro — täielik seadistuse juhend</div>
+    <div class="badge badge-green">Serato DJ Pro 3.x (DDJ-FLX10 / FLX4 natiivne tugi)</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Serato DJ Pro on tuntud scratchi täpsuse ja stabiilsuse poolest. DDJ-FLX10 on Serato sertifitseeritud kontroller — natiivne tugi, kõik nupud töötavad out of the box.</p>
+
+    <div class="inner-tabs">
+      <button class="itab active" onclick="showItab('ser','install',this)">Install & Audio</button>
+      <button class="itab" onclick="showItab('ser','seaded',this)">Seadistused</button>
+      <button class="itab" onclick="showItab('ser','library',this)">Muusikakogu</button>
+      <button class="itab" onclick="showItab('ser','stems',this)">Serato Stems</button>
+      <button class="itab" onclick="showItab('ser','vrekordbox',this)">vs Rekordbox</button>
+    </div>
+
+    <div class="itab-content active" id="ser-install">
+      <div class="card2">
+        <div class="badge badge-green">Serato DJ Pro installimine ja esmakordsed seaded</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lae alla serato.com → Downloads → Serato DJ Pro</strong><span>Windows installer ~150MB. Serato vajab tasuta kontot aktiveerimiseks. DDJ-FLX10 avab Pro litsentsi automaatselt (bundled).</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Ühenda DDJ-FLX10 enne käivitamist</strong><span>Serato tuvastab kontrolleri käivitumisel. FLX10 tuleb kaasa Serato DJ Pro litsentsiga — kontrolli aktiveerimist serato.com/my-serato.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Setup → Audio → DDJ-FLX10</strong><span>Audio device: DDJ-FLX10. Sample rate: 44100 Hz. Buffer: 5ms (256 samples). Apply → Test audio nupuga.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Pioneer ASIO draiver Serato jaoks</strong><span>pioneerdj.com → Support → DDJ-FLX10 → ASIO Driver. Ilma ASIO draiverita kasutab Serato WDM → kõrgem latentsus. ASIO = parim.</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Lisa muusikakaust: Files → leia kaust → drag to Library</strong><span>Serato lisab kausta automaatselt watchlist-i. Uued failid kaustas ilmuvad automaatselt Library-sse.</span></div></div>
+        </div>
+        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><strong>DDJ-FLX4 ja Serato</strong><p>FLX4 vajab Serato DJ Lite (tasuta) või Serato DJ Pro (tasuline, ~17€/kuu). FLX4 ei tule bundled Pro litsentsiga. Alternatiiv: kasuta Rekordbox (tasuta Performance mode FLX4-ga).</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="ser-seaded">
+      <div class="card2">
+        <div class="badge badge-gold">Serato DJ Pro — kõik olulised seaded</div>
+        <table class="tbl">
+          <tr><th>Seadistus</th><th>Väärtus</th><th>Asukoht</th></tr>
+          <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (ASIO)</td><td>Setup → Audio</td></tr>
+          <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>Setup → Audio</td></tr>
+          <tr><td>Buffer size</td><td class="val-green">5ms (256 samples)</td><td>Setup → Audio</td></tr>
+          <tr><td>BPM range</td><td class="val-green">Auto (68-175)</td><td>Setup → Library</td></tr>
+          <tr><td>Key detection</td><td class="val-green">ON</td><td>Setup → Library</td></tr>
+          <tr><td>Key notation</td><td class="val">Musical (C, Cm...)</td><td>Setup → Library</td></tr>
+          <tr><td>Waveform detail</td><td class="val-green">High</td><td>Setup → Display</td></tr>
+          <tr><td>Waveform type</td><td class="val-green">RGB waveform</td><td>Setup → Display</td></tr>
+          <tr><td>Sync mode</td><td class="val">Bar sync</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>Quantize</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>Quantize value</td><td class="val">1 beat</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>EQ type</td><td class="val-green">Semi-isolator</td><td>Setup → Mixer</td></tr>
+          <tr><td>Smart crates</td><td class="val-green">ON</td><td>Setup → Library</td></tr>
+          <tr><td>Prevent accidental exit</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>Notify on song end</td><td class="val-green">30 sek</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>Scratch detection</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
+          <tr><td>Auto gain</td><td class="val-green">ON</td><td>Setup → Mixer</td></tr>
+          <tr><td>FX unit 1</td><td class="val">Echo / Delay</td><td>FX panel</td></tr>
+          <tr><td>FX unit 2</td><td class="val">Reverb</td><td>FX panel</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="itab-content" id="ser-library">
+      <div class="card2">
+        <div class="badge badge-blue">Serato muusikakogu haldamine</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lisa muusikakaust: Files → kaust → Lisa Library-sse</strong><span>Serato jälgib kausta automaatselt. Uued lood ilmuvad Library-sse kohe. Toetab MP3, FLAC, WAV, AAC, MP4 (video).</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Analüüsi kõik lood</strong><span>Vali kõik → parem klik → Analyze Files. Offline mode ON (Setup → Library → Analyze new files). Serato analüüsib BPM ja key automaatselt uutel lugudel.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Smart Crates BPM järgi</strong><span>Create Smart Crate → Lisa filter: BPM 120-128. Serato täidab automaatselt. Tee eraldi crate-id: Tech House, Deep House, Melodic Techno.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Hot cue süsteem Serato-s</strong><span>8 hot cue nuppu FLX10-l. Cue 1 (punane): intro. Cue 2 (oranž): drop. Cue 3 (kollane): break. Salvesta automaatselt — kaovad faili metaandmetesse.</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Serato library backup</strong><span>C:\Users\[kasutaja]\Music\_Serato_ kausta kopeeri regulaarselt. Seal on kõik cue-d, loops, playlist-id. Ärge kustutage seda kausta!</span></div></div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><strong>Serato ei ekspordi USB-le nagu Rekordbox!</strong><p>Serato on mõeldud ainult laptop + kontroller kasutuseks. CDJ-dest mängimiseks pead kasutama Rekordbox-i. Serato on parim kui kasutad alati oma laptopit.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="ser-stems">
+      <div class="card2">
+        <div class="badge badge-purple">Serato Stems — AI stem separation reaalajas</div>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Serato Stems eraldab iga loo automaatselt 4 osaks: Vocals, Drums, Bass, Melody. Saad mute/solo igat osa reaalajas DJ seti ajal.</p>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Serato DJ Pro 3.0+ nõutav</strong><span>Stems on Serato DJ Pro 3.x funktsioon. Kontrolli versiooni: Help → About Serato DJ Pro. Uuenda vajadusel.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Aktiveeri Stems: Stems nupp deck-il</strong><span>DDJ-FLX10: Stems nupp on olemas. FLX4: Stems töötab ekraanil, kontrolleri nuppe pole. Stems ikoon ilmub waveform-i kõrvale.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Loo analüüs Stems jaoks</strong><span>Esmakordselt vajab lugu Stems analüüsi (~5-15 sek/lugu). Parem klik → Analyze Stems. Eelanalüüsi kõik lood ette — reaalajas analüüs sööb CPU-d.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Stems kasutamine DJ seti ajal</strong><span>Mute Drums → ainult vokaal+bass+meloodia. Mute Vocals → instrumentaal. Solo Bass → bass drop efekt. Smooth transition: mute/unmute eelmise loo lõpus.</span></div></div>
+        </div>
+        <div class="card2" style="margin-top:8px">
+          <div class="badge badge-gold">Stems CPU kasutus Legionil</div>
+          <div class="pr"><span class="pr-label">Stems OFF</span><span class="pr-val green">CPU ~5-10%</span></div>
+          <div class="pr"><span class="pr-label">Stems ON (1 deck)</span><span class="pr-val green">CPU ~20-30%</span></div>
+          <div class="pr"><span class="pr-label">Stems ON (2 deck)</span><span class="pr-val">CPU ~40-50%</span></div>
+          <div class="pr"><span class="pr-label">Stems + FX (2 deck)</span><span class="pr-val">CPU ~50-60%</span></div>
+          <div class="pr"><span class="pr-label">Legion 5 Pro stabiilsus</span><span class="pr-val green">Stabiilne kuni 60% CPU</span></div>
+          <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Eelanalüüsi lood Stems jaoks enne üritust. Reaalajas analüüs + DJ set korraga = kõrge CPU load. Eelanalüüsitud lood kasutavad oluliselt vähem CPU-d.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="ser-vrekordbox">
+      <div class="card2">
+        <div class="badge badge-gold">Serato DJ Pro vs Rekordbox — millal kumba?</div>
+        <table class="tbl">
+          <tr><th>Omadus</th><th>Serato DJ Pro</th><th>Rekordbox 6/7</th></tr>
+          <tr><td>Hind</td><td class="val">~17€/kuu (FLX4) / tasuta FLX10-ga</td><td class="val-green">RB6 tasuta / RB7 11€/kuu</td></tr>
+          <tr><td>Scratch täpsus</td><td class="val-green">Parim — scratch standard</td><td class="val">Hea</td></tr>
+          <tr><td>CDJ export</td><td class="val-red">Ei — ainult laptop</td><td class="val-green">✓ Parim CDJ tugi</td></tr>
+          <tr><td>Stems</td><td class="val-green">✓ Reaalajas, kiire</td><td class="val-green">✓ RB7 (eelanalüüs)</td></tr>
+          <tr><td>Stabiilsus</td><td class="val-green">Väga stabiilne</td><td class="val-green">Väga stabiilne</td></tr>
+          <tr><td>Smart Crates</td><td class="val-green">✓ Parim</td><td class="val-green">✓ Smart Playlist</td></tr>
+          <tr><td>FLX10 natiivne</td><td class="val-green">✓ Bundled litsents</td><td class="val-green">✓ Performance tasuta</td></tr>
+          <tr><td>FLX4 tugi</td><td class="val">Lite (tasuta) / Pro (tasuline)</td><td class="val-green">✓ Performance tasuta</td></tr>
+          <tr><td>Video mixing</td><td class="val-green">✓ Video plug-in</td><td class="val-green">✓ RB7</td></tr>
+          <tr><td>Spotify</td><td class="val-red">Ei</td><td class="val-red">Ei</td></tr>
+          <tr><td>Parim kasutus</td><td class="val-green">Scratch, turntablist</td><td class="val-green">Club, CDJ, export</td></tr>
+        </table>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Soovitus sinu süsteemile:</strong><p>FLX10-ga: kasuta <strong>Rekordbox</strong> peamise tarkvarana (tasuta, CDJ tugi, täielik FLX10 integratsioon). Serato kui vajad Stems reaalajas või scratch täpsust. FLX4-ga: Rekordbox on selgelt parim valik — tasuta Performance mode.</p></div></div>
+      </div>
+    </div>
   </div>
 </div>
 
