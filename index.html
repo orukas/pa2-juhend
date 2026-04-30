@@ -711,371 +711,196 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
   </div>
 
   <div class="itab-content active" id="sw-android">
-    <div class="card">
-      <div class="card-title"><span class="ct-icon">📱</span>Android telefon → PA süsteem — täielik juhend</div>
-      <div class="badge badge-blue">Lenovo Legion 5 Pro asendaja / varuseade</div>
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">📱</span>Android telefon — DJ äpid &amp; ühendused</div>
+    <div class="badge badge-blue">DDJ-FLX4 + Android / PA kontroll telefonist</div>
 
-      <div class="inner-tabs" style="margin-top:12px">
-        <button class="itab active" onclick="showItab('and','usbc')">USB-C (parim)</button>
-        <button class="itab" onclick="showItab('and','jack35')">3.5mm jack</button>
-        <button class="itab" onclick="showItab('and','bt')">Bluetooth</button>
-        <button class="itab" onclick="showItab('and','apps')">DJ äpid</button>
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('and','apps')">DJ äppide ühendus</button>
+      <button class="itab" onclick="showItab('and','djayand')">Djay Pro Android</button>
+      <button class="itab" onclick="showItab('and','pacontrol')">PA kontroll</button>
+      <button class="itab" onclick="showItab('and','rbmobile')">Rekordbox Mobile</button>
+    </div>
+
+    <div class="itab-content active" id="and-apps">
+      <div class="card2">
+        <div class="badge badge-green">DJ äppide ühendus Androidiga</div>
+        <div class="pr"><span class="pr-label">Djay Pro Android</span><span class="pr-val">Google Play → Algoriddim Djay Pro AI</span></div>
+        <div class="pr"><span class="pr-label">Bluetooth audio</span><span class="pr-val red">aptX Low Latency nõutav (tavalisel BT ~150ms viivitus)</span></div>
+        <div class="pr"><span class="pr-label">USB audio</span><span class="pr-val green">USB-C → USB-C kaabel arvutisse või PA süsteemi</span></div>
+        <div class="pr"><span class="pr-label">DDJ-FLX4 + Android</span><span class="pr-val green">USB-C OTG kaabel → FLX4 USB-B → Djay Pro tuvastab automaatselt</span></div>
+        <div class="pr"><span class="pr-label">DDJ-FLX10 + Android</span><span class="pr-val">OTG USB-C → USB-B → Djay Pro (piiratud tugi)</span></div>
       </div>
+    </div>
 
-      <div class="itab-content active" id="and-usbc">
-        <div class="card2">
-          <div class="badge badge-green">Parim lahendus — USB-C DAC adapter</div>
-          <div class="steps">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Hanki USB-C → 3.5mm DAC adapter (mitte odav China!)</strong><span>Soovituslik: Apple USB-C to 3.5mm (12€), Anker USB-C Audio Adapter (15€), Ugreen USB-C DAC (12€). Need sisaldavad korralikku DAC kiipi.</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>USB-C DAC → 3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Ühendusahel: Telefon USB-C → DAC adapter → 3.5mm pistik → Y-kaabel (3.5mm→2×RCA) → MG10XU stereo input.</span></div></div>
-            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>MG10XU seaded Android-iga</strong><span>CH3/4 LINE sisend. Gain: +8 kuni +10 dB (telefon on -10dBV consumer tase). LOW CUT: OFF (muusika). Fader: 0dB.</span></div></div>
-            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Android helitugevus: 80%</strong><span>Mitte 100% — moonutus. 80% annab headroom reguleerimiseks.</span></div></div>
-            <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Android seaded enne üritust</strong><span>Do Not Disturb: ON. Auto-rotate: OFF. Screen timeout: Never (laadimisel). Lennurežiim: OFF (kõned häirivad).</span></div></div>
-          </div>
-          <div class="card2" style="margin-top:8px">
-            <div class="badge badge-gold">Alternatiiv — USB-C otse helikaardiga</div>
-            <div class="pr"><span class="pr-label">Seade</span><span class="pr-val">Behringer UCA202 + OTG adapter</span></div>
-            <div class="pr"><span class="pr-label">Ühendus</span><span class="pr-val">Android USB-C → OTG → USB-B → UCA202 → RCA → MG10XU</span></div>
-            <div class="pr"><span class="pr-label">Eeldus</span><span class="pr-val">Android toetab USB Audio Class (enamik Android 5.0+)</span></div>
-            <div class="pr"><span class="pr-label">Eelis</span><span class="pr-val green">Parem müratase kui DAC adapteriga</span></div>
-          </div>
-        </div>
+    <div class="itab-content" id="and-djayand">
+      <div class="card2">
+        <div class="badge badge-purple">Djay Pro Android — seadistused</div>
+        <div class="pr"><span class="pr-label">Audio Output</span><span class="pr-val green">External Device (USB) — Settings → Audio Output</span></div>
+        <div class="pr"><span class="pr-label">Neural Mix</span><span class="pr-val green">AI stem separation reaalajas</span></div>
+        <div class="pr"><span class="pr-label">Automix AI</span><span class="pr-val">Automaatne mix funktsioon</span></div>
+        <div class="pr"><span class="pr-label">MIDI mapping</span><span class="pr-val">Settings → MIDI → custom assign</span></div>
       </div>
+    </div>
 
-      <div class="itab-content" id="and-jack35">
-        <div class="card2">
-          <div class="badge badge-gold">3.5mm jack — kiire lahendus</div>
-          <div class="steps">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Kui telefonil on 3.5mm pesa (Samsung Galaxy A seeria jt). Kasuta kvaliteetset adapterit (Hosa CMS-203).</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>MG10XU gain: +8 kuni +12 dB</strong><span>Telefoni 3.5mm on madala tasemega. Kompenseeri mikseris.</span></div></div>
-            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Android: lülita EQ välja</strong><span>Settings → Sound → Sound quality and effects → kõik välja. Muidu moonutab signaali enne mikseri jõudmist.</span></div></div>
-            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Kaabli max pikkus: 2m</strong><span>Pikem kaabel lisab müra. Hoia lühike või kasuta USB-C DAC lahendust pikema vahemaa jaoks.</span></div></div>
-          </div>
-          <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><p>Uuematel Android telefonidel (USB-C only) puudub 3.5mm pesa. Kasuta USB-C DAC adapterit.</p></div></div>
-        </div>
-      </div>
-
-      <div class="itab-content" id="and-bt">
-        <div class="card2">
-          <div class="badge badge-red">Bluetooth — ainult hädaolukorras</div>
-          <div class="alert alert-danger"><span class="alert-icon">🚨</span><div><strong>Bluetooth latentsus 40-200ms — PA süsteemis EI SOBI</strong><p>Video ei sünkroniseeru heliga. DJ mixis on beat täielikult valesti. Kasuta ainult taustmuusika autoplay jaoks kus timing pole kriitiline.</p></div></div>
-          <div class="steps" style="margin-top:8px">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Bluetooth → JBL320 otse (parim BT lahendus)</strong><span>Kui kasutad BT-d — ühenda otse JBL320-sse, mitte PA süsteemi. JBL320 on Bluetooth kõlar — see on tema loomulik kasutus.</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>BT kodek: LDAC või aptX (kui saadaval)</strong><span>Android Settings → Bluetooth → Developer options → Audio codec → LDAC (Sony) või aptX. Madalam latentsus ja parem kvaliteet.</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="itab-content" id="and-apps">
-        <div class="card2">
-          <div class="badge badge-blue">Android DJ äpid PA süsteemiga</div>
-          <table class="tbl">
-            <tr><th>Äpp</th><th>Hind</th><th>Parim kasutus</th><th>PA ühilduvus</th></tr>
-            <tr><td>Rekordbox (Pioneer)</td><td class="val-green">Tasuta</td><td class="val">Library browse, USB export</td><td class="val">USB-C DAC väljundiga</td></tr>
-            <tr><td>Spotify</td><td class="val">Subscription</td><td class="val">Taustmuusika autoplay</td><td class="val-green">USB-C DAC → MG10XU</td></tr>
-            <tr><td>Poweramp</td><td class="val">~6€</td><td class="val">Kohaliku muusika mängimine</td><td class="val-green">USB Audio toetus, madal latentsus</td></tr>
-            <tr><td>VLC Android</td><td class="val-green">Tasuta</td><td class="val">Kõik formaadid, playlist</td><td class="val-green">USB Audio toetus</td></tr>
-            <tr><td>DJ Studio 5</td><td class="val-green">Tasuta</td><td class="val">Lihtne DJ mix telefonist</td><td class="val">3.5mm/USB-C väljund</td></tr>
-            <tr><td>edjing Mix</td><td class="val">Freemium</td><td class="val">DJ mix, Spotify integratsioon</td><td class="val">3.5mm/USB-C väljund</td></tr>
-          </table>
-          <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Parima kvaliteedi jaoks: Poweramp + USB Audio mode + Behringer UCA202 OTG → MG10XU. See annab 24bit/96kHz väljundi otse mikserisse.</p></div></div>
-        </div>
-
-        <div class="card2" style="margin-top:8px">
-          <div class="badge badge-gold">Android optimiseerimine PA kasutuseks</div>
-          <div class="pr"><span class="pr-label">Do Not Disturb</span><span class="pr-val green">ON — Priority only</span></div>
-          <div class="pr"><span class="pr-label">Screen timeout</span><span class="pr-val green">Never (laadimisel)</span></div>
-          <div class="pr"><span class="pr-label">Auto-brightness</span><span class="pr-val">OFF — fikseeritud</span></div>
-          <div class="pr"><span class="pr-label">Background app refresh</span><span class="pr-val red">OFF muusikäpile mittevajalikele</span></div>
-          <div class="pr"><span class="pr-label">Sound effects</span><span class="pr-val red">OFF (Settings → Sound)</span></div>
-          <div class="pr"><span class="pr-label">Equalizer / Dolby</span><span class="pr-val red">OFF — PA2 teeb EQ</span></div>
-          <div class="pr"><span class="pr-label">Developer options → USB audio</span><span class="pr-val green">Disable absolute volume: ON</span></div>
-          <div class="pr"><span class="pr-label">Laadija</span><span class="pr-val green">Alati laadimas ürituse ajal</span></div>
+    <div class="itab-content" id="and-pacontrol">
+      <div class="card2">
+        <div class="badge badge-gold">PA kontroll telefonist — DBX DriveRack PA2</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>DriveRack PA2 WiFi remote app</strong><span>Google Play → "DriveRack PA2". Otsene PA2 kontroll telefonist.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Sama WiFi võrk kohustuslik</strong><span>Laptop ja telefon peavad olema samas WiFi võrgus. PA2 ühendub WiFi kaudu.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Funktsioonid: EQ, crossover, delay, gain</strong><span>Kõik PA2 seaded muudetavad telefonist reaalajas. Saad PA sätteid muuta lavalt ilma arvutisse minemata.</span></div></div>
         </div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="ct-icon">💻</span>Windows Laptop → PA — täiendatud juhend</div>
-      <div class="inner-tabs" style="margin-top:12px">
-        <button class="itab active" onclick="showItab('lpt','usb')">USB helikaart (parim)</button>
-        <button class="itab" onclick="showItab('lpt','mg10xu_usb')">MG10XU USB (parim)</button>
-        <button class="itab" onclick="showItab('lpt','jack')">3.5mm jack</button>
-        <button class="itab" onclick="showItab('lpt','spotify')">Spotify / meedia</button>
-      </div>
-
-      <div class="itab-content active" id="lpt-usb">
-        <div class="card2">
-          <div class="badge badge-green">USB helikaart → MG10XU → PA2 → RCF</div>
-          <div class="steps">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi USB helikaardi draiver (Focusrite/Behringer)</strong><span>Focusrite: focusrite.com → Downloads → Scarlett Solo 3rd Gen driver. Behringer UMC22: behringer.com → UMC22 → Driver. Reboot pärast installimist.</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Windows Sound → Playback → USB helikaart → Set as Default</strong><span>Kõik helid lähevad nüüd helikaardi kaudu välja. Sample rate: 48000 Hz. Bit depth: 24 bit.</span></div></div>
-            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>USB helikaart XLR/TRS OUT → MG10XU CH1/2</strong><span>Focusrite Scarlett Solo: LINE OUT TRS 6.3mm → MG10XU CH1 (L) + CH2 (R). Gain: 0dB (line level). Fader: 0dB.</span></div></div>
-            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Windows Volume: 75-80%</strong><span>Ära pane 100% — moonutus. Reguleerimisruum jäta allikale ja mikserile.</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="itab-content" id="lpt-mg10xu_usb">
-        <div class="card2">
-          <div class="badge badge-green">MG10XU USB otse laptopiga — parim lahendus</div>
-          <div class="steps">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi Yamaha Steinberg USB draiver</strong><span>yamaha.com → MG10XU → Downloads → Steinberg USB Driver Windows. Installi ENNE MG10XU ühendamist. Sample rate: 48000 Hz.</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>USB-B kaabel: Laptop → MG10XU</strong><span>Tavaline "printer kaabel" USB-A → USB-B. Laptop USB-A port → MG10XU USB-B port tagaküljel.</span></div></div>
-            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Windows Sound → Playback → Yamaha Steinberg USB → Default</strong><span>Spotify, YouTube, meediamängija — kõik lähevad MG10XU kaudu välja automaatselt.</span></div></div>
-            <div class="step"><div class="step-n">4</div><div class="step-body"><strong>MG10XU: USB/LINE nupp → USB positsioon</strong><span>CH1/2 peal on USB nupp. Lükka USB peale. Gain: 0dB. Fader: 0dB. Signaal läheb otse PA2-sse.</span></div></div>
-            <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Windows Volume: 80%</strong><span>Jäta headroom. MG10XU fader reguleerib lõpliku helitugevuse.</span></div></div>
-          </div>
-          <div class="alert alert-green" style="margin-top:8px"><span class="alert-icon">✅</span><div><strong>See on ideaalne lahendus</strong><p>MG10XU on korraga mikser + helikaart + USB interface. Eraldi helikaarti pole vaja. Kõige lihtsam ja puhtaim lahendus.</p></div></div>
-        </div>
-      </div>
-
-      <div class="itab-content" id="lpt-jack">
-        <div class="card2">
-          <div class="badge badge-gold">3.5mm → MG10XU (hädavariant)</div>
-          <div class="steps">
-            <div class="step"><div class="step-n">1</div><div class="step-body"><strong>3.5mm TRS → 2× RCA adapter → MG10XU CH3/4</strong><span>Lenovo Legion 3.5mm combo jack → adapter → MG10XU stereo RCA sisend. Max kaabli pikkus 2m.</span></div></div>
-            <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Windows: Realtek Audio → disable enhancements</strong><span>Sound → Realtek → Properties → Enhancements → Disable all. Muidu Windows töötleb heli ja lisab latentsust.</span></div></div>
-            <div class="step"><div class="step-n">3</div><div class="step-body"><strong>MG10XU CH3/4 gain: +6 dB</strong><span>Laptop 3.5mm on -10dBV consumer tase. Kompenseeri +6dB mikseris.</span></div></div>
-          </div>
-          <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><p>Kasuta ainult kui USB ei ole võimalik. Müratase on kõrgem kui USB lahendusega.</p></div></div>
-        </div>
-      </div>
-
-      <div class="itab-content" id="lpt-spotify">
-        <div class="card2">
-          <div class="badge badge-blue">Spotify / YouTube / meediamängija optimiseerimine</div>
-          <table class="tbl">
-            <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
-            <tr><td>Spotify quality</td><td class="val-green">Very High (320kbps)</td><td>Parim kvaliteet PA süsteemis</td></tr>
-            <tr><td>Spotify normalization</td><td class="val-red">OFF</td><td>PA2 limiter teeb seda</td></tr>
-            <tr><td>Windows EQ</td><td class="val-red">OFF</td><td>PA2 GEQ teeb EQ</td></tr>
-            <tr><td>Spatial audio</td><td class="val-red">OFF</td><td>Moonutab stereopilti</td></tr>
-            <tr><td>Windows Volume</td><td class="val">75-80%</td><td>Headroom moonutuse vältimiseks</td></tr>
-            <tr><td>Sample rate</td><td class="val-green">48000 Hz / 24bit</td><td>MG10XU Steinberg nõue</td></tr>
-            <tr><td>Exclusive mode</td><td class="val-green">ON</td><td>Rakendus võtab helikaardi üle</td></tr>
-            <tr><td>Background apps</td><td class="val-red">Sulge mittevajalikud</td><td>CPU headroom muusikale</td></tr>
-          </table>
-        </div>
+    <div class="itab-content" id="and-rbmobile">
+      <div class="card2">
+        <div class="badge badge-blue">Rekordbox Mobile — iOS / Android</div>
+        <div class="pr"><span class="pr-label">Kasutus</span><span class="pr-val">USB ettevalmistamine CDJ/XDJ-dele otse telefonist</span></div>
+        <div class="pr"><span class="pr-label">Export</span><span class="pr-val green">Playlists USB-le otse telefonist</span></div>
+        <div class="pr"><span class="pr-label">Hind</span><span class="pr-val green">Tasuta alaplaan, Pro funktsioonid litsentsi taga</span></div>
       </div>
     </div>
   </div>
+</div>
 
 <div class="itab-content" id="sw-djay">
   <div class="card">
-    <div class="card-title"><span class="ct-icon">🎧</span>Djay Pro — seadistus DDJ-FLX10 / FLX4-ga</div>
-    <div class="badge badge-purple">Algoriddim Djay Pro (Windows/Mac/iOS/Android)</div>
-    <div class="steps">
-      <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Installi Djay Pro — algoriddim.com</strong><span>Windows: Microsoft Store → Djay Pro. DDJ-FLX10 ja FLX4 on mõlemad toetatud. Subscription ~5€/kuu või osta.</span></div></div>
-      <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Settings → Audio → DDJ-FLX10 või FLX4</strong><span>Audio Device: vali kontroller. Sample rate: 44100 Hz. Buffer: 256 samples (5ms).</span></div></div>
-      <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Spotify / Apple Music integratsioon</strong><span>Djay Pro unikaalne omadus — stream otse Spotify/Apple Music-ist. Settings → Music Library → Spotify. Vajab Premium kontot.</span></div></div>
-      <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Neural Mix — AI stem separation</strong><span>Settings → Neural Mix → ON. Eraldab automaatselt drums, bass, melody igast loost. CPU intensiivne — Legionil töötab hästi.</span></div></div>
-      <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Automix AI seadistus</strong><span>Djay Pro unikaalne: AI mixib lood automaatselt. Settings → Automix → Transition: Smart. Hea taustmuusika lahenduseks.</span></div></div>
-    </div>
-    <div class="card2" style="margin-top:10px">
-      <div class="badge badge-gold">Djay Pro optimaalsed seaded Legionil</div>
-      <div class="pr"><span class="pr-label">Audio device</span><span class="pr-val">DDJ-FLX10 / FLX4</span></div>
-      <div class="pr"><span class="pr-label">Sample rate</span><span class="pr-val">44100 Hz</span></div>
-      <div class="pr"><span class="pr-label">Buffer size</span><span class="pr-val green">256 samples (5ms)</span></div>
-      <div class="pr"><span class="pr-label">Neural Mix</span><span class="pr-val green">ON</span></div>
-      <div class="pr"><span class="pr-label">Waveform</span><span class="pr-val">3D waveform (Djay Pro unikaalne)</span></div>
-      <div class="pr"><span class="pr-label">Key detection</span><span class="pr-val green">ON — Camelot notation</span></div>
-      <div class="pr"><span class="pr-label">BPM detection</span><span class="pr-val green">ON — auto</span></div>
-      <div class="pr"><span class="pr-label">Sync mode</span><span class="pr-val">Beat sync</span></div>
-    </div>
-    <div class="card2" style="margin-top:8px">
-      <div class="badge badge-blue">Djay vs Rekordbox vs Serato</div>
-      <table class="tbl">
-        <tr><th>Omadus</th><th>Djay Pro</th><th>Rekordbox 7</th><th>Serato DJ Pro</th></tr>
-        <tr><td>Spotify streaming</td><td class="val-green">✓</td><td class="val-red">✗</td><td class="val-red">✗</td></tr>
-        <tr><td>Neural Mix / Stems</td><td class="val-green">✓ Parim</td><td class="val-green">✓</td><td class="val-green">✓</td></tr>
-        <tr><td>CDJ export</td><td class="val-red">✗</td><td class="val-green">✓ Parim</td><td class="val-red">✗</td></tr>
-        <tr><td>FLX10/FLX4 tugi</td><td class="val-green">✓</td><td class="val-green">✓ Natiivne</td><td class="val-green">✓</td></tr>
-        <tr><td>AI Automix</td><td class="val-green">✓ Parim</td><td class="val-red">✗</td><td class="val-red">✗</td></tr>
-        <tr><td>CPU kasutus</td><td class="val">Kõrge (Neural Mix)</td><td class="val-green">Madal</td><td class="val">Keskmine</td></tr>
-        <tr><td>Hind</td><td class="val">~5€/kuu</td><td class="val">Subscription</td><td class="val">Subscription</td></tr>
-        <tr><td>Soovitus</td><td class="val">Spotify DJ + AI mix</td><td class="val-green">Club + CDJ kasutus</td><td class="val">Scratch + controller</td></tr>
-      </table>
-    </div>
-  </div>
+    <div class="card-title"><span class="ct-icon">🎧</span>Djay Pro — täielik juhend</div>
+    <div class="badge badge-purple">Algoriddim Djay Pro AI (Windows / Android / iOS)</div>
 
-  <div class="card">
-    <div class="card-title"><span class="ct-icon">🎵</span>Rekordbox 7 — parimad DJ seadistused</div>
-    <div class="inner-tabs">
-      <button class="itab active" onclick="showItab('rbset','general',this)">Üldised seaded</button>
-      <button class="itab" onclick="showItab('rbset','analysis',this)">Analüüs</button>
-      <button class="itab" onclick="showItab('rbset','performance',this)">Performance</button>
-      <button class="itab" onclick="showItab('rbset','export',this)">Export & USB</button>
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('djay','install')">Install &amp; seadistus</button>
+      <button class="itab" onclick="showItab('djay','neuralmix')">Neural Mix</button>
+      <button class="itab" onclick="showItab('djay','connect')">FLX10/FLX4 ühendus</button>
+      <button class="itab" onclick="showItab('djay','stream')">Streaming</button>
+      <button class="itab" onclick="showItab('djay','automix')">Automix AI</button>
     </div>
-    <div class="itab-content active" id="rbset-general">
-      <div class="card2">
-        <table class="tbl">
-          <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
-          <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (ASIO)</td><td>Madalaim latentsus</td></tr>
-          <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>FLX10 standard</td></tr>
-          <tr><td>Buffer size</td><td class="val-green">256 samples</td><td>~5ms latentsus Legionil</td></tr>
-          <tr><td>Waveform color</td><td class="val">3-band RGB</td><td>Bass/mid/high eraldi värvid</td></tr>
-          <tr><td>Waveform type</td><td class="val-green">Full waveform</td><td>Näed kogu loo struktuuri</td></tr>
-          <tr><td>Track end warning</td><td class="val-green">30 sekundit</td><td>Piisavalt aega järgmiseks</td></tr>
-          <tr><td>Slip mode default</td><td class="val">OFF</td><td>Lülita sisse vajaduse järgi</td></tr>
-          <tr><td>Quantize</td><td class="val-green">ON — 1 beat</td><td>Loop ja cue täpne</td></tr>
-          <tr><td>Sync mode</td><td class="val">Beat sync</td><td>Bar sync pikemateks segudeks</td></tr>
-        </table>
-      </div>
-    </div>
-    <div class="itab-content" id="rbset-analysis">
-      <div class="card2">
-        <table class="tbl">
-          <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
-          <tr><td>BPM range</td><td class="val-green">70-175 BPM</td><td>Katab kõik žanrid</td></tr>
-          <tr><td>Key detection</td><td class="val-green">ON</td><td>Harmoniline miksing</td></tr>
-          <tr><td>Key notation</td><td class="val">Camelot wheel</td><td>Lihtsam harmooniliseks mixiks</td></tr>
-          <tr><td>Stem analysis</td><td class="val-green">ON (RB7)</td><td>Vocal/drums/bass/melody eraldi</td></tr>
-          <tr><td>Auto analysis</td><td class="val-green">ON</td><td>Analüüsib uued lood automaatselt</td></tr>
-          <tr><td>Grid markers</td><td class="val">Manual check</td><td>Kontrolli EDM lood käsitsi</td></tr>
-          <tr><td>Memory cues</td><td class="val-green">Export USB-le</td><td>CDJ-del saadaval</td></tr>
-          <tr><td>Hot cue süsteem</td><td class="val-green">Roheline=intro, Punane=drop, Kollane=break</td><td>Konsistentne süsteem</td></tr>
-        </table>
-        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Analüüsi kõik lood ENNE üritust. 1000 lugu analüüs võtab ~30-60 min. Tee seda päev enne, mitte ürituse hommikul.</p></div></div>
-      </div>
-    </div>
-    <div class="itab-content" id="rbset-performance">
-      <div class="card2">
-        <table class="tbl">
-          <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
-          <tr><td>Master output</td><td class="val-green">FLX10 XLR → MG10XU</td><td>Balanced, pro kvaliteet</td></tr>
-          <tr><td>Booth output</td><td class="val">FLX10 Booth → monitor</td><td>DJ kuulamiskõlar</td></tr>
-          <tr><td>Master level RB-s</td><td class="val-green">-3 kuni 0 dBFS</td><td>Headroom PA2 jaoks</td></tr>
-          <tr><td>Channel gain</td><td class="val">Normaliseeritud</td><td>Kõik lood sama tugevad</td></tr>
-          <tr><td>EQ style</td><td class="val">Isolator</td><td>Täielik kärpimine mixis</td></tr>
-          <tr><td>Headphone mix</td><td class="val">50/50 cue/master</td><td>Kuuled mõlemat</td></tr>
-          <tr><td>FX unit 1</td><td class="val">Echo/Delay</td><td>Transition efektid</td></tr>
-          <tr><td>FX unit 2</td><td class="val">Reverb</td><td>Atmosfäär</td></tr>
-          <tr><td>Loop size default</td><td class="val">4 beat</td><td>Universaalne</td></tr>
-        </table>
-      </div>
-    </div>
-    <div class="itab-content" id="rbset-export">
-      <div class="card2">
-        <table class="tbl">
-          <tr><th>Seadistus</th><th>Väärtus</th></tr>
-          <tr><td>USB formaat</td><td class="val-green">exFAT (suured failid) või Fat32 (CDJ ühilduvus)</td></tr>
-          <tr><td>Export kvaliteet</td><td class="val">Original (FLAC/MP3 320kbps)</td></tr>
-          <tr><td>Cue export</td><td class="val-green">ON — hot cue-d USB-l</td></tr>
-          <tr><td>Artwork export</td><td class="val">ON</td></tr>
-          <tr><td>USB stick kiirus</td><td class="val-green">USB 3.0, min 100MB/s</td></tr>
-          <tr><td>Backup USB</td><td class="val-green">Alati 2 identset sticki!</td></tr>
-          <tr><td>Library backup</td><td class="val-green">File → Library → Backup — kord kuus</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-title"><span class="ct-icon">🎧</span>Serato DJ Pro — parimad seadistused</div>
-    <div class="card2">
-      <table class="tbl">
-        <tr><th>Seadistus</th><th>Väärtus</th><th>Põhjus</th></tr>
-        <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (Pioneer ASIO)</td><td>Natiivne tugi</td></tr>
-        <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>Standard</td></tr>
-        <tr><td>Buffer size</td><td class="val-green">5ms (256 samples)</td><td>Legionil stabiilne</td></tr>
-        <tr><td>BPM range</td><td class="val-green">68-128 (house/techno) või Auto</td><td>Täpsem analüüs</td></tr>
-        <tr><td>Waveform detail</td><td class="val-green">High</td><td>Legion suudab</td></tr>
-        <tr><td>Scratch detection</td><td class="val-green">ON</td><td>Täpsem scratch</td></tr>
-        <tr><td>Sync mode</td><td class="val">Bar sync</td><td>Parem kui beat sync</td></tr>
-        <tr><td>Quantize</td><td class="val-green">ON</td><td>Täpne loop ja cue</td></tr>
-        <tr><td>EQ type</td><td class="val-green">Semi-isolator</td><td>Parim Serato-s</td></tr>
-        <tr><td>FX — deck 1</td><td class="val">Echo, Filter</td><td>Transitions</td></tr>
-        <tr><td>FX — deck 2</td><td class="val">Reverb, Flanger</td><td>Tekstuur</td></tr>
-        <tr><td>Noise cancellation</td><td class="val-green">ON (Serato Stems)</td><td>Neural mic cancel</td></tr>
-        <tr><td>Smart crates</td><td class="val-green">ON</td><td>Auto playlist BPM/key järgi</td></tr>
-        <tr><td>Notify on song end</td><td class="val-green">30 sek enne</td><td>Hoiatus enne lõppu</td></tr>
-        <tr><td>Prevent accidental exit</td><td class="val-green">ON</td><td>Kogemata sulgemine</td></tr>
-      </table>
+    <div class="itab-content active" id="djay-install">
+      <div class="card2">
+        <div class="badge badge-green">Installimine ja seadistus</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Allalaadimine: algoriddim.com → Djay Pro AI → Windows / Android / iOS</strong><span>Windows: Microsoft Store või otsene installer.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Litsents: €3.99/kuu või €35.99/aasta</strong><span>Sisaldab kõiki funktsioone: Neural Mix, Automix AI, streaming integratsioon.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Audio: Settings → Audio Output → ASIO (DDJ-FLX10/FLX4)</strong><span>Android: External USB Device. Buffer: 256 samples soovitatav (~5ms latentsus).</span></div></div>
+        </div>
+      </div>
     </div>
-    <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><strong>Serato Stems vs Rekordbox Stems</strong><p>Mõlemad eraldavad AI-ga drums/bass/melody/vocals. Serato on kiirem reaalajas, Rekordbox analüüsib ette. Legion 5 Pro suudab mõlemat 4 deck peal korraga.</p></div></div>
+
+    <div class="itab-content" id="djay-neuralmix">
+      <div class="card2">
+        <div class="badge badge-purple">Neural Mix — AI stem separation reaalajas</div>
+        <div class="pr"><span class="pr-label">Eraldab reaalajas</span><span class="pr-val green">Kick &amp; Snare / Bass / Melody / Vocals</span></div>
+        <div class="pr"><span class="pr-label">Kasutamine</span><span class="pr-val green">Vajuta Neural Mix nuppu decks alal</span></div>
+        <div class="pr"><span class="pr-label">Stem FX</span><span class="pr-val">Reverb/echo ainult vokaalile — dramatiseerib mixi</span></div>
+        <div class="pr"><span class="pr-label">Acapella</span><span class="pr-val">Vaigista kõik peale Vocals → clean acapella üle teise loo</span></div>
+        <div class="pr"><span class="pr-label">Instrumental</span><span class="pr-val">Vaigista Vocals → karaoke efekt</span></div>
+        <div class="pr"><span class="pr-label">Nõuded</span><span class="pr-val red">Min Intel i7 / Ryzen 5, 8GB RAM (16GB soovituslik)</span></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="djay-connect">
+      <div class="card2">
+        <div class="badge badge-blue">DDJ-FLX10 ja FLX4 ühendus</div>
+        <div class="pr"><span class="pr-label">DDJ-FLX10</span><span class="pr-val green">USB-B → laptop USB-A/C → Djay Pro tuvastab automaatselt</span></div>
+        <div class="pr"><span class="pr-label">DDJ-FLX4</span><span class="pr-val green">Sama ühendus, täielik MIDI mapping automaatne</span></div>
+        <div class="pr"><span class="pr-label">Android + FLX4</span><span class="pr-val green">USB-C OTG kaabel → FLX4 USB-B port → Djay Pro Android</span></div>
+        <div class="pr"><span class="pr-label">Android + FLX10</span><span class="pr-val">OTG toetatud (piiratud vs iOS)</span></div>
+        <div class="pr"><span class="pr-label">iOS (iPhone/iPad)</span><span class="pr-val">Lightning/USB-C → Camera Adapter → USB-B kaabel kontrollerisse</span></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="djay-stream">
+      <div class="card2">
+        <div class="badge badge-gold">Streaming integratsioon</div>
+        <div class="pr"><span class="pr-label">Tidal</span><span class="pr-val green">Settings → Music Services → Tidal (HiFi kvaliteet)</span></div>
+        <div class="pr"><span class="pr-label">Spotify</span><span class="pr-val">Toetatud (320kbps)</span></div>
+        <div class="pr"><span class="pr-label">SoundCloud Go+</span><span class="pr-val">Toetatud</span></div>
+        <div class="pr"><span class="pr-label">Apple Music</span><span class="pr-val">iOS versioonil toetatud</span></div>
+        <div class="pr"><span class="pr-label">Soovitus</span><span class="pr-val green">Tidal HiFi (FLAC streaming) — parem helikvaliteet DJ kasutuseks</span></div>
+        <div class="pr"><span class="pr-label">Offline</span><span class="pr-val green">Lae lood alla enne üritust — ei sõltu internetist</span></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="djay-automix">
+      <div class="card2">
+        <div class="badge badge-blue">Automix AI — automaatne miksing</div>
+        <div class="pr"><span class="pr-label">Aktiveerimine</span><span class="pr-val green">Vajuta Automix nuppu → AI valib järgmise loo ja miksib automaatselt</span></div>
+        <div class="pr"><span class="pr-label">Energy Mode</span><span class="pr-val">AI sorteerib lood energia järgi (aeglane → kiire)</span></div>
+        <div class="pr"><span class="pr-label">Smart Fade</span><span class="pr-val green">Automaatne crossfade sobiva koha leidmine</span></div>
+        <div class="pr"><span class="pr-label">Kasulik</span><span class="pr-val">Taustamuusika üritustel ilma aktiivse DJ-ta</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="itab-content" id="sw-rekordbox6">
   <div class="card">
     <div class="card-title"><span class="ct-icon">🎵</span>Rekordbox 6 — täielik seadistuse juhend</div>
-    <div class="badge badge-blue">Pioneer DJ Rekordbox 6 (Performance + Export mode)</div>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Rekordbox 6 on tasuta Performance mode DDJ-FLX10 ja FLX4-ga. Export mode USB ettevalmistamiseks CDJ-dele on samuti tasuta. Kõige laialdasem tugi Pioneer DJ kontrolleritele.</p>
+    <div class="badge badge-blue">Pioneer DJ Rekordbox 6 (Performance + Export mode — tasuta)</div>
 
-    <div class="inner-tabs">
-      <button class="itab active" onclick="showItab('rb6','install',this)">Install & Audio</button>
-      <button class="itab" onclick="showItab('rb6','seaded',this)">Seadistused</button>
-      <button class="itab" onclick="showItab('rb6','library',this)">Muusikakogu</button>
-      <button class="itab" onclick="showItab('rb6','export',this)">Export USB</button>
-      <button class="itab" onclick="showItab('rb6','vs7',this)">RB6 vs RB7</button>
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('rb6','install')">Install &amp; Audio</button>
+      <button class="itab" onclick="showItab('rb6','seaded')">Seadistused</button>
+      <button class="itab" onclick="showItab('rb6','library')">Muusikakogu</button>
+      <button class="itab" onclick="showItab('rb6','export')">Export USB</button>
+      <button class="itab" onclick="showItab('rb6','vs7')">RB6 vs RB7</button>
     </div>
 
     <div class="itab-content active" id="rb6-install">
       <div class="card2">
-        <div class="badge badge-green">Rekordbox 6 installimine ja audio seadistus</div>
+        <div class="badge badge-green">Installimine ja audio seadistus</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lae alla rekordbox.com → Download</strong><span>Vali versioon 6.x (mitte 7.x kui soovid jääda RB6-le). Windows installer ~200MB. Vajab Pioneer DDJ draiverit.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Installi Pioneer DDJ-FLX10 / FLX4 draiver</strong><span>pioneerdj.com → Support → DDJ-FLX10 → Drivers. ASIO draiver Windowsile. Taaskäivita pärast installimist.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Rekordbox → Preferences → Audio</strong><span>Audio device: DDJ-FLX10 (ASIO). Sample rate: 44100 Hz. Buffer: 256 samples. Kinnita OK.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Ühenda kontroller USB-ga → automaatne tuvastus</strong><span>Rekordbox tuvastab DDJ-FLX10/FLX4 automaatselt. Ilmub "Controller connected" teade. Layout muutub Performance mode vaatele.</span></div></div>
-          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Testi heli: lae lugu → pane mängima</strong><span>Master out → FLX10 XLR väljund → MG10XU → PA2 → kõlarid. Kui heli tuleb — kõik töötab.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Allalaadimine: rekordbox.com → Free download → Windows installer</strong><span>Vali versioon 6.x. Tasuta — ei nõua litsentsi Performance ja Export mode jaoks.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>ASIO draiver: driver.pioneerdj.com → DDJ-FLX10 või FLX4</strong><span>Installi Pioneer DDJ ASIO draiver ENNE rakenduse avamist. Reboot pärast installimist.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Preferences → Audio → Audio Interface → DDJ-FLX10 (ASIO) või DDJ-FLX4 (ASIO)</strong><span>Sample rate: 44100 Hz. Master output: CH1/2. Headphone: CH3/4.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Buffer size: 256 samples (stabiilsus) või 128 (madal latentsus)</strong><span>256 samples soovitatav igapäevaseks kasutuseks. 128 samples DJ seti ajal madalama latentsuse jaoks.</span></div></div>
         </div>
       </div>
     </div>
 
     <div class="itab-content" id="rb6-seaded">
       <div class="card2">
-        <div class="badge badge-gold">Rekordbox 6 — optimaalsed seaded Legionil</div>
+        <div class="badge badge-gold">Rekordbox 6 — optimaalsed seaded</div>
         <table class="tbl">
           <tr><th>Seadistus</th><th>Väärtus</th><th>Asukoht</th></tr>
-          <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (ASIO)</td><td>Preferences → Audio</td></tr>
-          <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>Preferences → Audio</td></tr>
-          <tr><td>Buffer size</td><td class="val-green">256 samples (~5ms)</td><td>Preferences → Audio</td></tr>
-          <tr><td>Waveform type</td><td class="val-green">Full waveform</td><td>Preferences → View</td></tr>
-          <tr><td>Waveform color</td><td class="val">3-band</td><td>Preferences → View</td></tr>
-          <tr><td>BPM range</td><td class="val-green">70-175</td><td>Preferences → Analysis</td></tr>
+          <tr><td>Controller</td><td class="val-green">DDJ-FLX10 või DDJ-FLX4 vali</td><td>Preferences → Controller</td></tr>
+          <tr><td>BPM Detection</td><td class="val-green">Mixed (täpsem)</td><td>Preferences → Analysis</td></tr>
+          <tr><td>Waveform</td><td class="val-green">3-Band või Full Spectrum</td><td>Preferences → View</td></tr>
+          <tr><td>Sync mode</td><td class="val">BEAT SYNC</td><td>Preferences → Performance</td></tr>
+          <tr><td>Quantize</td><td class="val-green">ON (soovituslik algajale)</td><td>Preferences → Performance</td></tr>
           <tr><td>Key detection</td><td class="val-green">ON</td><td>Preferences → Analysis</td></tr>
-          <tr><td>Key display</td><td class="val">Camelot</td><td>Preferences → View</td></tr>
-          <tr><td>Quantize</td><td class="val-green">ON — 1 beat</td><td>Preferences → Performance</td></tr>
-          <tr><td>Sync mode</td><td class="val">Beat sync</td><td>Preferences → Performance</td></tr>
-          <tr><td>Auto gain</td><td class="val-green">ON</td><td>Preferences → Mixer</td></tr>
-          <tr><td>EQ type</td><td class="val">Isolator</td><td>Preferences → Mixer</td></tr>
-          <tr><td>Track end warning</td><td class="val-green">30 sek</td><td>Preferences → Performance</td></tr>
-          <tr><td>Slip mode</td><td class="val">OFF (käsitsi sisse)</td><td>Kontrolleri nupp</td></tr>
-          <tr><td>Hot cue autoload</td><td class="val-green">ON</td><td>Preferences → Performance</td></tr>
+          <tr><td>Auto gain</td><td class="val-green">ON (-18 dBFS target)</td><td>Preferences → Mixer</td></tr>
         </table>
       </div>
     </div>
 
     <div class="itab-content" id="rb6-library">
       <div class="card2">
-        <div class="badge badge-blue">Muusikakogu korraldamine Rekordbox 6-s</div>
+        <div class="badge badge-blue">Muusikakogu korraldamine</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lisa muusikakaust: File → Add Folder to Collection</strong><span>Rekordbox skaneerib kogu kausta rekursiivselt. Toetab MP3, FLAC, WAV, AAC, AIFF. FLAC ja WAV parim kvaliteet.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Analüüsi kõik lood korraga</strong><span>Vali kõik lood → parem klik → Analyze Tracks. Analüüsib BPM, key, waveform. 1000 lugu ≈ 30-60 min Legionil.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Hot cue süsteem — kasuta konsistentselt</strong><span>Cue 1 (roheline): intro/drop algus. Cue 2 (punane): peamine drop. Cue 3 (kollane): breakdown. Cue 4 (sinine): outro.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Playlist-id žanri ja BPM järgi</strong><span>Playlists → New Playlist. Nt: "Tech House 125-132", "Deep House 120-126". Smart Playlist filtreerib automaatselt.</span></div></div>
-          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Grid korrigeerimine käsitsi</strong><span>EDM lood vajavad tihti käsitsi grid fixi. Parem klik loole → Grid Edit. Seadista downbeat täpselt.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Drag &amp; drop kaustad Collection paneelile</strong><span>Rekordbox skaneerib kogu kausta rekursiivselt. Toetab MP3, FLAC, WAV, AAC.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Analyze tracks: vali kõik → right click → Analyze tracks</strong><span>Analüüsib BPM + key + waveform. 1000 lugu ≈ 30-60 min.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Playlist loomine: right click Collection → Create playlist</strong><span>Soovituslik struktuur: Techno / House / Üritused / Uus muusika.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Smart Playlist: automaatne sortimine BPM/key/rating järgi</strong><span>Right click Playlists → Create Smart Playlist. Seadista filtrid vastavalt žanrile.</span></div></div>
         </div>
-        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><strong>Backup on kohustuslik!</strong><p>File → Library → Backup Library. Salvesta välisele kettale. Hot cue-d ja playlist-id kaovad kui Rekordbox andmebaas rikutakse.</p></div></div>
       </div>
     </div>
 
     <div class="itab-content" id="rb6-export">
       <div class="card2">
-        <div class="badge badge-green">Export mode — USB ettevalmistamine CDJ-dele</div>
+        <div class="badge badge-green">Export USB — CDJ ettevalmistamine</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>USB formaat: exFAT (soovitatav) või FAT32</strong><span>exFAT toetab &gt;4GB faile. Formateeri Windows Disk Management-is. CDJ-2000NXS2 ja CDJ-3000 mõlemad toetavad exFAT.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Drag & drop playlist-id USB-le</strong><span>Rekordbox vasakul paneelil: leia USB seade. Lohista playlist-id USB ikoonile. Rekordbox kopeerib failid ja andmebaasi.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Export settings: kõik metaandmed kaasa</strong><span>Preferences → Advanced → Export: Hot Cues ✓, Memory Cues ✓, Artwork ✓, Rating ✓. Kõik info läheb USB-le.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Hoia alati 2 identset USB sticki</strong><span>USB rikki minek klubis = gig läheb katki. 2 identset sticki: üks primary, teine backup taskus.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Rekordbox Export mode — tasuta, ei nõua litsentsi</strong><span>USB formaat: FAT32 (kuni 32GB) või exFAT (suurem). Formateeri enne kasutust.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Export: right click playlist → Export to device → vali USB</strong><span>Rekordbox kopeerib failid ja andmebaasi USB-le.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Kontroll: USB peal peab olema kaust PIONEER → rekordbox</strong><span>CDJ-l: USB sisesta → Source → USB → kõik playlists nähtavad.</span></div></div>
         </div>
         <div class="card2" style="margin-top:8px">
           <div class="badge badge-gold">USB soovitused</div>
-          <div class="pr"><span class="pr-label">Formaat</span><span class="pr-val green">exFAT</span></div>
+          <div class="pr"><span class="pr-label">Formaat</span><span class="pr-val green">exFAT (suuremad failid) või FAT32 (ühilduvus)</span></div>
           <div class="pr"><span class="pr-label">Kiirus</span><span class="pr-val green">USB 3.0, min 100MB/s lugemine</span></div>
-          <div class="pr"><span class="pr-label">Suurus</span><span class="pr-val">64-128 GB piisab</span></div>
           <div class="pr"><span class="pr-label">Mark</span><span class="pr-val green">SanDisk Extreme, Samsung, Kingston</span></div>
           <div class="pr"><span class="pr-label">Väldi</span><span class="pr-val red">Odavad noname USB-d — aeglased, katkevad</span></div>
         </div>
@@ -1087,18 +912,15 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
         <div class="badge badge-gold">Rekordbox 6 vs Rekordbox 7 — mis muutus?</div>
         <table class="tbl">
           <tr><th>Omadus</th><th>Rekordbox 6</th><th>Rekordbox 7</th></tr>
-          <tr><td>Hind</td><td class="val-green">Tasuta (Performance + Export)</td><td class="val">Subscription 11€/kuu</td></tr>
-          <tr><td>Stems (AI eraldus)</td><td class="val-red">Ei</td><td class="val-green">✓ Vocal/Drums/Bass/Melody</td></tr>
-          <tr><td>Cloud sync</td><td class="val-red">Ei</td><td class="val-green">✓ Library pilves</td></tr>
-          <tr><td>Video mixing</td><td class="val-red">Ei</td><td class="val-green">✓ Video plug-in</td></tr>
-          <tr><td>Controller tugi</td><td class="val-green">Täielik FLX10/FLX4</td><td class="val-green">Täielik FLX10/FLX4</td></tr>
+          <tr><td>Hind</td><td class="val-green">Tasuta (Performance + Export)</td><td class="val">Creative Plan €11/kuu</td></tr>
+          <tr><td>Stem separation (AI)</td><td class="val-red">Ei</td><td class="val-green">✓ kick/bass/melody/vocal reaalajas</td></tr>
+          <tr><td>Creative mode</td><td class="val-red">Ei</td><td class="val-green">✓ uus UI</td></tr>
+          <tr><td>Controller tugi FLX10/FLX4</td><td class="val-green">✓ täielik</td><td class="val-green">✓ täielik</td></tr>
           <tr><td>CDJ export</td><td class="val-green">✓ identne</td><td class="val-green">✓ identne</td></tr>
-          <tr><td>BPM analüüs</td><td class="val-green">Identne</td><td class="val-green">Identne</td></tr>
-          <tr><td>Key analüüs</td><td class="val-green">Identne</td><td class="val-green">Identne</td></tr>
           <tr><td>Stabiilsus</td><td class="val-green">Küps, stabiilne</td><td class="val">Uuem, mõned bugid</td></tr>
-          <tr><td>Soovitus</td><td class="val-green">Kui ei vaja Stems/Cloud</td><td class="val">Kui vajad Stems</td></tr>
+          <tr><td>Soovitus</td><td class="val-green">Kasuta kui süsteem töötab</td><td class="val">Upgrade ainult kui Stems vajalik</td></tr>
         </table>
-        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>RB6 on suurepärane valik!</strong><p>Kui ei kasuta CDJ-del Stems funktsiooni ja sul pole vaja pilvsünki — Rekordbox 6 on täiesti piisav ja 100% tasuta. Upgrade RB7-le ainult siis kui Stems on vajalik.</p></div></div>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>RB6 on suurepärane valik!</strong><p>Stem separation vajab võimsat arvutit. RB6 upgrade RB7-le pole kohustuslik — kasuta RB6 kui süsteem töötab stabiilselt.</p></div></div>
       </div>
     </div>
   </div>
@@ -1108,112 +930,58 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
   <div class="card">
     <div class="card-title"><span class="ct-icon">🎧</span>Serato DJ Pro — täielik seadistuse juhend</div>
     <div class="badge badge-green">Serato DJ Pro 3.x (DDJ-FLX10 / FLX4 natiivne tugi)</div>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Serato DJ Pro on tuntud scratchi täpsuse ja stabiilsuse poolest. DDJ-FLX10 on Serato sertifitseeritud kontroller — natiivne tugi, kõik nupud töötavad out of the box.</p>
 
-    <div class="inner-tabs">
-      <button class="itab active" onclick="showItab('ser','install',this)">Install & Audio</button>
-      <button class="itab" onclick="showItab('ser','seaded',this)">Seadistused</button>
-      <button class="itab" onclick="showItab('ser','library',this)">Muusikakogu</button>
-      <button class="itab" onclick="showItab('ser','stems',this)">Serato Stems</button>
-      <button class="itab" onclick="showItab('ser','vrekordbox',this)">vs Rekordbox</button>
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('ser','install')">Install &amp; Audio</button>
+      <button class="itab" onclick="showItab('ser','seaded')">Seadistused</button>
+      <button class="itab" onclick="showItab('ser','library')">Muusikakogu</button>
+      <button class="itab" onclick="showItab('ser','flx10')">DDJ-FLX10 Seadistus</button>
     </div>
 
     <div class="itab-content active" id="ser-install">
       <div class="card2">
-        <div class="badge badge-green">Serato DJ Pro installimine ja esmakordsed seaded</div>
+        <div class="badge badge-green">Installimine ja audio seadistus</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lae alla serato.com → Downloads → Serato DJ Pro</strong><span>Windows installer ~150MB. Serato vajab tasuta kontot aktiveerimiseks. DDJ-FLX10 avab Pro litsentsi automaatselt (bundled).</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Ühenda DDJ-FLX10 enne käivitamist</strong><span>Serato tuvastab kontrolleri käivitumisel. FLX10 tuleb kaasa Serato DJ Pro litsentsiga — kontrolli aktiveerimist serato.com/my-serato.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Setup → Audio → DDJ-FLX10</strong><span>Audio device: DDJ-FLX10. Sample rate: 44100 Hz. Buffer: 5ms (256 samples). Apply → Test audio nupuga.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Pioneer ASIO draiver Serato jaoks</strong><span>pioneerdj.com → Support → DDJ-FLX10 → ASIO Driver. Ilma ASIO draiverita kasutab Serato WDM → kõrgem latentsus. ASIO = parim.</span></div></div>
-          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Lisa muusikakaust: Files → leia kaust → drag to Library</strong><span>Serato lisab kausta automaatselt watchlist-i. Uued failid kaustas ilmuvad automaatselt Library-sse.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Allalaadimine: serato.com/dj/serato-dj-pro → Download</strong><span>Serato DJ Lite (tasuta) vs Pro (€22/kuu või osta). DDJ-FLX10 tuleb kaasa Pro litsentsiga.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>DDJ-FLX10 + DDJ-FLX4: mõlemad toetatud natiivset</strong><span>Audio auto-konfigureeritakse kontrolleri ühendamisel.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Windows: ASIO prefereeritud — latentsus: USB Buffer Size 5-10ms</strong><span>pioneerdj.com → Support → DDJ-FLX10 → ASIO Driver. Madalaim latentsus.</span></div></div>
         </div>
-        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><strong>DDJ-FLX4 ja Serato</strong><p>FLX4 vajab Serato DJ Lite (tasuta) või Serato DJ Pro (tasuline, ~17€/kuu). FLX4 ei tule bundled Pro litsentsiga. Alternatiiv: kasuta Rekordbox (tasuta Performance mode FLX4-ga).</p></div></div>
       </div>
     </div>
 
     <div class="itab-content" id="ser-seaded">
       <div class="card2">
-        <div class="badge badge-gold">Serato DJ Pro — kõik olulised seaded</div>
+        <div class="badge badge-gold">Seadistused</div>
         <table class="tbl">
           <tr><th>Seadistus</th><th>Väärtus</th><th>Asukoht</th></tr>
-          <tr><td>Audio device</td><td class="val-green">DDJ-FLX10 (ASIO)</td><td>Setup → Audio</td></tr>
-          <tr><td>Sample rate</td><td class="val">44100 Hz</td><td>Setup → Audio</td></tr>
-          <tr><td>Buffer size</td><td class="val-green">5ms (256 samples)</td><td>Setup → Audio</td></tr>
-          <tr><td>BPM range</td><td class="val-green">Auto (68-175)</td><td>Setup → Library</td></tr>
-          <tr><td>Key detection</td><td class="val-green">ON</td><td>Setup → Library</td></tr>
-          <tr><td>Key notation</td><td class="val">Musical (C, Cm...)</td><td>Setup → Library</td></tr>
-          <tr><td>Waveform detail</td><td class="val-green">High</td><td>Setup → Display</td></tr>
-          <tr><td>Waveform type</td><td class="val-green">RGB waveform</td><td>Setup → Display</td></tr>
-          <tr><td>Sync mode</td><td class="val">Bar sync</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>Quantize</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>Quantize value</td><td class="val">1 beat</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>EQ type</td><td class="val-green">Semi-isolator</td><td>Setup → Mixer</td></tr>
-          <tr><td>Smart crates</td><td class="val-green">ON</td><td>Setup → Library</td></tr>
-          <tr><td>Prevent accidental exit</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>Notify on song end</td><td class="val-green">30 sek</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>Scratch detection</td><td class="val-green">ON</td><td>Setup → DJ Preferences</td></tr>
-          <tr><td>Auto gain</td><td class="val-green">ON</td><td>Setup → Mixer</td></tr>
-          <tr><td>FX unit 1</td><td class="val">Echo / Delay</td><td>FX panel</td></tr>
-          <tr><td>FX unit 2</td><td class="val">Reverb</td><td>FX panel</td></tr>
+          <tr><td>Master/Headphone väljundid</td><td class="val-green">Verifigeeri</td><td>Setup → Audio</td></tr>
+          <tr><td>Show BPM, Key, Energy</td><td class="val-green">ON</td><td>Library + Display</td></tr>
+          <tr><td>Gain normaliseerimiseks</td><td class="val-green">-18 dBFS</td><td>Mixer → Gain</td></tr>
+          <tr><td>FX mode</td><td class="val">Single/Dual FX valik</td><td>FX panel</td></tr>
         </table>
       </div>
     </div>
 
     <div class="itab-content" id="ser-library">
       <div class="card2">
-        <div class="badge badge-blue">Serato muusikakogu haldamine</div>
+        <div class="badge badge-blue">Muusikakogu haldamine</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Lisa muusikakaust: Files → kaust → Lisa Library-sse</strong><span>Serato jälgib kausta automaatselt. Uued lood ilmuvad Library-sse kohe. Toetab MP3, FLAC, WAV, AAC, MP4 (video).</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Analüüsi kõik lood</strong><span>Vali kõik → parem klik → Analyze Files. Offline mode ON (Setup → Library → Analyze new files). Serato analüüsib BPM ja key automaatselt uutel lugudel.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Smart Crates BPM järgi</strong><span>Create Smart Crate → Lisa filter: BPM 120-128. Serato täidab automaatselt. Tee eraldi crate-id: Tech House, Deep House, Melodic Techno.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Hot cue süsteem Serato-s</strong><span>8 hot cue nuppu FLX10-l. Cue 1 (punane): intro. Cue 2 (oranž): drop. Cue 3 (kollane): break. Salvesta automaatselt — kaovad faili metaandmetesse.</span></div></div>
-          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Serato library backup</strong><span>C:\Users\[kasutaja]\Music\_Serato_ kausta kopeeri regulaarselt. Seal on kõik cue-d, loops, playlist-id. Ärge kustutage seda kausta!</span></div></div>
-        </div>
-        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><strong>Serato ei ekspordi USB-le nagu Rekordbox!</strong><p>Serato on mõeldud ainult laptop + kontroller kasutuseks. CDJ-dest mängimiseks pead kasutama Rekordbox-i. Serato on parim kui kasutad alati oma laptopit.</p></div></div>
-      </div>
-    </div>
-
-    <div class="itab-content" id="ser-stems">
-      <div class="card2">
-        <div class="badge badge-purple">Serato Stems — AI stem separation reaalajas</div>
-        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Serato Stems eraldab iga loo automaatselt 4 osaks: Vocals, Drums, Bass, Melody. Saad mute/solo igat osa reaalajas DJ seti ajal.</p>
-        <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Serato DJ Pro 3.0+ nõutav</strong><span>Stems on Serato DJ Pro 3.x funktsioon. Kontrolli versiooni: Help → About Serato DJ Pro. Uuenda vajadusel.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Aktiveeri Stems: Stems nupp deck-il</strong><span>DDJ-FLX10: Stems nupp on olemas. FLX4: Stems töötab ekraanil, kontrolleri nuppe pole. Stems ikoon ilmub waveform-i kõrvale.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Loo analüüs Stems jaoks</strong><span>Esmakordselt vajab lugu Stems analüüsi (~5-15 sek/lugu). Parem klik → Analyze Stems. Eelanalüüsi kõik lood ette — reaalajas analüüs sööb CPU-d.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Stems kasutamine DJ seti ajal</strong><span>Mute Drums → ainult vokaal+bass+meloodia. Mute Vocals → instrumentaal. Solo Bass → bass drop efekt. Smooth transition: mute/unmute eelmise loo lõpus.</span></div></div>
-        </div>
-        <div class="card2" style="margin-top:8px">
-          <div class="badge badge-gold">Stems CPU kasutus Legionil</div>
-          <div class="pr"><span class="pr-label">Stems OFF</span><span class="pr-val green">CPU ~5-10%</span></div>
-          <div class="pr"><span class="pr-label">Stems ON (1 deck)</span><span class="pr-val green">CPU ~20-30%</span></div>
-          <div class="pr"><span class="pr-label">Stems ON (2 deck)</span><span class="pr-val">CPU ~40-50%</span></div>
-          <div class="pr"><span class="pr-label">Stems + FX (2 deck)</span><span class="pr-val">CPU ~50-60%</span></div>
-          <div class="pr"><span class="pr-label">Legion 5 Pro stabiilsus</span><span class="pr-val green">Stabiilne kuni 60% CPU</span></div>
-          <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>Eelanalüüsi lood Stems jaoks enne üritust. Reaalajas analüüs + DJ set korraga = kõrge CPU load. Eelanalüüsitud lood kasutavad oluliselt vähem CPU-d.</p></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Drag &amp; drop muusika aknasse — analüüs automaatne</strong><span>Serato jälgib kausta automaatselt. Toetab MP3, FLAC, WAV, AAC.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Force Re-analyze: right click → Analyze files → Force re-analyze</strong><span>BPM fix vigaste lugude jaoks.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Crates = staatilised playlists / Smart Crates = automaatne filter</strong><span>Smart Crate näide: BPM 120-130, Key = Am jne.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Backup: File → Backup Library</strong><span>Tee enne iga suurema muutuse. _Serato_ kaust sisaldab kõiki cue-sid ja playliste.</span></div></div>
         </div>
       </div>
     </div>
 
-    <div class="itab-content" id="ser-vrekordbox">
+    <div class="itab-content" id="ser-flx10">
       <div class="card2">
-        <div class="badge badge-gold">Serato DJ Pro vs Rekordbox — millal kumba?</div>
-        <table class="tbl">
-          <tr><th>Omadus</th><th>Serato DJ Pro</th><th>Rekordbox 6/7</th></tr>
-          <tr><td>Hind</td><td class="val">~17€/kuu (FLX4) / tasuta FLX10-ga</td><td class="val-green">RB6 tasuta / RB7 11€/kuu</td></tr>
-          <tr><td>Scratch täpsus</td><td class="val-green">Parim — scratch standard</td><td class="val">Hea</td></tr>
-          <tr><td>CDJ export</td><td class="val-red">Ei — ainult laptop</td><td class="val-green">✓ Parim CDJ tugi</td></tr>
-          <tr><td>Stems</td><td class="val-green">✓ Reaalajas, kiire</td><td class="val-green">✓ RB7 (eelanalüüs)</td></tr>
-          <tr><td>Stabiilsus</td><td class="val-green">Väga stabiilne</td><td class="val-green">Väga stabiilne</td></tr>
-          <tr><td>Smart Crates</td><td class="val-green">✓ Parim</td><td class="val-green">✓ Smart Playlist</td></tr>
-          <tr><td>FLX10 natiivne</td><td class="val-green">✓ Bundled litsents</td><td class="val-green">✓ Performance tasuta</td></tr>
-          <tr><td>FLX4 tugi</td><td class="val">Lite (tasuta) / Pro (tasuline)</td><td class="val-green">✓ Performance tasuta</td></tr>
-          <tr><td>Video mixing</td><td class="val-green">✓ Video plug-in</td><td class="val-green">✓ RB7</td></tr>
-          <tr><td>Spotify</td><td class="val-red">Ei</td><td class="val-red">Ei</td></tr>
-          <tr><td>Parim kasutus</td><td class="val-green">Scratch, turntablist</td><td class="val-green">Club, CDJ, export</td></tr>
-        </table>
-        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Soovitus sinu süsteemile:</strong><p>FLX10-ga: kasuta <strong>Rekordbox</strong> peamise tarkvarana (tasuta, CDJ tugi, täielik FLX10 integratsioon). Serato kui vajad Stems reaalajas või scratch täpsust. FLX4-ga: Rekordbox on selgelt parim valik — tasuta Performance mode.</p></div></div>
+        <div class="badge badge-purple">DDJ-FLX10 seadistus Serato-s</div>
+        <div class="pr"><span class="pr-label">FLX10 tugi</span><span class="pr-val green">Serato ja Rekordboxi natiivne — mõlemad toetatud</span></div>
+        <div class="pr"><span class="pr-label">Performance Pads</span><span class="pr-val green">Hotcue / Loop / Slicer / Sampler</span></div>
+        <div class="pr"><span class="pr-label">Beat FX</span><span class="pr-val green">Echo, reverb, flanger — automaatne MIDI mapping</span></div>
+        <div class="pr"><span class="pr-label">RB ↔ Serato lülitus</span><span class="pr-val">Vajab rakenduse vahetust — ei saa korraga mõlemat</span></div>
+        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><strong>FLX10 unikaalne omadus</strong><p>DDJ-FLX10 toetab Serato ja Rekordboxi natiivset — mõlemad out of the box. Vajadusel vaheta tarkvara ilma konfiguratsioonimuutuseta.</p></div></div>
       </div>
     </div>
   </div>
@@ -1221,139 +989,74 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
 
 <div class="itab-content" id="sw-home">
   <div class="card">
-    <div class="card-title"><span class="ct-icon">🏠</span>DDJ-FLX4 / FLX10 → Denon AVR-2800H kodusüsteem</div>
-    <div class="badge badge-gold">Sinu kodusüsteem: Denon AVR-2800H + Klipsch R-51M + R-30C + RP-8000F + SVS SB-3000</div>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Suurepärane kodukino süsteem DJ kasutuseks! SVS SB-3000 sub (1050W) + Klipsch RP-8000F (200W/kõlar) = professionaalne kodutants.</p>
+    <div class="card-title"><span class="ct-icon">🏠</span>Kodusüsteem — Denon AVR-2800H seadistus</div>
+    <div class="badge badge-gold">Denon AVR-2800H + Klipsch RP-8000F + R-51M + R-30C + SVS SB-3000</div>
 
-    <div class="inner-tabs">
-      <button class="itab active" onclick="showItab('home','connect',this)">Ühendamine</button>
-      <button class="itab" onclick="showItab('home','denon',this)">Denon seadistus</button>
-      <button class="itab" onclick="showItab('home','optimize',this)">Optimiseerimine</button>
-      <button class="itab" onclick="showItab('home','compare',this)">PA vs Kodu</button>
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('home','connect')">Ühendus ja seadistus</button>
+      <button class="itab" onclick="showItab('home','audyssey')">Audyssey seadistus</button>
+      <button class="itab" onclick="showItab('home','profiles')">Heliprofiilid</button>
+      <button class="itab" onclick="showItab('home','app')">Mobiiliäpp</button>
+      <button class="itab" onclick="showItab('home','svs')">SVS SB-3000</button>
     </div>
 
     <div class="itab-content active" id="home-connect">
       <div class="card2">
-        <div class="badge badge-green">✅ Parim ühendus — DDJ-FLX10 XLR → Denon AVR</div>
-        <div class="sb-node-row">
-          <div class="sb-node src">DDJ-FLX10<br><small>XLR Master</small></div>
-          <span class="sb-arrow">→</span><span class="sb-cable xlr">XLR → RCA adapt</span><span class="sb-arrow">→</span>
-          <div class="sb-node mixer">Denon AVR-2800H<br><small>CD / AUX RCA IN</small></div>
-          <span class="sb-arrow">→</span>
-          <div class="sb-node spk">Klipsch + SVS<br><small>Kõik kõlarid</small></div>
-        </div>
-        <div class="pr" style="margin-top:10px"><span class="pr-label">Adapter</span><span class="pr-val">XLR female → RCA male (passiivne, 2tk)</span></div>
-        <div class="pr"><span class="pr-label">Denon sisend</span><span class="pr-val green">CD IN või AUX IN (RCA L/R)</span></div>
-        <div class="pr"><span class="pr-label">FLX10 master tase</span><span class="pr-val">60-70% (Denon on tundlik)</span></div>
-        <div class="pr"><span class="pr-label">Kaabli pikkus</span><span class="pr-val red">Max 3m (RCA unbalanced)</span></div>
-        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>XLR → RCA adapter teeb balanced → unbalanced konversiooni. Kodus on see OK — lühike kaabel, ei ole interferentsi probleemi. Professionaalne DI box (Radial ProDI) annab parema kvaliteedi aga pole vajalik kodus.</p></div></div>
+        <div class="badge badge-green">Ühendus ja seadistus</div>
+        <div class="pr"><span class="pr-label">AVR-2800H sisendid</span><span class="pr-val">HDMI ARC, Optical, Coaxial, RCA, USB-A, Bluetooth, WiFi</span></div>
+        <div class="pr"><span class="pr-label">Klipsch RP-8000F</span><span class="pr-val green">Speaker A terminaalsed (main L/R)</span></div>
+        <div class="pr"><span class="pr-label">Klipsch R-51M</span><span class="pr-val">Speaker B (rear surround) või Zone 2</span></div>
+        <div class="pr"><span class="pr-label">Klipsch R-30C</span><span class="pr-val">Center kanal — HDMI ARC TV kaudu</span></div>
+        <div class="pr"><span class="pr-label">SVS SB-3000</span><span class="pr-val green">SUB OUT → SVS RCA sisend, gain ~50%, crossover 80Hz (AVR seab)</span></div>
+        <div class="pr"><span class="pr-label">Eelistatud TV ühendus</span><span class="pr-val green">HDMI ARC — heli + pilt + CEC kontroll</span></div>
       </div>
+    </div>
 
-      <div class="card2" style="margin-top:8px">
-        <div class="badge badge-blue">✅ Alternatiiv — DDJ-FLX4 RCA → Denon AVR</div>
-        <div class="sb-node-row">
-          <div class="sb-node src">DDJ-FLX4<br><small>RCA Master</small></div>
-          <span class="sb-arrow">→</span><span class="sb-cable rca">RCA stereo kaabel</span><span class="sb-arrow">→</span>
-          <div class="sb-node mixer">Denon AVR-2800H<br><small>CD / AUX RCA IN</small></div>
-        </div>
-        <div class="pr" style="margin-top:8px"><span class="pr-label">FLX4 master tase</span><span class="pr-val">70-80%</span></div>
-        <div class="pr"><span class="pr-label">Denon volume</span><span class="pr-val">Alusta -40dB, tõsta aeglaselt</span></div>
-        <div class="pr"><span class="pr-label">Kaabli pikkus</span><span class="pr-val red">Max 3m</span></div>
-        <div class="alert alert-green" style="margin-top:8px"><span class="alert-icon">✅</span><div><p>FLX4 RCA → Denon RCA on otsene ühendus — ei vaja adapterit. Lihtsaim lahendus koduseks kasutuseks.</p></div></div>
-      </div>
-
-      <div class="card2" style="margin-top:8px">
-        <div class="badge badge-purple">✅ Digitaalne ühendus — USB Audio (parim kvaliteet)</div>
+    <div class="itab-content" id="home-audyssey">
+      <div class="card2">
+        <div class="badge badge-blue">Audyssey MultEQ XT kalibreerimine</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Laptop → Denon AVR HDMI ARC</strong><span>Laptop HDMI → Denon HDMI IN. Rekordbox/Serato audio → Windows HDMI out → Denon. Parim kvaliteet, 24bit/96kHz.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Laptop → Denon optiline</strong><span>USB DAC (nt Behringer UCA202) optiline OUT → Denon Optical IN. Digital signaal = null müra.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Laptop USB-C → Denon HDMI</strong><span>USB-C → HDMI adapter → Denon. Windows seab Denon default audio seadmeks.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Audyssey MultEQ XT: kasuta kaasasolevat mikrofoni</strong><span>Setup → Audyssey → Start. Mõõdab ruumi akustika automaatselt.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Paiguta mikrofon kuulamiskoha kõrgusele</strong><span>Mõõda 6-8 positsioonist parima kalibratsiooni jaoks.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Audyssey Dynamic EQ: ON</strong><span>Kompenseerib madalal helitugevusel — heli jääb tasakaalustatuks.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Audyssey Dynamic Volume: ON</strong><span>Ühtlustab reklaamide ja filmi vahelist taset.</span></div></div>
         </div>
       </div>
     </div>
 
-    <div class="itab-content" id="home-denon">
+    <div class="itab-content" id="home-profiles">
       <div class="card2">
-        <div class="badge badge-gold">Denon AVR-2800H — optimaalsed seaded DJ kasutuseks</div>
+        <div class="badge badge-gold">Heliprofiilid</div>
         <table class="tbl">
-          <tr><th>Seadistus</th><th>Väärtus</th><th>Asukoht</th></tr>
-          <tr><td>Sisend</td><td class="val-green">CD IN või AUX IN</td><td>Remote → Input select</td></tr>
-          <tr><td>Sound mode</td><td class="val-green">DIRECT või PURE DIRECT</td><td>Sound Mode nupp</td></tr>
-          <tr><td>Miks mitte Dolby/DTS?</td><td class="val-red">Moonutab stereo DJ signaali</td><td>Kasuta ainult stereo DJ-l</td></tr>
-          <tr><td>Bass management</td><td class="val-green">ON — sub aktiivselt</td><td>Setup → Speaker → Subwoofer</td></tr>
-          <tr><td>Crossover freq</td><td class="val-green">80 Hz (standard)</td><td>Setup → Speaker → Crossover</td></tr>
-          <tr><td>Sub level</td><td class="val">+3 kuni +6 dB DJ-l</td><td>SVS SB-3000 vajab rõhutust</td></tr>
-          <tr><td>Dynamic EQ</td><td class="val-red">OFF DJ kasutuseks</td><td>Manual → Dynamic EQ → OFF</td></tr>
-          <tr><td>Dynamic Volume</td><td class="val-red">OFF</td><td>Muudab helitugevust automaatselt</td></tr>
-          <tr><td>Audyssey EQ</td><td class="val">OFF DJ-l (või Flat)</td><td>Setup → Audyssey → OFF</td></tr>
-          <tr><td>Volume max DJ-l</td><td class="val-red">Max -10dB (Klipsch on tõhus!)</td><td>Klipsch 98dB/W — väga vali!</td></tr>
-          <tr><td>Speaker size (front)</td><td class="val-green">Large (RP-8000F)</td><td>Setup → Speaker → Front</td></tr>
-          <tr><td>Speaker size (center)</td><td class="val">Small (R-30C)</td><td>Setup → Speaker → Center</td></tr>
-          <tr><td>Speaker size (surround)</td><td class="val">Small (R-51M)</td><td>Setup → Speaker → Surround</td></tr>
+          <tr><th>Stsenaarium</th><th>Sound Mode</th><th>Märkus</th></tr>
+          <tr><td>Filmid</td><td class="val-green">Dolby Atmos / DTS:X</td><td>Kui sisu toetab</td></tr>
+          <tr><td>Muusika</td><td class="val-green">Pure Direct</td><td>Ei mingit töötlust — parim stereo kvaliteet</td></tr>
+          <tr><td>TV</td><td class="val">Dolby Surround</td><td>Standardne TV kasutus</td></tr>
+          <tr><td>Gaming</td><td class="val">DTS Virtual:X</td><td>Virtuaalne 3D heli</td></tr>
         </table>
-        <div class="alert alert-danger" style="margin-top:10px"><span class="alert-icon">🚨</span><div><strong>Klipsch RP-8000F on VÄGA tõhus — 98dB/1W!</strong><p>Denon -10dB on juba vali. Ära tõsta üle -5dB DJ kasutuseks — naabrid kuulevad ja kõlarid saavad kahjustusi. SVS SB-3000 1050W sub lisab palju bass energiat!</p></div></div>
-      </div>
-
-      <div class="card2" style="margin-top:10px">
-        <div class="badge badge-blue">Denon Audyssey MultEQ seadistus DJ jaoks</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Tee Audyssey kalibratsioon kõigepealt</strong><span>Setup → Audyssey → Start. Mikrofon kaasas Denoniga. Mõõdab ruumi ja seadistab kõlarid automaatselt. Tee seda ÜKS KORD.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>DJ kasutuseks: Audyssey → OFF või Flat</strong><span>Audyssey MultEQ on mõeldud filmihelile. DJ muusikaks lülita välja — saad puhtama, moonutamata signaali.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Loo preset: "DJ Mode"</strong><span>Mõned Denon AVR-d lubavad sätteid salvestada. Kui ei luba — meenuta seadeid: Direct mode, Audyssey OFF, Sub +4dB.</span></div></div>
-        </div>
-      </div>
-
-      <div class="card2" style="margin-top:8px">
-        <div class="badge badge-green">SVS SB-3000 subwoofer seadistus</div>
-        <div class="pr"><span class="pr-label">SVS app (iOS/Android)</span><span class="pr-val green">Allalaadimiseks — täielik kontroll</span></div>
-        <div class="pr"><span class="pr-label">Crossover freq SVS-s</span><span class="pr-val">Bypass (Denon teeb crossoveri)</span></div>
-        <div class="pr"><span class="pr-label">Phase</span><span class="pr-val">0° (testi mõlemat, kuula basse)</span></div>
-        <div class="pr"><span class="pr-label">Gain SVS-s</span><span class="pr-val">50-60% alguses</span></div>
-        <div class="pr"><span class="pr-label">EQ presets SVS app-is</span><span class="pr-val green">Music mode (mitte Movie)</span></div>
-        <div class="pr"><span class="pr-label">Port tuning</span><span class="pr-val">Jäta vaikimisi (sealed box)</span></div>
-        <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠️</span><div><p>SB-3000 on sealed box sub — täpne, kiire bass. Ideaalne muusikale. Movie mode lisab liiga palju sub-bass boosti DJ muusikale.</p></div></div>
+        <div class="pr" style="margin-top:8px"><span class="pr-label">Subwoofer crossover</span><span class="pr-val green">80Hz — soovituslik Klipsch + SVS SB-3000 kombinatsioonile</span></div>
       </div>
     </div>
 
-    <div class="itab-content" id="home-optimize">
+    <div class="itab-content" id="home-app">
       <div class="card2">
-        <div class="badge badge-gold">Optimaalne signaalahel kodus DJ-miseks</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>FLX10/FLX4 master level: 65-75%</strong><span>Denon on tundlik sisend — liiga kõrge master = clippimine AVR ees. 65-75% annab õige taseme.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Denon sisend: CD IN (dedikeeritud)</strong><span>CD IN on puhtaim sisend — lühim signaalitee AVR sees. AUX IN töötab samuti.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Sound mode: DIRECT</strong><span>DIRECT mode: signaal läheb otse võimendusse, mööda AVR töötlusest. Puhtaim heli DJ muusikale.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Denon volume: alusta -40dB</strong><span>Tõsta aeglaselt. -20dB on juba arvestatavalt vali Klipsch RP-8000F-ga. Max DJ-l: -10 kuni -5 dB.</span></div></div>
-          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>SVS SB-3000 gain: 50%</strong><span>Suurenda vastavalt maitsele. Music preset SVS app-is. Phase 0° kõigepealt.</span></div></div>
-          <div class="step"><div class="step-n">6</div><div class="step-body"><strong>Rekordbox/Serato master: -3 kuni 0 dBFS</strong><span>Jäta headroom. Ära lase DJ tarkvara master clippida — Denon ei meeldi sellele.</span></div></div>
-        </div>
-      </div>
-      <div class="card2" style="margin-top:8px">
-        <div class="badge badge-blue">Klipsch kõlarite paigutus DJ kasutuseks</div>
-        <div class="pr"><span class="pr-label">RP-8000F (front L/R)</span><span class="pr-val green">Peamised DJ kõlarid — suunaga DJ laua poole</span></div>
-        <div class="pr"><span class="pr-label">R-30C (center)</span><span class="pr-val">Laulja kõlar — DJ kasutuseks mitteoluline</span></div>
-        <div class="pr"><span class="pr-label">R-51M (surround)</span><span class="pr-val">DJ-l: sound mode STEREO, surround aktiivselt täidab ruumi</span></div>
-        <div class="pr"><span class="pr-label">SVS SB-3000</span><span class="pr-val green">Nurka — bassi täidab ruumi ühtlaselt</span></div>
-        <div class="pr"><span class="pr-label">Sound mode DJ-l</span><span class="pr-val green">DIRECT (front L/R) või STEREO (kõik kõlarid)</span></div>
-        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>STEREO mode Denonil: Denon jagab stereo signaali kõigile kõlaritele — RP-8000F + R-51M kõik mängivad. Täidab ruumi paremini DJ party jaoks.</p></div></div>
+        <div class="badge badge-blue">Mobiiliäpp — Denon AVR Remote &amp; HEOS</div>
+        <div class="pr"><span class="pr-label">Denon AVR Remote app</span><span class="pr-val green">Google Play / App Store</span></div>
+        <div class="pr"><span class="pr-label">Nõue</span><span class="pr-val">Sama WiFi võrk kohustuslik</span></div>
+        <div class="pr"><span class="pr-label">Funktsioonid</span><span class="pr-val green">Input valik, volume, EQ presets, zone kontroll</span></div>
+        <div class="pr"><span class="pr-label">HEOS app</span><span class="pr-val">Multi-room audio, Spotify / Tidal / Amazon Music streaming</span></div>
       </div>
     </div>
 
-    <div class="itab-content" id="home-compare">
+    <div class="itab-content" id="home-svs">
       <div class="card2">
-        <div class="badge badge-gold">PA süsteem (RCF 935-A) vs Kodusüsteem (Denon + Klipsch)</div>
-        <table class="tbl">
-          <tr><th>Omadus</th><th>RCF ART 935-A × 2</th><th>Denon + Klipsch + SVS</th></tr>
-          <tr><td>Võimsus</td><td class="val">700W+100W × 2 = 1600W</td><td class="val">185W × 5 + 1050W sub</td></tr>
-          <tr><td>Max SPL</td><td class="val-green">136 dB</td><td class="val">~115-120 dB kodus</td></tr>
-          <tr><td>Bass (sub)</td><td class="val">Sisseehitatud, 55Hz</td><td class="val-green">SVS SB-3000, 20Hz!</td></tr>
-          <tr><td>Kõrgused</td><td class="val-green">Pro HF driver</td><td class="val-green">Klipsch horn tweeter</td></tr>
-          <tr><td>Surround</td><td class="val-red">Ei</td><td class="val-green">5.1 süsteem</td></tr>
-          <tr><td>DJ kasutus</td><td class="val-green">Professionaalne PA</td><td class="val-green">Kodu party</td></tr>
-          <tr><td>Naabrid</td><td class="val-red">Probleemid &gt;100 inimest</td><td class="val-red">Probleemid &gt;-10dB</td></tr>
-          <tr><td>DBX PA2 koos</td><td class="val-green">Kohustuslik</td><td class="val-red">EI — AVR teeb kõik</td></tr>
-          <tr><td>Parim kasutus</td><td class="val-green">Üritused, pidu</td><td class="val-green">Kodus kuulamine, väike pidu</td></tr>
-        </table>
-        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Kodusüsteem on suurepärane DJ harjutamiseks!</strong><p>SVS SB-3000 annab sügavamat basse kui RCF 935-A. Klipsch horn tweeter on väga detailne. Ideaalne oma seti harjutamiseks ja muusika kuulamiseks. Üritustele vii PA süsteem.</p></div></div>
+        <div class="badge badge-green">SVS SB-3000 kalibreerimine</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>SVS subwoofer gain: alusta 40-50%</strong><span>AVR subwoofer level: 0 dB (neutraalne). Audyssey jooksutab pärast — auto-seab tasemed.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Manuaalne trim: AVR → Manual Setup → Speaker → Subwoofer Level → ±6dB</strong><span>Reguleeri maitse järgi pärast Audyssey kalibratsiooni.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>SVS app (iOS/Android): täpne parametriline EQ subile</strong><span>Music preset soovituslik muusika kuulamiseks. Movie preset filmidele.</span></div></div>
+        </div>
+        <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>SB-3000 on sealed box sub — täpne, kiire bass. Music preset annab parema kõla DJ muusikale kui Movie preset.</p></div></div>
       </div>
     </div>
   </div>
