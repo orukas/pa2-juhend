@@ -708,6 +708,7 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
     <button class="itab" onclick="showItab('sw','rekordbox6',this)">Rekordbox 6</button>
     <button class="itab" onclick="showItab('sw','serato',this)">Serato DJ Pro</button>
     <button class="itab" onclick="showItab('sw','home',this)">Kodusüsteem</button>
+    <button class="itab" onclick="showItab('sw','nahimic',this)">Nahimic</button>
   </div>
 
   <div class="itab-content active" id="sw-android">
@@ -1057,6 +1058,60 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
           <div class="step"><div class="step-n">3</div><div class="step-body"><strong>SVS app (iOS/Android): täpne parametriline EQ subile</strong><span>Music preset soovituslik muusika kuulamiseks. Movie preset filmidele.</span></div></div>
         </div>
         <div class="alert alert-info" style="margin-top:8px"><span class="alert-icon">💡</span><div><p>SB-3000 on sealed box sub — täpne, kiire bass. Music preset annab parema kõla DJ muusikale kui Movie preset.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="itab-content" id="sw-nahimic">
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🔊</span>Nahimic — helitarkvara haldamine</div>
+    <div class="badge badge-orange">Lenovo Legion — Nahimic helitarkvara</div>
+    <div class="alert alert-warn"><span class="alert-icon">⚠️</span><div><strong>Nahimic võib häirida DJ tarkvara</strong><p>Nahimic töötleb kogu süsteemi heli — see võib segada ASIO draiveri tööd, põhjustada latentsust või helimoonutusi rekordboxis ja Seratos.</p></div></div>
+
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('nah','disable')">Desaktiveeri</button>
+      <button class="itab" onclick="showItab('nah','enable',this)">Aktiveeri</button>
+      <button class="itab" onclick="showItab('nah','info',this)">Mis on Nahimic?</button>
+    </div>
+
+    <div class="itab-content active" id="nah-disable">
+      <div class="card2">
+        <div class="badge badge-red">Nahimic desaktiveerimine enne DJ setti</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Ava Task Manager: Ctrl + Shift + Esc</strong><span>Vajuta "Rohkem detaile" kui kuvatakse lihtsustatud vaade.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Mine vahekaardile "Startup apps"</strong><span>Leia loendist <strong>Nahimic</strong> või <strong>nahimicNotifSys</strong>.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Parem klikk → Disable</strong><span>Takistab Nahimicul järgmisel taaskäivitusel käivitumast.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Taaskäivita arvuti</strong><span>Pärast reboot'i Nahimic ei ole aktiivne — DJ tarkvara töötab puhtama ASIO heliga.</span></div></div>
+        </div>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Kiirem viis — ilma reboot'ita</strong><p>Start → kirjuta <strong>services.msc</strong> → Enter → leia <strong>Nahimic service</strong> → parem klikk → <strong>Stop</strong>. Kehtib kohe.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="nah-enable">
+      <div class="card2">
+        <div class="badge badge-green">Nahimic aktiveerimine pärast DJ setti</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Ctrl + Shift + Esc → Startup apps</strong><span>Leia loendist Nahimic või nahimicNotifSys.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Parem klikk → Enable</strong><span>Nahimic lubatakse käivituda järgmisel taaskäivitusel.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Taaskäivita arvuti</strong><span>Nahimic käivitub automaatselt ja taastab helitugevuse parendused.</span></div></div>
+        </div>
+        <div class="alert alert-info" style="margin-top:10px"><span class="alert-icon">💡</span><div><strong>Kiirem viis — ilma reboot'ita</strong><p>Start → <strong>services.msc</strong> → Nahimic service → parem klikk → <strong>Start</strong>. Käivitub koheselt.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="nah-info">
+      <div class="card2">
+        <div class="badge badge-blue">Mis on Nahimic?</div>
+        <table class="tbl">
+          <tr><th>Omadus</th><th>Kirjeldus</th></tr>
+          <tr><td>Tootja</td><td class="val">A-Volute (Lenovo, MSI, ASUS laptopid)</td></tr>
+          <tr><td>Funktsioon</td><td class="val-green">Ruumilise heli efektid, ekvalaiser, mikrofoni parendus</td></tr>
+          <tr><td>Mõju DJ tarkvarale</td><td class="val-red">Võib häirida ASIO marsruutimist ja lisada latentsust</td></tr>
+          <tr><td>Mõju mängimisele/filmidele</td><td class="val-green">Surround efektid, bassitõstmine — sobib</td></tr>
+          <tr><td>Soovitus DJ seti ajal</td><td class="val-red">Keela — väldib ASIO konflikti</td></tr>
+          <tr><td>Soovitus igapäevaseks</td><td class="val-green">Luba — parendab üldist helikvaliteeti</td></tr>
+        </table>
+        <div class="alert alert-warn" style="margin-top:10px"><span class="alert-icon">⚠️</span><div><strong>Sümptomid kui Nahimic segab</strong><p>"Audio device not found" viga DJ tarkvaras, moonutatud heli, latentsusprobleemid või ASIO draiver ei käivitu — peata Nahimic teenus ja proovi uuesti.</p></div></div>
       </div>
     </div>
   </div>
