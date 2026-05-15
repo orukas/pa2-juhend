@@ -709,6 +709,7 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
     <button class="itab" onclick="showItab('sw','serato',this)">Serato DJ Pro</button>
     <button class="itab" onclick="showItab('sw','home',this)">Kodusüsteem</button>
     <button class="itab" onclick="showItab('sw','nahimic',this)">Nahimic</button>
+    <button class="itab" onclick="showItab('sw','eqapo',this)">Equalizer APO</button>
   </div>
 
   <div class="itab-content active" id="sw-android">
@@ -1076,14 +1077,14 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
 
     <div class="itab-content active" id="nah-disable">
       <div class="card2">
-        <div class="badge badge-red">Nahimic desaktiveerimine enne DJ setti</div>
+        <div class="badge badge-red">Nahimic püsiv keelamine (soovitatav)</div>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Ava Task Manager: Ctrl + Shift + Esc</strong><span>Vajuta "Rohkem detaile" kui kuvatakse lihtsustatud vaade.</span></div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Mine vahekaardile "Startup apps"</strong><span>Leia loendist <strong>Nahimic</strong> või <strong>nahimicNotifSys</strong>.</span></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Parem klikk → Disable</strong><span>Takistab Nahimicul järgmisel taaskäivitusel käivitumast.</span></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Taaskäivita arvuti</strong><span>Pärast reboot'i Nahimic ei ole aktiivne — DJ tarkvara töötab puhtama ASIO heliga.</span></div></div>
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Start → kirjuta services.msc → Enter</strong><span>Avaneb Windowsi teenuste haldur.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Leia loendist "Nahimic service" → topeltklikk</strong><span>Avaneb teenuse omaduste aken.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Startup type → vali "Disabled" → vajuta Stop</strong><span><strong>Disabled</strong> tähendab, et teenus ei käivitu kunagi automaatselt. <strong>Stop</strong> peatab selle koheselt.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Vajuta OK</strong><span>Nahimic on nüüd jäädavalt keelatud — ei vaja reboot'i.</span></div></div>
         </div>
-        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Kiirem viis — ilma reboot'ita</strong><p>Start → kirjuta <strong>services.msc</strong> → Enter → leia <strong>Nahimic service</strong> → parem klikk → <strong>Stop</strong>. Kehtib kohe.</p></div></div>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Miks püsivalt keelata?</strong><p>Kui kasutad <strong>Equalizer APO + Peace</strong>, pole Nahimicut enam vaja. Equalizer APO teeb kõike sama ja rohkem — ilma ASIO konfliktideta. Nahimic "Automatic" startup tähendab, et see tuleb iga kord tagasi.</p></div></div>
       </div>
     </div>
 
@@ -1109,9 +1110,63 @@ select.inp{background:var(--bg3);border:1px solid var(--border);color:var(--text
           <tr><td>Mõju DJ tarkvarale</td><td class="val-red">Võib häirida ASIO marsruutimist ja lisada latentsust</td></tr>
           <tr><td>Mõju mängimisele/filmidele</td><td class="val-green">Surround efektid, bassitõstmine — sobib</td></tr>
           <tr><td>Soovitus DJ seti ajal</td><td class="val-red">Keela — väldib ASIO konflikti</td></tr>
-          <tr><td>Soovitus igapäevaseks</td><td class="val-green">Luba — parendab üldist helikvaliteeti</td></tr>
+          <tr><td>Soovitus igapäevaseks</td><td class="val-red">Keela püsivalt kui kasutad Equalizer APO-t</td></tr>
         </table>
         <div class="alert alert-warn" style="margin-top:10px"><span class="alert-icon">⚠️</span><div><strong>Sümptomid kui Nahimic segab</strong><p>"Audio device not found" viga DJ tarkvaras, moonutatud heli, latentsusprobleemid või ASIO draiver ei käivitu — peata Nahimic teenus ja proovi uuesti.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="itab-content" id="sw-eqapo">
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🎚️</span>Equalizer APO + Peace — seadistuse juhend</div>
+    <div class="badge badge-green">Tasuta süsteemne EQ — ei mõjuta PA-d ega ASIO-t</div>
+    <div class="alert alert-info"><span class="alert-icon">💡</span><div><strong>Equalizer APO töötab ainult Windowsi WDM tasemel</strong><p>DJ tarkvara ASIO heli ja PA süsteem jäävad täielikult puutumata. Mõjutab ainult kõrvaklappe, laptop'i kõlareid ja Bluetoothi.</p></div></div>
+
+    <div class="inner-tabs" style="margin-top:12px">
+      <button class="itab active" onclick="showItab('apo','install')">Installimine</button>
+      <button class="itab" onclick="showItab('apo','peace',this)">Peace kasutamine</button>
+      <button class="itab" onclick="showItab('apo','profiles',this)">EQ profiilid</button>
+    </div>
+
+    <div class="itab-content active" id="apo-install">
+      <div class="card2">
+        <div class="badge badge-green">Installimine ja Realtek seadistamine</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Allalaadimine: sourceforge.net/projects/equalizerapo</strong><span>Lae alla EqualizerAPO-x64-1.4.2.exe ja käivita installer.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Installer käivitab Configurator akna</strong><span>Leia loendist <strong>Realtek(R) Audio</strong> ja pane linnuke. See on laptop'i kõlarid ja kõrvaklappide pesa.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Vajuta OK → taaskäivita arvuti</strong><span>Reboot on kohustuslik — ilma selleta APO filter ei aktiveeru.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Peace allalaadimine: sourceforge.net/projects/peace-equalizer-apo-extension</strong><span>Lae alla PeaceSetup.exe ja installi. Peace paigaldab end automaatselt Equalizer APO kausta.</span></div></div>
+          <div class="step"><div class="step-n">5</div><div class="step-body"><strong>Peace käivitamine: Start → Peace</strong><span>Peace avaneb süsteemisalves (kellaaeg paremal allnurgas). Topeltklikk ikoonile avab EQ liidese.</span></div></div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:10px"><span class="alert-icon">⚠️</span><div><strong>Keela Nahimic enne kasutamist</strong><p>Start → services.msc → Nahimic service → Startup type: <strong>Disabled</strong> → Stop. Nahimic võib Equalizer APO seadistused üle kirjutada.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="apo-peace">
+      <div class="card2">
+        <div class="badge badge-blue">Peace GUI — liidese kasutamine</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-body"><strong>Peace ikoon kellaajanäidu kõrval → topeltklikk</strong><span>Avaneb EQ liides. Ülaosas on profiilide riba — saad luua eraldi profiilid kõrvaklappidele ja kõlaritele.</span></div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-body"><strong>Vali heliseade ülaosas (Output device)</strong><span>Vali Realtek — laptop'i kõlarid ja kõrvaklappide pesa. Iga seadmele saab eraldi profiili.</span></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-body"><strong>Reguleeri sagedusribad hiireklõpsuga</strong><span>Lohista punkte üles/alla. Üles = rõhutad seda sagedust, alla = mahendad.</span></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-body"><strong>Salvesta profiil: File → Save profile as</strong><span>Anna nimeks nt "Kõrvaklapid" või "Kõlarid". Profiilid laaditakse automaatselt koos Windowsiga.</span></div></div>
+        </div>
+        <div class="alert alert-green" style="margin-top:10px"><span class="alert-icon">✅</span><div><strong>Peace töötab taustal automaatselt</strong><p>Pärast esimest seadistust käivitub Peace koos Windowsiga ja rakendab EQ profiili automaatselt. Ei pea iga kord avama.</p></div></div>
+      </div>
+    </div>
+
+    <div class="itab-content" id="apo-profiles">
+      <div class="card2">
+        <div class="badge badge-gold">Soovituslikud EQ seadistused</div>
+        <table class="tbl">
+          <tr><th>Stsenaarium</th><th>EQ suund</th><th>Märkus</th></tr>
+          <tr><td>Kõrvaklapid — muusika</td><td class="val-green">+2dB @ 60Hz, +1dB @ 10kHz</td><td>Kerge V-kuju — bass ja kõrged esile</td></tr>
+          <tr><td>Kõrvaklapid — neutraalne</td><td class="val">Kõik 0dB (flat)</td><td>Parim referents — täpne heli</td></tr>
+          <tr><td>Laptop kõlarid</td><td class="val-green">+4dB @ 80Hz, +2dB @ 5kHz</td><td>Kompenseerib väikeste kõlarite bassinappust</td></tr>
+          <tr><td>Filmid/mängud</td><td class="val">+3dB @ 60Hz, +2dB @ 8kHz</td><td>Rohkem atmosfääri ja detaili</td></tr>
+        </table>
+        <div class="alert alert-info" style="margin-top:10px"><span class="alert-icon">💡</span><div><strong>Preamp väärtus Peaces</strong><p>Kui tõstad midagi üles, alanda Preamp (eelvõimendi) sama palju alla — näiteks +4dB boost nõuab -4dB Preamp. Väldib helimoonutust (clipping).</p></div></div>
       </div>
     </div>
   </div>
